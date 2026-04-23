@@ -78,14 +78,13 @@ para generar versiones de clang adecuadas.
 
 
 Enlaces externos:
-	wxWidgets: http://www.wxwidgets.org
-	ZinjaI: http://zinjai.sourceforge.net
-	Hoedown: https://github.com/hoedown/hoedown.git
-    Diff Template Library (dtl): https://github.com/cubicdaiya/dtl.git
-	wine: http://winehq.org
-	NSIS: https://nsis.sourceforge.io/Main_Page
-	Inno Setup: https://jrsoftware.org/isinfo.php
-	osxcross: https://github.com/tpoechtrager/osxcross
-	Inconsolata: https://levien.com/type/myfonts/inconsolata.html
-
-Actualizaciones: http://pseint.sourceforge.net
+* wxWidgets: http://www.wxwidgets.org
+* ZinjaI: http://zinjai.sourceforge.net
+* Hoedown: https://github.com/hoedown/hoedown.git
+* Diff Template Library (dtl): https://github.com/cubicdaiya/dtl.git
+* wine: http://winehq.org
+* NSIS: https://nsis.sourceforge.io/Main_Page
+* Inno Setup: https://jrsoftware.org/isinfo.php
+* osxcross: https://github.com/tpoechtrager/osxcross
+* Inconsolata: https://levien.com/type/myfonts/inconsolata.html
+* Actualizaciones: http://pseint.sourceforge.net
