@@ -1,6 +1,6 @@
 # PSeInt Lite
 
-Este es una fork de https://github.com/miguelinux/pseint, que a su vez es una copia de https://pseint.sourceforge.net/index.php?page=descargas_old.php (la versión 20210609 de PSeInt)
+Este es una copia de https://pseint.sourceforge.net/index.php?page=descargas_old.php (la versión 20210609 de PSeInt)
 
 ## Objetivos
 
@@ -41,9 +41,51 @@ make ARCH=lnx
 Esto generará una build en `/bin` para plataformas Linux. Por el momento no se han hecho las pruebas para compilar una versión para Windows, pero puedes intentarlo siguiendo las instrucciones oficiales descritas en `/fuentes.txt`
 
 
-# Cómo desarrollar
+## Cómo desarrollar
 
 Se recomienda el IDE ZinjaI, puesto que es el utilizado por los autores de PSeInt. No hay un proyecto general con todos los submódulos, sino que tendrá que trabajar en cada submódulo de manera separada, abriendo los archivos .zpr desde ZinjaI.
 
 Puede descargar ZinjaI y el complemento wxWidgets 3.1.0 (archivo zcp) desde:
 https://zinjai.sourceforge.net/index.php?page=descargas.php
+
+
+## Acerca de los fuentes de PSeInt
+
+Contenido de los directorios:
+  * pseint: fuentes del interprete (verifica sintaxis e interpreta un algoritmo)
+  * psdraw3: fuentes del editor de diagramas de flujo (permite editar el diagrama)
+  * psdrawE: fuentes del exportador de diagramas de flujo (genera imagenes png/jpg/bmp)
+  * psexport: fuentes del exportador (convierte de pseudocodigo a codigo C++)
+  * wxPSeInt: fuentes de la nueva interfaz (editor de pseudoc�digo, e interfaz principal)
+  * psterm: fuentes de la terminal que se utiliza para ejecutar desde wxPSeInt
+  * pseval: fuentes de la interfaz que genera y eval�a los ejercicios autocontenidos
+  * updatem: fuentes del programa que busca actualizaciones
+  * dtl: biblioteca auxiliar para comparar texto simil diff
+  * hoewrap: biblioteca auxiliar (hoedown) para convertir markdown a html
+  * test: pseudocódigos con casos de prueba y scripts para correrlos de forma automática
+  * bin: demás archivos necesarios para ejecutar wxPSeInt (imagenes, documentacion, ayuda, etc).
+  * dist: archivos adicionales para generar paquetes e instaladores
+  * configs: configuraciones de los distintos toolchains para compilar con los Makefiles
+
+Puede encontrar más información de la función de cada módulo y de cómo se comunican entre
+ellos en http://cucarachasracing.blogspot.com.ar/2012/12/destripando-pseint.html
+
+   
+Además, hay un archivo Makefile.pack que sirve para generar los paquetes e instaladores
+de todo el software desde GNU/Linux. Para generar el instalador para Windows requiere 
+wine+mingw+wxwidgets+inno o nsis. Para las versiones para macOS se utilizó osxcross
+para generar versiones de clang adecuadas.
+
+
+Enlaces externos:
+	wxWidgets: http://www.wxwidgets.org
+	ZinjaI: http://zinjai.sourceforge.net
+	Hoedown: https://github.com/hoedown/hoedown.git
+    Diff Template Library (dtl): https://github.com/cubicdaiya/dtl.git
+	wine: http://winehq.org
+	NSIS: https://nsis.sourceforge.io/Main_Page
+	Inno Setup: https://jrsoftware.org/isinfo.php
+	osxcross: https://github.com/tpoechtrager/osxcross
+	Inconsolata: https://levien.com/type/myfonts/inconsolata.html
+
+Actualizaciones: http://pseint.sourceforge.net
