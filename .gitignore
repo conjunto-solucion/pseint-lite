@@ -1,18 +1,16 @@
-#/bin/bin/psdraw3
-#/bin/bin/psdrawE
-#/bin/bin/pseint
-#/bin/bin/pseval
-#/bin/bin/psexport
-#/bin/bin/psterm
-#/bin/bin/updatem
-#/bin/bin/wxPSeInt
+/bin/bin/psdraw3
+/bin/bin/psdrawE
+/bin/bin/pseint
+/bin/bin/pseval
+/bin/bin/psexport
+/bin/bin/psterm
+/bin/bin/updatem
+/bin/bin/wxPSeInt
 
-#/bin/pseint
-#/bin/wxPSeInt
+/bin/pseint
+/bin/wxPSeInt
 
 
-#/temp
-#/test
-#/Makefile.pack
-
-#/bin/ejemplos
+/temp
+/test
+/Makefile.pack
