@@ -9,10 +9,10 @@
 #include "../pseint/LangSettings.h"
 
 struct GConfig {
-	bool alternative_io = false; ///< utilizar simbolos alternativos para las instrucciones Leer y Escribir
-	bool nassi_shneiderman = false; ///< usar diagramas de Nassi-Shneiderman en lugar de "clásico"
+	bool alternative_io = true; ///< utilizar simbolos alternativos para las instrucciones Leer y Escribir
+	bool nassi_shneiderman = false; ///< usar diagramas de Nassi-Shneiderman en lugar de "clï¿½sico"
 	bool shape_colors = true; ///< mostrar los bloques de diferentes colores
-	bool dark_theme = false; ///< usar una combinación de colores claros sobre fondo oscuro
+	bool dark_theme = false; ///< usar una combinaciï¿½n de colores claros sobre fondo oscuro
 	bool enable_partial_text = true; ///< acortar labels largos
 	bool show_comments = true; ///< mostrar entidades de tipo ET_COMENTARIO
 	bool big_icons = false;
@@ -64,13 +64,13 @@ struct GState {
 	Entity *debug_current = nullptr;  // la entidad que se esta ejecutando actualmente en el paso a paso
 	
 	bool panning = false; // indica si se esta moviendo el dibujo, para el motion
-	bool selecting_entities = false; // para selecciones múltiples (rectangulares, shift+drag derecho)
+	bool selecting_entities = false; // para selecciones mï¿½ltiples (rectangulares, shift+drag derecho)
 	bool selecting_zoom = false; // para hacer zoom en un area marcada, con el boton del medio, m_x0 y m_y0 guardan la primer esquina
 };
 
 struct GView {
 	// zoom y panning
-	int win_h = 0, win_w = 0; // tamaño de la ventana
+	int win_h = 0, win_w = 0; // tamaï¿½o de la ventana
 	double d_dx = 0, d_dy = 0; // "paning" del dibujo
 	double d_zoom = 0.1; // zoom del dibujo
 	double zoom = 0.1; // zoom final
@@ -90,7 +90,7 @@ extern LangSettings g_lang;
 #endif
 
 
-// para asociar las lineas de código al diagrama de flujo
+// para asociar las lineas de cï¿½digo al diagrama de flujo
 struct LineInfo { Entity *proceso, *entidad; LineInfo (Entity *p=nullptr, Entity *e=nullptr):proceso(p),entidad(e) {} };
 struct GCode {
 	// para almacenar el proceso principal y los subprocesos
@@ -115,8 +115,8 @@ extern GCode g_code;
 
 void SetColors(); // colores independientes
 void SetColors(wxColour toolbar_color, wxColour selection_color); // colores que dependen de wx
-void GlobalInitPre(); // inicializaciones globales que no pueden ser estáticas	
-void GlobalInitPost(); // inicializaciones globales que no pueden ser estáticas	
+void GlobalInitPre(); // inicializaciones globales que no pueden ser estï¿½ticas	
+void GlobalInitPost(); // inicializaciones globales que no pueden ser estï¿½ticas	
 
 #endif
 

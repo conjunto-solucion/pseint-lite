@@ -14,7 +14,7 @@
 #include "Trash.h"
 #include "ProcessSelector.h"
 
-LangSettings g_lang(LS_DO_NOT_INIT);
+LangSettings g_lang(LS_INIT);
 
 // wxGLCanvas doesn't work on Wayland
 #ifdef __linux__
