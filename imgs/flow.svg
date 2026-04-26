@@ -2,20 +2,20 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="744.09448819"
    height="1052.3622047"
    id="svg3200"
    version="1.1"
-   inkscape:version="0.92+devel (a137093a10, 2017-11-17)"
-   sodipodi:docname="flow.svg">
+   inkscape:version="1.1.1 (3bf5ae0, 2021-09-20)"
+   sodipodi:docname="flow.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs3202">
     <linearGradient
@@ -154,10 +154,10 @@
     <filter
        inkscape:collect="always"
        id="filter2397-3"
-       x="-0.6599859"
-       width="2.3199718"
-       y="-0.33364627"
-       height="1.6672926">
+       x="-0.39472484"
+       width="1.7894497"
+       y="-0.56092475"
+       height="2.1218495">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.39250211"
@@ -166,10 +166,10 @@
     <filter
        inkscape:collect="always"
        id="filter2393-0"
-       x="-0.95763385"
-       width="2.9152677"
-       y="-0.50715756"
-       height="2.0143151">
+       x="-0.58623224"
+       width="2.1724645"
+       y="-0.83306684"
+       height="2.6661337">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.58293109"
@@ -178,10 +178,10 @@
     <filter
        inkscape:collect="always"
        id="filter2389-2"
-       x="-0.95763385"
-       width="2.9152677"
-       y="-0.50715756"
-       height="2.0143151">
+       x="-0.58623224"
+       width="2.1724645"
+       y="-0.83306684"
+       height="2.6661337">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.58293109"
@@ -190,10 +190,10 @@
     <filter
        inkscape:collect="always"
        id="filter2385-1"
-       x="-0.90877795"
-       width="2.8175559"
-       y="-0.5179565"
-       height="2.035913">
+       x="-0.58623224"
+       width="2.1724645"
+       y="-0.83306684"
+       height="2.6661337">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.5829311"
@@ -202,10 +202,10 @@
     <filter
        inkscape:collect="always"
        id="filter2381-7"
-       x="-1.0385181"
-       width="3.0770361"
-       y="-0.60838771"
-       height="2.2167754">
+       x="-0.67361338"
+       width="2.3472268"
+       y="-0.95724003"
+       height="2.9144801">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.66982017"
@@ -214,10 +214,10 @@
     <filter
        inkscape:collect="always"
        id="filter2377-2"
-       x="-0.6599859"
-       width="2.3199718"
-       y="-0.33364627"
-       height="1.6672926">
+       x="-0.39472484"
+       width="1.7894497"
+       y="-0.56092475"
+       height="2.1218495">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.39250211"
@@ -226,10 +226,10 @@
     <filter
        inkscape:collect="always"
        id="filter2373-2"
-       x="-0.95763385"
-       width="2.9152677"
-       y="-0.50715756"
-       height="2.0143151">
+       x="-0.58623224"
+       width="2.1724645"
+       y="-0.83306684"
+       height="2.6661337">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.58293109"
@@ -238,10 +238,10 @@
     <filter
        inkscape:collect="always"
        id="filter2369-7"
-       x="-0.94807154"
-       width="2.8961432"
-       y="-0.50907564"
-       height="2.0181513">
+       x="-0.58623224"
+       width="2.1724645"
+       y="-0.83306684"
+       height="2.6661337">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.58293109"
@@ -250,10 +250,10 @@
     <filter
        inkscape:collect="always"
        id="filter2365-9"
-       x="-0.90877795"
-       width="2.8175559"
-       y="-0.5179565"
-       height="2.035913">
+       x="-0.58623224"
+       width="2.1724645"
+       y="-0.83306684"
+       height="2.6661337">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.5829311"
@@ -262,10 +262,10 @@
     <filter
        inkscape:collect="always"
        id="filter2361-2"
-       x="-1.0385181"
-       width="3.0770361"
-       y="-0.60838771"
-       height="2.2167754">
+       x="-0.67361338"
+       width="2.3472268"
+       y="-0.95724003"
+       height="2.9144801">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.66982017"
@@ -359,21 +359,22 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.7004746"
-     inkscape:cx="2812.1624"
-     inkscape:cy="2276.8136"
+     inkscape:zoom="0.60120856"
+     inkscape:cx="-2730.3337"
+     inkscape:cy="64.037678"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g1294"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1010"
+     inkscape:window-width="1360"
+     inkscape:window-height="743"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="false"
      inkscape:guide-bbox="true"
      inkscape:snap-global="false"
-     inkscape:document-rotation="0">
+     inkscape:document-rotation="0"
+     inkscape:pagecheckerboard="0">
     <sodipodi:guide
        position="3098.6155,-356.49303"
        orientation="0,1"
@@ -609,17 +610,6 @@
              id="tspan1300"
              sodipodi:role="line"
              style="font-size:40px;line-height:1.25">Dato1</tspan></text>
-        <path
-           id="path1302"
-           d="m 503.10124,363.9685 25.81069,-25.81069"
-           style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:2.71145606;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:none"
-           inkscape:connector-curvature="0" />
-        <path
-           sodipodi:nodetypes="ccccc"
-           id="path1304"
-           d="m 508.61377,349.79088 1.6996,7.06915 6.29675,1.16706 -15.9242,8.18611 z"
-           style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:1.82104385;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           inkscape:connector-curvature="0" />
       </g>
       <path
          style="fill:#800000;fill-rule:evenodd;stroke:#800000;stroke-width:1.46221995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -1660,9 +1650,9 @@
          id="text2704-6"
          y="-2001.5419"
          x="675.01733"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:#4d4d4d;stroke-width:2.96715546"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:#4d4d4d;stroke-width:2.96716"
          xml:space="preserve"><tspan
-           style="font-size:138.7334137px;line-height:1.25;font-family:sans-serif;stroke-width:2.96715546"
+           style="font-size:138.733px;line-height:1.25;font-family:sans-serif;stroke-width:2.96716"
            y="-2001.5419"
            x="675.01733"
            id="tspan2706-3"
@@ -2822,7 +2812,7 @@
              id="tspan314-1"
              x="-3322.0732"
              y="-74.01915"
-             style="font-size:73.7611084px;line-height:1.25">A    B+i</tspan></text>
+             style="font-size:73.7611px;line-height:1.25">A    B+i</tspan></text>
         <path
            inkscape:connector-curvature="0"
            style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none"
@@ -2872,7 +2862,7 @@
            id="tspan660"
            x="-4547.5332"
            y="-179.35593"
-           style="font-size:73.7611084px;line-height:1.25">Escribir ...</tspan></text>
+           style="font-size:73.7611px;line-height:1.25">Escribir ...</tspan></text>
       <path
          inkscape:export-ydpi="43.830002"
          inkscape:export-xdpi="43.830002"
@@ -2921,7 +2911,7 @@
            x="-4490.8438"
            id="tspan699"
            sodipodi:role="line"
-           style="font-size:73.7611084px;line-height:1.25">Leer ...</tspan></text>
+           style="font-size:73.7611px;line-height:1.25">Leer ...</tspan></text>
       <path
          inkscape:connector-curvature="0"
          style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none"
@@ -2981,7 +2971,7 @@
            id="tspan719"
            x="-3332.5959"
            y="694.48724"
-           style="font-size:62.69694138px;line-height:1.25">Para ...</tspan></text>
+           style="font-size:62.6969px;line-height:1.25">Para ...</tspan></text>
     </g>
     <g
        id="g1710"
@@ -3024,7 +3014,7 @@
            x="-3320.7971"
            id="tspan731"
            sodipodi:role="line"
-           style="font-size:62.69694138px;line-height:1.25">Mientras ...</tspan></text>
+           style="font-size:62.6969px;line-height:1.25">Mientras ...</tspan></text>
     </g>
     <g
        id="g1704"
@@ -3067,7 +3057,7 @@
            id="tspan739"
            x="-3318.3228"
            y="1298.0107"
-           style="font-size:62.69694138px;line-height:1.25">Hasta que...</tspan></text>
+           style="font-size:62.6969px;line-height:1.25">Hasta que...</tspan></text>
     </g>
     <g
        id="g1687"
@@ -3123,7 +3113,7 @@
              id="tspan755"
              x="-3148.6404"
              y="1533.0875"
-             style="font-size:73.7611084px;line-height:1.25">x</tspan></text>
+             style="font-size:73.7611px;line-height:1.25">x</tspan></text>
         <path
            style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
            d="m -3345.9997,1469.3998 227.3454,105.5431 202.2433,-105.5431"
@@ -3143,7 +3133,7 @@
              x="-3334.3076"
              id="tspan1531"
              sodipodi:role="line"
-             style="font-size:51.64646912px;line-height:1.25">Si</tspan></text>
+             style="font-size:51.6465px;line-height:1.25">Si</tspan></text>
         <text
            xml:space="preserve"
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#800000;fill-opacity:1;stroke:none"
@@ -3157,7 +3147,7 @@
              id="tspan1535"
              x="-2994.2878"
              y="1559.0732"
-             style="font-size:51.64646912px;line-height:1.25">No</tspan></text>
+             style="font-size:51.6465px;line-height:1.25">No</tspan></text>
         <text
            inkscape:export-ydpi="35.146439"
            inkscape:export-xdpi="35.146439"
@@ -3171,7 +3161,7 @@
              x="-3267.4443"
              id="tspan1551"
              sodipodi:role="line"
-             style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+             style="font-size:73.7611px;line-height:1.25">...</tspan></text>
         <text
            xml:space="preserve"
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
@@ -3185,7 +3175,7 @@
              id="tspan1555"
              x="-3049.5122"
              y="1640.9126"
-             style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+             style="font-size:73.7611px;line-height:1.25">...</tspan></text>
       </g>
     </g>
     <g
@@ -3268,7 +3258,7 @@
            x="-3321.0442"
            id="tspan1602"
            sodipodi:role="line"
-           style="font-size:42.59503174px;line-height:1.25">1</tspan></text>
+           style="font-size:42.595px;line-height:1.25">1</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#800000;fill-opacity:1;stroke:none"
@@ -3282,7 +3272,7 @@
            id="tspan1606"
            x="-2975.4612"
            y="1867.7153"
-           style="font-size:51.64646912px;line-height:1.25">...</tspan></text>
+           style="font-size:51.6465px;line-height:1.25">...</tspan></text>
       <text
          inkscape:export-ydpi="35.146439"
          inkscape:export-xdpi="35.146439"
@@ -3296,7 +3286,7 @@
            x="-2991.3208"
            id="tspan1610"
            sodipodi:role="line"
-           style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+           style="font-size:73.7611px;line-height:1.25">...</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
@@ -3310,7 +3300,7 @@
            id="tspan1614"
            x="-3338.7571"
            y="1942.1382"
-           style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+           style="font-size:73.7611px;line-height:1.25">...</tspan></text>
       <text
          inkscape:export-ydpi="35.146439"
          inkscape:export-xdpi="35.146439"
@@ -3324,7 +3314,7 @@
            x="-3238.3486"
            id="tspan1628"
            sodipodi:role="line"
-           style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+           style="font-size:73.7611px;line-height:1.25">...</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
@@ -3338,7 +3328,7 @@
            id="tspan1632"
            x="-3129.3826"
            y="1942.1382"
-           style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+           style="font-size:73.7611px;line-height:1.25">...</tspan></text>
       <rect
          style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
          id="rect1637"
@@ -3363,7 +3353,7 @@
            id="tspan1594"
            x="-3091.6909"
            y="1826.0325"
-           style="font-size:73.7611084px;line-height:1.25">x</tspan></text>
+           style="font-size:73.7611px;line-height:1.25">x</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
@@ -3377,7 +3367,7 @@
            id="tspan1641"
            x="-3225.1182"
            y="1868.7025"
-           style="font-size:42.59503174px;line-height:1.25">2</tspan></text>
+           style="font-size:42.595px;line-height:1.25">2</tspan></text>
       <text
          inkscape:export-ydpi="35.146439"
          inkscape:export-xdpi="35.146439"
@@ -3391,7 +3381,7 @@
            x="-3155.9146"
            id="tspan1645"
            sodipodi:role="line"
-           style="font-size:42.59503174px;line-height:1.25">3</tspan></text>
+           style="font-size:42.595px;line-height:1.25">3</tspan></text>
     </g>
     <rect
        style="fill:none;stroke:none"
@@ -3623,7 +3613,7 @@
              x="-3322.0732"
              id="tspan8937"
              sodipodi:role="line"
-             style="font-size:73.7611084px;line-height:1.25">// Bla...</tspan></text>
+             style="font-size:73.7611px;line-height:1.25">// Bla...</tspan></text>
       </g>
     </g>
     <rect
@@ -3638,7 +3628,7 @@
        style="fill:none;stroke:none" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.7789005"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.778901"
        x="-1326.1354"
        y="-2810.3435"
        id="text2704"
@@ -3650,7 +3640,7 @@
          id="tspan2706"
          x="-1326.1354"
          y="-2810.3435"
-         style="font-size:36.41856003px;line-height:1.25;font-family:sans-serif;stroke-width:0.7789005">comandos y estructuras</tspan></text>
+         style="font-size:36.4186px;line-height:1.25;font-family:sans-serif;stroke-width:0.778901">comandos y estructuras</tspan></text>
     <g
        id="g4210"
        transform="matrix(0,0.9988847,-0.9988847,0,3939.9075,-2725.417)"
@@ -3695,7 +3685,7 @@
            x="1251.9766"
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
            xml:space="preserve"><tspan
-             style="font-size:13.06717205px;line-height:1.25"
+             style="font-size:13.0672px;line-height:1.25"
              y="1035.4236"
              x="1251.9766"
              id="tspan5366-0"
@@ -3888,7 +3878,7 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:30.83017731px;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.13932347"
+       style="font-style:normal;font-weight:normal;font-size:30.8302px;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.13932"
        x="2366.5156"
        y="-1601.8313"
        id="text2273-6-4-1"
@@ -3900,7 +3890,7 @@
          id="tspan2275-0-3-2"
          x="2366.5156"
          y="-1601.8313"
-         style="font-family:'Hobbit SF';fill:#000080;stroke-width:2.13932347">?</tspan></text>
+         style="font-family:'Hobbit SF';fill:#000080;stroke-width:2.13932">?</tspan></text>
     <rect
        inkscape:export-ydpi="78.80172"
        inkscape:export-xdpi="78.80172"
@@ -4320,7 +4310,7 @@
        id="id_tb_sub">
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.69249415"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.692494"
          x="4630.019"
          y="818.13409"
          id="text378"
@@ -4332,7 +4322,7 @@
            id="tspan380"
            x="4630.019"
            y="818.13409"
-           style="font-size:27.69976616px;line-height:1.25;font-family:sans-serif;fill:#4d4d4d;stroke:#4d4d4d;stroke-width:0.69249415"
+           style="font-size:27.6998px;line-height:1.25;font-family:sans-serif;fill:#4d4d4d;stroke:#4d4d4d;stroke-width:0.692494"
            dx="0 -3.4558239 -4.3983212">Sub</tspan></text>
       <rect
          inkscape:export-ydpi="78.801857"
@@ -4453,7 +4443,7 @@
        x="2786.5212"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#999999;fill-opacity:1;stroke:#999999;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         style="font-size:17.09039116px;line-height:1.25"
+         style="font-size:17.0904px;line-height:1.25"
          y="-1022.3202"
          x="2786.5212"
          id="tspan3949"
@@ -4485,7 +4475,7 @@
        x="2780.7869"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000080;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         style="font-size:17.09039116px;line-height:1.25"
+         style="font-size:17.0904px;line-height:1.25"
          y="-969.99451"
          x="2780.7869"
          id="tspan3949-0"
@@ -4718,7 +4708,7 @@
        inkscape:export-ydpi="39.74596" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71145606;stroke-miterlimit:4;stroke-dasharray:none"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71146;stroke-miterlimit:4;stroke-dasharray:none"
        x="6808.2446"
        y="-1919.6241"
        id="text6380"
@@ -4729,7 +4719,7 @@
          id="tspan6382"
          x="6808.2446"
          y="-1919.6241"
-         style="font-size:73.7611084px;line-height:1.25">A    B+i</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">A    B+i</tspan></text>
     <path
        inkscape:connector-curvature="0"
        style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:none"
@@ -4797,7 +4787,7 @@
        inkscape:export-ydpi="39.74596" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71145606;stroke-miterlimit:4;stroke-dasharray:none"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71146;stroke-miterlimit:4;stroke-dasharray:none"
        x="6813.04"
        y="-1658.8282"
        id="text6402"
@@ -4808,7 +4798,7 @@
          id="tspan6404"
          x="6813.04"
          y="-1658.8282"
-         style="font-size:73.7611084px;line-height:1.25">'Hola !'</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">'Hola !'</tspan></text>
     <path
        inkscape:connector-curvature="0"
        style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:none"
@@ -4867,7 +4857,7 @@
        inkscape:export-ydpi="39.74596" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71145606;stroke-miterlimit:4;stroke-dasharray:none"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71146;stroke-miterlimit:4;stroke-dasharray:none"
        x="6833.4946"
        y="-1400.9594"
        id="text6422"
@@ -4878,7 +4868,7 @@
          id="tspan6424"
          x="6833.4946"
          y="-1400.9594"
-         style="font-size:73.7611084px;line-height:1.25">Dato1</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">Dato1</tspan></text>
     <path
        inkscape:connector-curvature="0"
        style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:none"
@@ -4994,7 +4984,7 @@
          id="tspan6452"
          x="6873.5244"
          y="-1185.7875"
-         style="font-size:64.62135315px;line-height:1.25">A&gt;B</tspan></text>
+         style="font-size:64.6214px;line-height:1.25">A&gt;B</tspan></text>
     <rect
        inkscape:export-ydpi="39.74596"
        inkscape:export-xdpi="39.74596"
@@ -5111,7 +5101,7 @@
          id="tspan6480"
          x="6892.5776"
          y="-956.22351"
-         style="font-size:52.99036026px;line-height:1.25">dat</tspan></text>
+         style="font-size:52.9904px;line-height:1.25">dat</tspan></text>
     <rect
        inkscape:export-ydpi="39.74596"
        inkscape:export-xdpi="39.74596"
@@ -5154,7 +5144,7 @@
          id="tspan6490"
          x="6804.1924"
          y="-896.41492"
-         style="font-size:52.99036026px;line-height:1.25">1     2     3 </tspan></text>
+         style="font-size:52.9904px;line-height:1.25">1     2     3 </tspan></text>
     <path
        style="fill:#ffffff;fill-rule:evenodd;stroke:#31628f;stroke-width:3.97427797;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 6879.389,-944.77385 v 60.0184"
@@ -5329,7 +5319,7 @@
          id="tspan6534"
          x="6872.5073"
          y="-686.51062"
-         style="font-size:55.52186584px;line-height:1.25">N&lt;10</tspan></text>
+         style="font-size:55.5219px;line-height:1.25">N&lt;10</tspan></text>
     <path
        style="fill:#ffffff;fill-rule:evenodd;stroke:#800000;stroke-width:4.1641407;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 6950.0282,-620.64475 v 30.9432"
@@ -5493,7 +5483,7 @@
          x="6887.6553"
          id="tspan6574"
          sodipodi:role="line"
-         style="font-size:55.39347076px;line-height:1.25">N=10</tspan></text>
+         style="font-size:55.3935px;line-height:1.25">N=10</tspan></text>
     <path
        inkscape:connector-curvature="0"
        style="fill:#ffffff;fill-rule:evenodd;stroke:#800000;stroke-width:4.15451145;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -5629,7 +5619,7 @@
          x="6794.9634"
          id="tspan6608"
          sodipodi:role="line"
-         style="font-size:57.85524368px;line-height:1.25">j</tspan></text>
+         style="font-size:57.8552px;line-height:1.25">j</tspan></text>
     <text
        inkscape:export-ydpi="39.74596"
        inkscape:export-xdpi="39.74596"
@@ -5643,7 +5633,7 @@
          x="6745.4072"
          id="tspan6612"
          sodipodi:role="line"
-         style="font-size:57.85524368px;line-height:1.25">1  N</tspan></text>
+         style="font-size:57.8552px;line-height:1.25">1  N</tspan></text>
     <path
        inkscape:connector-curvature="0"
        inkscape:export-ydpi="39.74596"
@@ -5755,13 +5745,13 @@
        id="text6658"
        y="-1919.6241"
        x="5582.5562"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71145606;stroke-miterlimit:4;stroke-dasharray:none"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71146;stroke-miterlimit:4;stroke-dasharray:none"
        xml:space="preserve"><tspan
          y="-1919.6241"
          x="5582.5562"
          id="tspan6660"
          sodipodi:role="line"
-         style="font-size:73.7611084px;line-height:1.25">A    B+i</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">A    B+i</tspan></text>
     <path
        inkscape:export-ydpi="35.146439"
        inkscape:export-xdpi="35.146439"
@@ -5822,13 +5812,13 @@
        id="text6678"
        y="-1658.8282"
        x="5587.3516"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71145606;stroke-miterlimit:4;stroke-dasharray:none"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71146;stroke-miterlimit:4;stroke-dasharray:none"
        xml:space="preserve"><tspan
          y="-1658.8282"
          x="5587.3516"
          id="tspan6680"
          sodipodi:role="line"
-         style="font-size:73.7611084px;line-height:1.25">'Hola !'</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">'Hola !'</tspan></text>
     <path
        inkscape:export-ydpi="35.146439"
        inkscape:export-xdpi="35.146439"
@@ -5886,7 +5876,7 @@
        id="text6698"
        y="-1400.9594"
        x="5607.8062"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71145606;stroke-miterlimit:4;stroke-dasharray:none"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none;stroke-width:2.71146;stroke-miterlimit:4;stroke-dasharray:none"
        xml:space="preserve"
        inkscape:export-filename="/mnt/ex/pseint/bin/imgs/flow/shapes_alt.png"
        inkscape:export-xdpi="35.146439"
@@ -5895,7 +5885,7 @@
          x="5607.8062"
          id="tspan6700"
          sodipodi:role="line"
-         style="font-size:73.7611084px;line-height:1.25">Dato1</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">Dato1</tspan></text>
     <path
        id="path6702"
        d="m 5850.4083,-1457.2822 47.5956,-47.5956"
@@ -6011,7 +6001,7 @@
          x="5647.8359"
          id="tspan6728"
          sodipodi:role="line"
-         style="font-size:64.62135315px;line-height:1.25">A&gt;B</tspan></text>
+         style="font-size:64.6214px;line-height:1.25">A&gt;B</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4.84660149;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect6730"
@@ -6128,7 +6118,7 @@
          x="5666.8896"
          id="tspan6756"
          sodipodi:role="line"
-         style="font-size:52.99036026px;line-height:1.25">dat</tspan></text>
+         style="font-size:52.9904px;line-height:1.25">dat</tspan></text>
     <rect
        style="fill:#d9e6f2;fill-opacity:1;stroke:#31628f;stroke-width:3.97427726;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect6758"
@@ -6171,7 +6161,7 @@
          x="5578.5039"
          id="tspan6766"
          sodipodi:role="line"
-         style="font-size:52.99036026px;line-height:1.25">1     2     3 </tspan></text>
+         style="font-size:52.9904px;line-height:1.25">1     2     3 </tspan></text>
     <path
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -6346,7 +6336,7 @@
          x="5646.8188"
          id="tspan6810"
          sodipodi:role="line"
-         style="font-size:55.52186584px;line-height:1.25">N&lt;10</tspan></text>
+         style="font-size:55.5219px;line-height:1.25">N&lt;10</tspan></text>
     <path
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -6510,7 +6500,7 @@
          id="tspan6850"
          x="5661.9668"
          y="-339.89319"
-         style="font-size:55.39347076px;line-height:1.25">N=10</tspan></text>
+         style="font-size:55.3935px;line-height:1.25">N=10</tspan></text>
     <path
        sodipodi:nodetypes="cc"
        id="path6852"
@@ -6646,7 +6636,7 @@
          id="tspan6884"
          x="5569.2749"
          y="-177.89174"
-         style="font-size:57.85524368px;line-height:1.25">j</tspan></text>
+         style="font-size:57.8552px;line-height:1.25">j</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
@@ -6660,7 +6650,7 @@
          id="tspan6888"
          x="5519.7188"
          y="-94.208633"
-         style="font-size:57.85524368px;line-height:1.25">1  N</tspan></text>
+         style="font-size:57.8552px;line-height:1.25">1  N</tspan></text>
     <path
        style="fill:#800000;fill-rule:evenodd;stroke:#800000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 5818.4198,-153.99865 16.7018,5.6708 14.2163,-5.4175 -14.7387,25.4633 z"
@@ -6769,7 +6759,7 @@
          x="4343.7334"
          id="tspan6934"
          sodipodi:role="line"
-         style="font-size:73.7611084px;line-height:1.25">A    B+i</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">A    B+i</tspan></text>
     <path
        inkscape:export-ydpi="39.738247"
        inkscape:export-xdpi="39.738247"
@@ -6811,7 +6801,7 @@
          id="tspan6946"
          x="4295.436"
          y="-1653.4066"
-         style="font-size:73.7611084px;line-height:1.25">Escribir ...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">Escribir ...</tspan></text>
     <path
        inkscape:export-ydpi="39.738247"
        inkscape:export-xdpi="39.738247"
@@ -6853,7 +6843,7 @@
          x="4352.1255"
          id="tspan6958"
          sodipodi:role="line"
-         style="font-size:73.7611084px;line-height:1.25">Leer ...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">Leer ...</tspan></text>
     <path
        inkscape:connector-curvature="0"
        style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:none"
@@ -6906,7 +6896,7 @@
          id="tspan6972"
          x="4277.6533"
          y="-171.25893"
-         style="font-size:62.69694138px;line-height:1.25">Para ...</tspan></text>
+         style="font-size:62.6969px;line-height:1.25">Para ...</tspan></text>
     <rect
        style="fill:#f2ccff;fill-opacity:1;stroke:#ad00e9;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect6976"
@@ -6942,7 +6932,7 @@
          x="4289.4521"
          id="tspan6982"
          sodipodi:role="line"
-         style="font-size:62.69694138px;line-height:1.25">Mientras ...</tspan></text>
+         style="font-size:62.6969px;line-height:1.25">Mientras ...</tspan></text>
     <rect
        inkscape:export-ydpi="39.738247"
        inkscape:export-xdpi="39.738247"
@@ -6978,7 +6968,7 @@
          id="tspan6992"
          x="4291.9263"
          y="-352.88"
-         style="font-size:62.69694138px;line-height:1.25">Hasta que...</tspan></text>
+         style="font-size:62.6969px;line-height:1.25">Hasta que...</tspan></text>
     <rect
        style="fill:#d9e6f2;fill-opacity:1;stroke:#31628f;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect6996"
@@ -7025,7 +7015,7 @@
          x="4461.6089"
          id="tspan7006"
          sodipodi:role="line"
-         style="font-size:73.7611084px;line-height:1.25">x</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">x</tspan></text>
     <path
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
@@ -7048,7 +7038,7 @@
          id="tspan7012"
          x="4275.9419"
          y="-1183.588"
-         style="font-size:51.64646912px;line-height:1.25">Si</tspan></text>
+         style="font-size:51.6465px;line-height:1.25">Si</tspan></text>
     <text
        inkscape:export-ydpi="39.738247"
        inkscape:export-xdpi="39.738247"
@@ -7062,7 +7052,7 @@
          x="4615.9614"
          id="tspan7016"
          sodipodi:role="line"
-         style="font-size:51.64646912px;line-height:1.25">No</tspan></text>
+         style="font-size:51.6465px;line-height:1.25">No</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
@@ -7076,7 +7066,7 @@
          id="tspan7020"
          x="4342.8052"
          y="-1101.7487"
-         style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">...</tspan></text>
     <text
        inkscape:export-ydpi="39.738247"
        inkscape:export-xdpi="39.738247"
@@ -7090,7 +7080,7 @@
          x="4560.7373"
          id="tspan7024"
          sodipodi:role="line"
-         style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">...</tspan></text>
     <rect
        style="fill:#d9e6f2;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect7064"
@@ -7168,7 +7158,7 @@
          x="4289.9917"
          id="tspan7042"
          sodipodi:role="line"
-         style="font-size:42.59503174px;line-height:1.25">1</tspan></text>
+         style="font-size:42.595px;line-height:1.25">1</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#800000;fill-opacity:1;stroke:none"
@@ -7182,7 +7172,7 @@
          id="tspan7046"
          x="4635.5747"
          y="-919.42712"
-         style="font-size:51.64646912px;line-height:1.25">...</tspan></text>
+         style="font-size:51.6465px;line-height:1.25">...</tspan></text>
     <text
        inkscape:export-ydpi="39.738247"
        inkscape:export-xdpi="39.738247"
@@ -7196,7 +7186,7 @@
          x="4619.7148"
          id="tspan7050"
          sodipodi:role="line"
-         style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">...</tspan></text>
     <rect
        inkscape:export-ydpi="39.738247"
        inkscape:export-xdpi="39.738247"
@@ -7221,7 +7211,7 @@
          id="tspan7054"
          x="4272.2788"
          y="-845.00427"
-         style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">...</tspan></text>
     <text
        inkscape:export-ydpi="39.738247"
        inkscape:export-xdpi="39.738247"
@@ -7235,7 +7225,7 @@
          x="4372.687"
          id="tspan7058"
          sodipodi:role="line"
-         style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">...</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
@@ -7249,7 +7239,7 @@
          id="tspan7062"
          x="4481.6533"
          y="-845.00427"
-         style="font-size:73.7611084px;line-height:1.25">...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">...</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
@@ -7263,7 +7253,7 @@
          id="tspan7068"
          x="4519.3447"
          y="-961.10999"
-         style="font-size:73.7611084px;line-height:1.25">x</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">x</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
@@ -7277,7 +7267,7 @@
          id="tspan7072"
          x="4385.9175"
          y="-918.43982"
-         style="font-size:42.59503174px;line-height:1.25">2</tspan></text>
+         style="font-size:42.595px;line-height:1.25">2</tspan></text>
     <text
        inkscape:export-ydpi="39.738247"
        inkscape:export-xdpi="39.738247"
@@ -7291,7 +7281,7 @@
          x="4455.1211"
          id="tspan7076"
          sodipodi:role="line"
-         style="font-size:42.59503174px;line-height:1.25">3</tspan></text>
+         style="font-size:42.595px;line-height:1.25">3</tspan></text>
     <rect
        inkscape:export-ydpi="39.74596"
        inkscape:export-xdpi="39.74596"
@@ -7310,13 +7300,13 @@
        id="text7100"
        y="-2176.3506"
        x="6888.2446"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:2.71145606;stroke-miterlimit:4;stroke-dasharray:none"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:2.71146;stroke-miterlimit:4;stroke-dasharray:none"
        xml:space="preserve"><tspan
          y="-2176.3506"
          x="6888.2446"
          id="tspan7102"
          sodipodi:role="line"
-         style="font-size:73.7611084px;line-height:1.25">Bla bla...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">Bla bla...</tspan></text>
     <path
        inkscape:export-ydpi="39.74596"
        inkscape:export-xdpi="39.74596"
@@ -7526,7 +7516,7 @@
        inkscape:export-ydpi="35.146439" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:2.71145606;stroke-miterlimit:4;stroke-dasharray:none"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:2.71146;stroke-miterlimit:4;stroke-dasharray:none"
        x="5644.0317"
        y="-2176.3506"
        id="text7116"
@@ -7537,7 +7527,7 @@
          id="tspan7118"
          x="5644.0317"
          y="-2176.3506"
-         style="font-size:73.7611084px;line-height:1.25">Bla bla...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">Bla bla...</tspan></text>
     <path
        inkscape:connector-curvature="0"
        style="fill:#0000ff;fill-rule:evenodd;stroke:#4d4d4d;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5.00000001, 20;stroke-dashoffset:0;stroke-opacity:1;marker-start:none"
@@ -7570,7 +7560,7 @@
          id="tspan7130"
          x="4343.7334"
          y="-2184.2092"
-         style="font-size:73.7611084px;line-height:1.25">// Bla...</tspan></text>
+         style="font-size:73.7611px;line-height:1.25">// Bla...</tspan></text>
     <g
        transform="translate(7242.9691,-4704.4156)"
        id="id_shapes_ns">

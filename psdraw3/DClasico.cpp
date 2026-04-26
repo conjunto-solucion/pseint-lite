@@ -58,29 +58,37 @@ void Entity::DrawShapeSolid(const float *color,int x, int y, int w, int h) {
 	} else if (type==ET_REPETIR||type==ET_MIENTRAS||type==ET_SI) {
 		glVertex2i(x,y); glVertex2i(x+w/2,y-h/2);
 		glVertex2i(x-w/2,y-h/2); glVertex2i(x,y-h);
-	} else if (type==ET_ESCRIBIR||type==ET_LEER) {
-		if (g_config.alternative_io) {
-			if (type==ET_LEER) {
-				glVertex2i(x-w/2,y-margin); glVertex2i(x+w/2,y+margin);
-				glVertex2i(x-w/2,y-h); glVertex2i(x+w/2,y-h);
-			} else {
-				int r=3*h/4,ax0=x+w/2-h,ax1=x-w/2+h,ay=y-h/2, *v;
-				glVertex2i(ax1-margin,ay+h/2);
-				glVertex2i(ax1-r,ay);
-				glVertex2i(ax1-r,ay);
-				glVertex2i(ax1-margin,ay-h/2);
-				glVertex2i(ax1-margin,ay+h/2);
-				make_trig(); h/=2;
-				for(int i=0;i<=circle_steps/2;i+=2) {
-					glVertex2d(ax0+sinx[i]*r,ay-cosx[i]*h);
-					glVertex2d(ax0+sinx[i]*r,ay+cosx[i]*h);
-				}
-			}
-		} else {
-			glVertex2i(x+w/2+margin,y); glVertex2i(x-w/2+margin,y); 
-			glVertex2i(x+w/2-margin,y-h); glVertex2i(x-w/2-margin,y-h);
+
+
+	}
+	
+
+
+	else if (type==ET_LEER) {
+		// Figura "leer" versión pseint lite
+		glVertex2i(x+w/2+margin,y); glVertex2i(x-w/2+margin,y); 
+		glVertex2i(x+w/2-margin,y-h); glVertex2i(x-w/2-margin,y-h);
+		
+	}
+	else if (type==ET_ESCRIBIR) {
+		// Figura "escribir" versión pseint lite
+		int r=3*h/4,ax0=x+w/2-h,ax1=x-w/2+h,ay=y-h/2, *v;
+		glVertex2i(ax1-margin,ay+h/2);
+		glVertex2i(ax1-r,ay);
+		glVertex2i(ax1-r,ay);
+		glVertex2i(ax1-margin,ay-h/2);
+		glVertex2i(ax1-margin,ay+h/2);
+		make_trig(); h/=2;
+		for(int i=0;i<=circle_steps/2;i+=2) {
+			glVertex2d(ax0+sinx[i]*r,ay-cosx[i]*h);
+			glVertex2d(ax0+sinx[i]*r,ay+cosx[i]*h);
 		}
-	} else if (type==ET_SEGUN) {
+	}
+	
+
+
+	
+	else if (type==ET_SEGUN) {
 		glVertex2i(x,y); glVertex2i(x+w/2,y-h); glVertex2i(x-w/2,y-h); glVertex2i(x,y-h);
 	} else {
 		glVertex2i(x-w/2,y); glVertex2i(x+w/2,y);
@@ -90,10 +98,13 @@ void Entity::DrawShapeSolid(const float *color,int x, int y, int w, int h) {
 }
 
 
+
+
 void Entity::DrawShapeBorder(const float *color,int x, int y, int w, int h) {
 	glLineWidth(g_constants.line_width_bordes);
 	glColor3fv(color);
 	glBegin(GL_LINE_LOOP);
+
 	if (type==ET_PARA) {
 		make_trig(); w=w/2; h=h/2; y-=h;
 		for(int i=0;i<circle_steps;i++)
@@ -109,25 +120,28 @@ void Entity::DrawShapeBorder(const float *color,int x, int y, int w, int h) {
 	} else if (type==ET_REPETIR||type==ET_MIENTRAS||type==ET_SI) {
 		glVertex2i(x,y); glVertex2i(x+w/2,y-h/2);
 		glVertex2i(x,y-h); glVertex2i(x-w/2,y-h/2);
-	} else if (type==ET_ESCRIBIR||type==ET_LEER) {
-		if (g_config.alternative_io) {
-			if (type==ET_LEER) {
-				glVertex2i(x-w/2,y-margin); glVertex2i(x+w/2,y+margin);
-				glVertex2i(x+w/2,y-h); glVertex2i(x-w/2,y-h);
-			} else {
-				int r=3*h/4,ax0=x+w/2-h,ax1=x-w/2+h,ay=y-h/2, *v;
-				glVertex2i(ax1-margin,ay-h/2); 
-				glVertex2i(ax1-r,ay); 
-				glVertex2i(ax1-margin,ay+h/2); 
-				make_trig(); h/=2;
-				for(int i=0;i<=circle_steps;i+=2)
-					glVertex2d(ax0+sinx[i]*r,ay+cosx[i]*h);
-			}
-		} else {
-			glVertex2i(x-w/2+margin,y); glVertex2i(x+w/2+margin,y);
-			glVertex2i(x+w/2-margin,y-h); glVertex2i(x-w/2-margin,y-h);
-		}
-	} else if (type==ET_SEGUN) {
+	}
+	
+	
+
+	else if (type==ET_LEER) {
+		glVertex2i(x-w/2+margin,y); glVertex2i(x+w/2+margin,y);
+		glVertex2i(x+w/2-margin,y-h); glVertex2i(x-w/2-margin,y-h);
+	}
+		
+	else if (type==ET_ESCRIBIR) {
+		int r=3*h/4,ax0=x+w/2-h,ax1=x-w/2+h,ay=y-h/2, *v;
+		glVertex2i(ax1-margin,ay-h/2); 
+		glVertex2i(ax1-r,ay); 
+		glVertex2i(ax1-margin,ay+h/2); 
+		make_trig(); h/=2;
+		for(int i=0;i<=circle_steps;i+=2)
+			glVertex2d(ax0+sinx[i]*r,ay+cosx[i]*h);
+	}
+	
+	
+	
+	else if (type==ET_SEGUN) {
 		glVertex2i(x,y); glVertex2i(x+w/2,y-h); glVertex2i(x-w/2,y-h);
 	} else {
 		glVertex2i(x-w/2,y); glVertex2i(x+w/2,y);
@@ -366,24 +380,11 @@ void Entity::DrawClasico(bool force) {
 			DrawLinea(x+w,y-w,x-w,y+w);
 			glEnd();
 			glLineWidth(g_constants.line_width_flechas);
-		} else
-		if (type==ET_ESCRIBIR or type==ET_LEER) { // flecha en la esquina
-			glBegin(GL_LINES);
-			glColor3fv(g_colors.io_arrow);
-			int axl = d_x+d_w/2-margin, axe = d_x+d_w/2+margin;
-			if (g_config.alternative_io and type==ET_ESCRIBIR) { axl-=h; axe-=h; }
-			DrawLinea(axl,d_y-margin,axe,d_y+margin);
-			if (type==ET_LEER) {
-				DrawLinea(axl,d_y-margin,axl+margin,d_y-margin);
-				DrawLinea(axl,d_y-margin,axl,d_y-margin+margin);
-			} else {
-				DrawLinea(axe,d_y+margin,axe-margin,d_y+margin);
-				DrawLinea(axe,d_y+margin,axe,d_y+margin-margin);
-			}
-			
-			glEnd();
 		}
 	}
+
+
+
 	// texto;
 	DrawText();
 	if (!nolink) {
@@ -437,10 +438,19 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 	h=t_h+2*margin; if (!t_w) w=margin*6; else { w=t_w; if (type!=ET_PROCESO) w+=2*margin; else w+=2*(h-margin); }
 	if (type==ET_REPETIR||type==ET_MIENTRAS||type==ET_SI) {
 		w*=2; h*=2;
-	} else if (type==ET_ESCRIBIR||type==ET_LEER) {
-		if (g_config.alternative_io) { if (type==ET_ESCRIBIR) { w+=2*(h-margin); }
-		} else { w+=2*margin; }
-	} else if (type==ET_ASIGNAR && variante) {
+
+	}
+	
+	else if (type==ET_ESCRIBIR||type==ET_LEER) {
+		if (g_config.alternative_io) {
+			if (type==ET_ESCRIBIR) { w+=2*(h-margin); }
+		}
+		
+		else { w+=2*margin; }
+	}
+	
+	
+	else if (type==ET_ASIGNAR && variante) {
 		w+=2*margin;
 	} else if (type==ET_PARA) {
 		h=2*h+3*margin; w=1.3*w+2*margin;
@@ -449,9 +459,12 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 	}
 	
 	t_dy=t_dx=0; fx=x; fy=y; bh=h+flecha_h; bwr=bwl=w/2; // esto es si fuera solo la forma
+	
 	if (g_config.alternative_io) {
 		if (type==ET_LEER) { bh+=margin; h+=margin; t_dy-=margin/2; }
 	}
+
+
 	if (type==ET_COMENTARIO) { 
 		if (not g_config.show_comments) { bwl=bwr=bh=0; return; }
 		if (variante || (GetNext() && GetNext()->type==ET_COMENTARIO)) bh-=flecha_h/2;
