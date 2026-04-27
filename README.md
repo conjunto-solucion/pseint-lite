@@ -6,9 +6,9 @@ Este es una copia de https://pseint.sourceforge.net/index.php?page=descargas_old
 
 Esta fork tiene dos objetivos:
 
-1. Modificar el símbolo utilizado en los diagramas de flujo para representar la salida de datos, haciendo que coincida con la forma "Hoja de papel impresa", que en muchos estándares se asocia a "documento".
+1. Modificar el símbolo utilizado en los diagramas de flujo para representar la salida de datos, haciendo que coincida con la forma "Hoja de papel impresa", que en muchos estándares se asocia a "documento". También eliminar las flechitas indicadoras para "entrada" y "salida".
 
-2. Descartar dentro de lo posible, las características que no son necesarias (arbitrariamente). Se mantiene el editor e intérprete, así como el editor y exportador de diagramas de flujo.
+2. Descartar algunas características. Se mantiene como mínimo el editor e intérprete, así como el editor y exportador de diagramas de flujo.
 
 
 ## Cómo compilar
@@ -41,31 +41,28 @@ make ARCH=lnx
 Esto generará una build en `/bin` para plataformas Linux. Por el momento no se han hecho las pruebas para compilar una versión para Windows, pero puedes intentarlo siguiendo las instrucciones oficiales descritas en `/fuentes.txt`
 
 
-## Cómo desarrollar
+## Directorios
 
-Se recomienda el IDE ZinjaI, puesto que es el utilizado por los autores de PSeInt. No hay un proyecto general con todos los submódulos, sino que tendrá que trabajar en cada submódulo de manera separada, abriendo los archivos .zpr desde ZinjaI.
+Módulos principales:
+  * pseint: fuentes del interprete
+  * wxPSeInt: fuentes de la nueva interfaz (editor de pseudocódigo, e interfaz principal)
+  * psterm: fuentes de la terminal que se utiliza para ejecutar desde wxPSeInt
+  * psdraw3: fuentes del editor de diagramas de flujo. Es de especial interés el archivo DClasico.cpp para modificar cómo se dibuja el diagrama.
 
-Puede descargar ZinjaI y el complemento wxWidgets 3.1.0 (archivo zcp) desde:
-https://zinjai.sourceforge.net/index.php?page=descargas.php
-
-
-## Acerca de los fuentes de PSeInt
-
-Contenido de los directorios:
-  * pseint: fuentes del interprete (verifica sintaxis e interpreta un algoritmo)
-  * psdraw3: fuentes del editor de diagramas de flujo (permite editar el diagrama)
+Módulos secundarios:
   * psdrawE: fuentes del exportador de diagramas de flujo (genera imagenes png/jpg/bmp)
   * psexport: fuentes del exportador (convierte de pseudocodigo a codigo C++)
-  * wxPSeInt: fuentes de la nueva interfaz (editor de pseudoc�digo, e interfaz principal)
-  * psterm: fuentes de la terminal que se utiliza para ejecutar desde wxPSeInt
-  * pseval: fuentes de la interfaz que genera y eval�a los ejercicios autocontenidos
+  * pseval: fuentes de la interfaz que genera y evalúa los ejercicios autocontenidos
   * updatem: fuentes del programa que busca actualizaciones
+
+Otros directorios:
   * dtl: biblioteca auxiliar para comparar texto simil diff
   * hoewrap: biblioteca auxiliar (hoedown) para convertir markdown a html
   * test: pseudocódigos con casos de prueba y scripts para correrlos de forma automática
   * bin: demás archivos necesarios para ejecutar wxPSeInt (imagenes, documentacion, ayuda, etc).
   * dist: archivos adicionales para generar paquetes e instaladores
   * configs: configuraciones de los distintos toolchains para compilar con los Makefiles
+
 
 Puede encontrar más información de la función de cada módulo y de cómo se comunican entre
 ellos en http://cucarachasracing.blogspot.com.ar/2012/12/destripando-pseint.html
