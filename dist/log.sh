@@ -32,7 +32,5 @@ ldd psexport>> "$HOME/pseint-log.txt"
 echo "ldd psterm" >> "$HOME/pseint-log.txt"
 ldd psterm>> "$HOME/pseint-log.txt"
 
-echo "ldd updatem.bin" >> "$HOME/pseint-log.txt"
-ldd updatem.bin>> "$HOME/pseint-log.txt"
 
 ./wxPSeInt --logger "$HOME/pseint-log.txt"

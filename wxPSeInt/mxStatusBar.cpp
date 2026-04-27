@@ -39,29 +39,25 @@ mxStatusBar::mxStatusBar(wxWindow *parent):wxPanel(parent,wxID_ANY,wxDefaultPosi
 		texts[STATUS_WELCOME]=st_aux(rojo,_Z("A ocurrido un error al iniciar el editor."));
 	}
 	texts[STATUS_PROFILE]             = st_aux( verde ,_Z("Su perfil actual es: "));
-	texts[STATUS_SYNTAX_OK]           = st_aux( verde ,_Z("El pseudocódigo es correcto. Presione F9 para ejecutarlo."));
-	texts[STATUS_SYNTAX_ERROR]        = st_aux( rojo  ,_Z("El pseudocódigo contiene errores. Presione F9 para una mejor descripción."));
-	texts[STATUS_SYNTAX_ERROR_DETAIL] = st_aux( rojo  ,_Z("El pseudocódigo contiene errores. Seleccione un error para ver su descripción."));
+	texts[STATUS_SYNTAX_OK]           = st_aux( verde ,_Z("El pseudocï¿½digo es correcto. Presione F9 para ejecutarlo."));
+	texts[STATUS_SYNTAX_ERROR]        = st_aux( rojo  ,_Z("El pseudocï¿½digo contiene errores. Presione F9 para una mejor descripciï¿½n."));
+	texts[STATUS_SYNTAX_ERROR_DETAIL] = st_aux( rojo  ,_Z("El pseudocï¿½digo contiene errores. Seleccione un error para ver su descripciï¿½n."));
 	texts[STATUS_SYNTAX_CHECK_OK]     = st_aux( verde ,_Z("La sintaxis es correcta."));
-	texts[STATUS_SYNTAX_CHECK_ERROR]  = st_aux( azul  ,_Z("Seleccione un error para ver su descripción."));
-	texts[STATUS_FLOW]                = st_aux( azul  ,_Z("Este pseudocódigo está siendo editado como diagrama de flujo."));
-	texts[STATUS_FLOW_CHANGED]        = st_aux( azul  ,_Z("El diagrama de flujo ha sido modificado. Click aquí para actualizar el pseudocódigo."));
-	texts[STATUS_RUNNING]             = st_aux( azul  ,_Z("El pseudocódigo está siendo ejecutado."));
-	texts[STATUS_RUNNING_CHANGED]     = st_aux( azul  ,_Z("El pseudocódigo ha cambiado. Presione F9 para ver los cambios en la ejecución."));
-	texts[STATUS_RUNNING_UPDATED]     = st_aux( azul  ,_Z("La ejecución se ha actualizado para reflejar los cambios."));
-	texts[STATUS_RUNNED_OK]           = st_aux( azul  ,_Z("La ejecución ha finalizado sin errores."));
-	texts[STATUS_RUNNED_INT]          = st_aux( rojo  ,_Z("La ejecución ha sido interrumpida."));
+	texts[STATUS_SYNTAX_CHECK_ERROR]  = st_aux( azul  ,_Z("Seleccione un error para ver su descripciï¿½n."));
+	texts[STATUS_FLOW]                = st_aux( azul  ,_Z("Este pseudocï¿½digo estï¿½ siendo editado como diagrama de flujo."));
+	texts[STATUS_FLOW_CHANGED]        = st_aux( azul  ,_Z("El diagrama de flujo ha sido modificado. Click aquï¿½ para actualizar el pseudocï¿½digo."));
+	texts[STATUS_RUNNING]             = st_aux( azul  ,_Z("El pseudocï¿½digo estï¿½ siendo ejecutado."));
+	texts[STATUS_RUNNING_CHANGED]     = st_aux( azul  ,_Z("El pseudocï¿½digo ha cambiado. Presione F9 para ver los cambios en la ejecuciï¿½n."));
+	texts[STATUS_RUNNING_UPDATED]     = st_aux( azul  ,_Z("La ejecuciï¿½n se ha actualizado para reflejar los cambios."));
+	texts[STATUS_RUNNED_OK]           = st_aux( azul  ,_Z("La ejecuciï¿½n ha finalizado sin errores."));
+	texts[STATUS_RUNNED_INT]          = st_aux( rojo  ,_Z("La ejecuciï¿½n ha sido interrumpida."));
 	texts[STATUS_EXAMPLE]             = st_aux( azul  ,_Z("Este es un ejemplo, no puede modificarlo."));
-	texts[STATUS_DEBUG_RUNNING]       = st_aux( azul  ,_Z("El pseudocódigo está siendo ejecutado paso a paso."));
-	texts[STATUS_DEBUG_PAUSED]        = st_aux( azul  ,_Z("La ejecución paso a paso ha sido pausada."));
-	texts[STATUS_DEBUG_STOPPED]       = st_aux( azul  ,_Z("La ejecución paso a paso ha sido detenida."));
-	texts[STATUS_DEBUG_ENDED]         = st_aux( azul  ,_Z("La ejecución paso a paso ha finalizado."));
-	texts[STATUS_UPDATE_CHECKING]     = st_aux( azul  ,_Z("Buscando actualizaciones..."));
-	texts[STATUS_UPDATE_ERROR]        = st_aux( rojo  ,_Z("Error al conectarse al servidor para buscar actualizaciones."));
-	texts[STATUS_UPDATE_NONEWS]       = st_aux( azul  ,_Z("No hay actualizaciones disponibles."));
-	texts[STATUS_UPDATE_FOUND]        = st_aux( azul  ,_Z("Hay una nueva versión para descargar!"));
-	texts[STATUS_NEW_SOURCE]          = st_aux( azul  ,_Z("Puede utilizar el panel de comandos y estructuras para añadir instrucciones."));
-	texts[STATUS_COMMAND]             = st_aux( azul  ,_Z("Debe completar los campos marcados con rectángulos."));
+	texts[STATUS_DEBUG_RUNNING]       = st_aux( azul  ,_Z("El pseudocï¿½digo estï¿½ siendo ejecutado paso a paso."));
+	texts[STATUS_DEBUG_PAUSED]        = st_aux( azul  ,_Z("La ejecuciï¿½n paso a paso ha sido pausada."));
+	texts[STATUS_DEBUG_STOPPED]       = st_aux( azul  ,_Z("La ejecuciï¿½n paso a paso ha sido detenida."));
+	texts[STATUS_DEBUG_ENDED]         = st_aux( azul  ,_Z("La ejecuciï¿½n paso a paso ha finalizado."));
+	texts[STATUS_NEW_SOURCE]          = st_aux( azul  ,_Z("Puede utilizar el panel de comandos y estructuras para aï¿½adir instrucciones."));
+	texts[STATUS_COMMAND]             = st_aux( azul  ,_Z("Debe completar los campos marcados con rectï¿½ngulos."));
 	status = STATUS_WELCOME;
 }
 
@@ -80,9 +76,9 @@ void mxStatusBar::OnClick (wxMouseEvent & event) {
 	if (status==STATUS_SYNTAX_OK||status==STATUS_SYNTAX_ERROR) {
 		wxCommandEvent evt;
 		main_window->RunCurrent(false);
-	} else if (status==STATUS_UPDATE_FOUND) {
-		wxLaunchDefaultBrowser("http://pseint.sourceforge.net?page=descargas.php");
-	} else if (status==STATUS_DEBUG_RUNNING||status==STATUS_DEBUG_PAUSED||status==STATUS_DEBUG_ENDED||status==STATUS_DEBUG_STOPPED) {
+	}
+	
+	else if (status==STATUS_DEBUG_RUNNING||status==STATUS_DEBUG_PAUSED||status==STATUS_DEBUG_ENDED||status==STATUS_DEBUG_STOPPED) {
 		main_window->ShowDebugPanel(true);
 	} else if (status==STATUS_NEW_SOURCE) {
 		main_window->ShowCommandsPanel(true);

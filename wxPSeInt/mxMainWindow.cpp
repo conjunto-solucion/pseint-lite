@@ -21,7 +21,6 @@
 #include "DebugManager.h"
 #include "mxDesktopTestPanel.h"
 #include "mxEvaluateDialog.h"
-#include "mxUpdatesChecker.h"
 #include "mxConfig.h"
 #include "mxProfile.h"
 #include "mxPrintOut.h"
@@ -160,7 +159,6 @@ BEGIN_EVENT_TABLE(mxMainWindow, wxFrame)
 	EVT_MENU(mxID_HELP_QUICKHELP, mxMainWindow::OnHelpQuickHelp)
 	EVT_MENU(mxID_HELP_ABOUT, mxMainWindow::OnHelpAbout)
 	EVT_MENU(mxID_HELP_EXAMPLES, mxMainWindow::OnHelpExamples)
-	EVT_MENU(mxID_HELP_UPDATES, mxMainWindow::OnHelpUpdates)
 //	EVT_MENU(mxID_HELP_LOGGER, mxMainWindow::OnHelpLogger)
 	
 	EVT_MENU(mxID_VIEW_NOTEBOOK_PREV, mxMainWindow::OnViewNotebookPrev)
@@ -214,8 +212,8 @@ mxMainWindow::mxMainWindow(wxPoint pos, wxSize size)
 	wxIcon icon128; icon128.CopyFromBitmap(wxBitmap("imgs/icon128.png",wxBITMAP_TYPE_PNG)); bundle.AddIcon(icon128);
 	SetIcons(bundle);
 	
-	// si lo creo acá, por alguna extraña razón, en windows cuando se destruye la
-	// mxSplashScreen se "rompe" también este mxFindDialog... ya no se muestra más
+	// si lo creo acï¿½, por alguna extraï¿½a razï¿½n, en windows cuando se destruye la
+	// mxSplashScreen se "rompe" tambiï¿½n este mxFindDialog... ya no se muestra mï¿½s
 	// (y tampoco hace nada, no revienta, no muestra error, solo se cierra y ya)
 //	find_replace_dialog = new mxFindDialog(this);
 	
@@ -271,7 +269,7 @@ void mxMainWindow::CreateMenus() {
 		utils->AddItemToMenu( export_menu,id, _ZZ("Convertir a ")+utils->GetExportLangName(id)+_T("..."),"",wxString("exp_")+utils->GetExportLangCode(id)+".png");
 	
 	export_menu->AppendSeparator();
-	utils->AddItemToMenu(export_menu,mxID_FILE_EXPORT_HTML, _Z("Pseudocódigo coloreado (html)..."),"","html.png");
+	utils->AddItemToMenu(export_menu,mxID_FILE_EXPORT_HTML, _Z("Pseudocï¿½digo coloreado (html)..."),"","html.png");
 	utils->AddItemToMenu(export_menu,mxID_FILE_EXPORT_PNG, _Z("Diagrama de flujo (png, bmp o jpg)..."),"","flujo.png");
 	file->AppendSubMenu(export_menu,_Z("Exportar"),"");
 	
@@ -312,7 +310,7 @@ void mxMainWindow::CreateMenus() {
 	wxMenu *cfg_help = new wxMenu;
 	mi_autocomp = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_AUTOCOMP, _Z("Utilizar Autocompletado"),"",config->autocomp);
 	mi_autoclose = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_AUTOCLOSE, _Z("Cerrar Repetitivas/Condicionales"),"",config->autoclose);
-	mi_highlight_blocks = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_HIGHLIGHT_BLOCKS, _Z("Resaltar bloques lógicos"),"",config->highlight_blocks);
+	mi_highlight_blocks = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_HIGHLIGHT_BLOCKS, _Z("Resaltar bloques lï¿½gicos"),"",config->highlight_blocks);
 	mi_calltip_helps = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_CALLTIP_HELPS, _Z("Utilizar Ayudas Emergentes"),"",config->calltip_helps);
 	mi_smart_indent = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_SMART_INDENT, _Z("Utilizar Indentado Inteligente"),"",config->smart_indent);
 	mi_rt_syntax = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_RT_SYNTAX, _Z("Comprobar Sintaxis Mientras Escribe"),"",config->rt_syntax);
@@ -322,17 +320,17 @@ void mxMainWindow::CreateMenus() {
 	wxMenu *cfg_pres = new wxMenu;
 	mi_animate_gui = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_ANIMATE_GUI, _Z("Animar paneles"),"",config->animate_gui);
 	mi_reorganize_for_debug = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_REORGANIZE_FOR_DEBUG, _Z("Organizar Ventanas al Iniciar Paso a Paso"),"",config->reorganize_for_debug);
-	mi_rt_annotate = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_RT_ANNOTATE, _Z("Intercalar los mensajes de error en el pseudocódigo"),"",config->rt_annotate);
-	mi_unicode_opers = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_UNICODE_OPERS, _Z("Utilizar símbolos unicode para representar operadores"),"",config->unicode_opers);
+	mi_rt_annotate = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_RT_ANNOTATE, _Z("Intercalar los mensajes de error en el pseudocï¿½digo"),"",config->rt_annotate);
+	mi_unicode_opers = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_UNICODE_OPERS, _Z("Utilizar sï¿½mbolos unicode para representar operadores"),"",config->unicode_opers);
 	mi_use_colors = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_COLORS, _Z("Utilizar colores al ejecutar en la terminal"),"",config->use_colors);
-	mi_shape_colors = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_SHAPE_COLORS, _Z("Colorear bloques según tipo en el diagrama de flujo"),_Z(""),config->shape_colors);	
+	mi_shape_colors = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_SHAPE_COLORS, _Z("Colorear bloques segï¿½n tipo en el diagrama de flujo"),_Z(""),config->shape_colors);	
 	mi_psdraw_nocrop = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_PSDRAW_NO_CROP, _Z("Mostrar textos completos en el diagrama de flujo"),_Z(""),config->psdraw_nocrop);	
 	mi_use_dark_theme = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_DARK_THEME, _Z("Utilizar fondo negro en este editor"),"",config->use_dark_theme);
 	mi_use_dark_psdraw = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_DARK_PSDRAW, _Z("Utilizar fondo oscuro en el editor de diagramas"),"",config->use_dark_psdraw);
 	mi_use_dark_psterm = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_DARK_PSTERM, _Z("Utilizar fondo negro en la terminal"),"",config->use_dark_psterm);
-	mi_big_icons = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_BIG_ICONS, _Z("Íconos más grandes (p/pantallas HiDPI)"),"",config->big_icons);
+	mi_big_icons = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_BIG_ICONS, _Z("ï¿½conos mï¿½s grandes (p/pantallas HiDPI)"),"",config->big_icons);
 	utils->AddItemToMenu(cfg_pres,mxID_CONFIG_SELECT_FONTS, _Z("Seleccionar fuentes..."),"","fuentes.png");
-	cfg->AppendSubMenu(cfg_pres,_Z("Presentación"));
+	cfg->AppendSubMenu(cfg_pres,_Z("Presentaciï¿½n"));
 	
 	utils->AddItemToMenu(cfg,mxID_CONFIG_LANGUAGE, _Z("Opciones del Lenguaje (perfiles)..."),"","lenguaje.png");
 	mi_nassi_shne = utils->AddCheckToMenu(cfg,mxID_CONFIG_NASSI_SHNEIDERMAN, _Z("Utilizar diagramas Nassi-Shneiderman"),"",cfg_lang[LS_USE_NASSI_SHNEIDERMAN]);
@@ -345,7 +343,7 @@ void mxMainWindow::CreateMenus() {
 	wxMenu *run = new wxMenu;
 	utils->AddItemToMenu(run,mxID_RUN_RUN, _Z("Ejecutar\tF9"),"","ejecutar.png");
 	utils->AddItemToMenu(run,mxID_RUN_STEP_STEP, _Z("Ejecutar Paso a Paso\tF5"),"","pasos.png");
-	utils->AddItemToMenu(run,mxID_RUN_SUBTITLES, _Z("Ejecución Explicada"),"","subtitles.png");
+	utils->AddItemToMenu(run,mxID_RUN_SUBTITLES, _Z("Ejecuciï¿½n Explicada"),"","subtitles.png");
 	utils->AddItemToMenu(run,mxID_RUN_CHECK, _Z("Verificar Sintaxis\tShift+F9"),"","verificar.png");
 //	utils->AddItemToMenu(run,mxID_RUN_DRAW_FLOW, _Z("Dibujar Diagrama de Flujo"),"","flujo.png");
 	utils->AddItemToMenu(run,mxID_RUN_SET_INPUT, _Z("Predefinir Entrada...\tCtrl+F9"),"","input.png");
@@ -357,9 +355,8 @@ void mxMainWindow::CreateMenus() {
 	utils->AddItemToMenu(help,mxID_HELP_QUICKHELP, _Z("Ayuda Rapida\tShift+F1"),"","referencia.png");
 	utils->AddItemToMenu(help,mxID_HELP_EXAMPLES, _Z("&Ejemplos..."),"","abrir.png");
 //	help->AppendSeparator();
-//	utils->AddItemToMenu(help,mxID_HELP_LOGGER, _Z("Reiniciar en modo \"Logging\"...\t"),_Z("Reinicia PSeInt de un modo especial que recaba información para depuración en un archivo de texto"),"");
+//	utils->AddItemToMenu(help,mxID_HELP_LOGGER, _Z("Reiniciar en modo \"Logging\"...\t"),_Z("Reinicia PSeInt de un modo especial que recaba informaciï¿½n para depuraciï¿½n en un archivo de texto"),"");
 	help->AppendSeparator();
-	utils->AddItemToMenu(help,mxID_HELP_UPDATES, _Z("&Buscar actualizaciones...\t"),_Z("Comprueba a traves de Internet si hay versiones mas recientes de PSeInt disponibles..."),"updates.png");
 	utils->AddItemToMenu(help,mxID_HELP_ABOUT, _Z("Acerca de..."),"","acerca_de.png");
 	menu->Append(help, _Z("A&yuda"));
 	
@@ -407,10 +404,10 @@ void mxMainWindow::CreateToolbars() {
 static void AddCommandButton(wxBoxSizer *sizer, wxPanel *panel, wxWindowID id, wxString image, wxString text) {
 	static wxString tooltip = utils->FixTooltip(
 		_Z("Con estos botones puede insertar instrucciones o estructuras de control "
-		   "en el pseudocódigo. Al seleccionar uno se introduce en el algoritmo dicha "
-		   "instrucción o estructura, se marcan con recuadros los argumentos que debe "
+		   "en el pseudocï¿½digo. Al seleccionar uno se introduce en el algoritmo dicha "
+		   "instrucciï¿½n o estructura, se marcan con recuadros los argumentos que debe "
 		   "completar, y se presenta en la parte inferior de la ventana una ayuda "
-		   "rápida acerca de la misma. Puede mantener presionada la tecla shift para "
+		   "rï¿½pida acerca de la misma. Puede mantener presionada la tecla shift para "
 		   "insertar versiones alternativas o variantes de estos comandos y estructuras."));
 	wxButton *but = utils->AddImgButton(sizer,panel,id,DIR_PLUS_FILE_2("inst",config->big_icons?"52":"35",image),text);
 	but->SetToolTip(tooltip); but->SetMinSize(wxSize(but->GetMinSize().GetWidth(),10));
@@ -423,7 +420,7 @@ void mxMainWindow::CreateCommandsPanel() {
 	AddCommandButton(sizer,panel,mxID_CMD_LEER,    "leer.png",    _Z("Leer"));
 	AddCommandButton(sizer,panel,mxID_CMD_ASIGNAR, "asignar.png", _Z("Asignar"));
 	AddCommandButton(sizer,panel,mxID_CMD_SI,      "si.png",      _Z("Si-Entonces"));
-	AddCommandButton(sizer,panel,mxID_CMD_SEGUN,   "segun.png",   _Z("Según"));
+	AddCommandButton(sizer,panel,mxID_CMD_SEGUN,   "segun.png",   _Z("Segï¿½n"));
 	AddCommandButton(sizer,panel,mxID_CMD_MIENTRAS,"mientras.png",_Z("Mientras"));
 	AddCommandButton(sizer,panel,mxID_CMD_REPETIR, "repetir.png", _Z("Repetir"));
 	AddCommandButton(sizer,panel,mxID_CMD_PARA,    "para.png",    _Z("Para"));
@@ -479,7 +476,7 @@ void mxMainWindow::CreateOpersPanel() {
 
 void mxMainWindow::CreateDebugControlsPanel() {
 	backtrace=new mxBacktrace(this); // hay que crearlo antes que el debug
-	aui_manager.AddPane(backtrace, wxAuiPaneInfo().Name(_Z("¿Dónde estoy?")).Bottom().CaptionVisible(false).Hide().Layer(pbak[0]).Row(pbak[1]).Position(pbak[2]));	
+	aui_manager.AddPane(backtrace, wxAuiPaneInfo().Name(_Z("ï¿½Dï¿½nde estoy?")).Bottom().CaptionVisible(false).Hide().Layer(pbak[0]).Row(pbak[1]).Position(pbak[2]));	
 	subtitles=new mxSubtitles(this); // hay que crearlo antes que el debug
 	aui_manager.AddPane(subtitles, wxAuiPaneInfo().Name("subtitles").Bottom().CaptionVisible(false).Hide().Layer(psub[0]).Row(psub[1]).Position(psub[2]));	
 	debug_panel = new mxDebugWindow(this);
@@ -493,7 +490,7 @@ void mxMainWindow::CreateDebugControlsPanel() {
 		info_win.Hide(); info_helper.Show();
 	}
 	aui_manager.AddPane(debug_panel, info_win);
-	aui_manager.AddPane(new mxPanelHelper(this,mxID_HELPER_DEBUG,DIR_PLUS_FILE_3(config->images_path,"panels",config->big_icons?"24":"16","debug.png"),_Z("Ejecución Paso a Paso")), info_helper);
+	aui_manager.AddPane(new mxPanelHelper(this,mxID_HELPER_DEBUG,DIR_PLUS_FILE_3(config->images_path,"panels",config->big_icons?"24":"16","debug.png"),_Z("Ejecuciï¿½n Paso a Paso")), info_helper);
 }
 
 void mxMainWindow::CreateNotebook() {
@@ -593,7 +590,7 @@ void mxMainWindow::OnFileClose(wxCommandEvent &evt) {
 	IF_THERE_IS_SOURCE {
 		mxSource *source=CURRENT_SOURCE;
 		if (source->GetModify()) {
-			int res=wxMessageBox(_Z("Hay cambios sin guardar. ¿Desea guardarlos antes de cerrar?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
+			int res=wxMessageBox(_Z("Hay cambios sin guardar. ï¿½Desea guardarlos antes de cerrar?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
 			if (res==wxCANCEL)
 				return;
 			else if (res==wxYES) {
@@ -612,7 +609,7 @@ void mxMainWindow::OnFileClose(wxCommandEvent &evt) {
 
 void mxMainWindow::OnFileOpen(wxCommandEvent &evt) {
 	wxFileDialog dlg (this, _Z("Abrir Archivo"), config->last_dir, _Z(" "), "Any file (*)|*", wxFD_OPEN | wxFD_FILE_MUST_EXIST | wxFD_MULTIPLE);
-	dlg.SetWildcard(_Z("Todos los archivos|*|Algoritmos en pseudocódigo|*.psc;*.PSC|Ejercicios empaquetados|*.psz;*.PSZ;*.psx;*.PSX|Archivos de texto|*.txt;*.TXT"));
+	dlg.SetWildcard(_Z("Todos los archivos|*|Algoritmos en pseudocï¿½digo|*.psc;*.PSC|Ejercicios empaquetados|*.psz;*.PSZ;*.psx;*.PSX|Archivos de texto|*.txt;*.TXT"));
 	if (dlg.ShowModal() == wxID_OK) {
 		wxArrayString paths;
 		dlg.GetPaths(paths);
@@ -712,7 +709,7 @@ void mxMainWindow::OnFileSaveAs(wxCommandEvent &evt) {
 		wxFileDialog dlg (this, _Z("Guardar"),
 						  source->sin_titulo?config->last_dir:wxFileName(source->filename).GetPath(),
 						  source->GetFileName(true), "Any file (*)|*", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
-		dlg.SetWildcard(_Z("Todos los archivos|*|Algoritmos en pseudocódigo|*.psc;*.PSC|Archivos de texto|*.txt;*.TXT"));
+		dlg.SetWildcard(_Z("Todos los archivos|*|Algoritmos en pseudocï¿½digo|*.psc;*.PSC|Archivos de texto|*.txt;*.TXT"));
 		if (dlg.ShowModal() == wxID_OK) {
 			wxFileName file = dlg.GetPath();
 #ifndef __WIN32__
@@ -820,7 +817,7 @@ void mxMainWindow::OnClose(wxCloseEvent &evt) {
 			mxSource *source = (mxSource*)(notebook->GetPage(i));
 			if (source->GetModify()) {
 				notebook->SetSelection(i);
-				int res=wxMessageBox(_Z("Hay cambios sin guardar. ¿Desea guardarlos antes de salir?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
+				int res=wxMessageBox(_Z("Hay cambios sin guardar. ï¿½Desea guardarlos antes de salir?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
 				if (res&wxYES) {
 					if (!source->sin_titulo)
 						source->SaveFile(source->filename);
@@ -903,7 +900,7 @@ void mxMainWindow::OnHelpQuickHelp(wxCommandEvent &evt) {
 		}
 	}
 	// si no hay clave, preguntar
-	if (ask) key = wxGetTextFromUser(_Z("Palabra a buscar:"), _Z("Ayuda Rápida"), _T(""), this);
+	if (ask) key = wxGetTextFromUser(_Z("Palabra a buscar:"), _Z("Ayuda Rï¿½pida"), _T(""), this);
 	if (key=="K-BOOM!!!") { // para probar el error-recovery
 		int *p = NULL;
 		cout << *p;
@@ -913,22 +910,15 @@ void mxMainWindow::OnHelpQuickHelp(wxCommandEvent &evt) {
 }
 
 
-//void mxMainWindow::HideQuickHelp() {
-//	if (aui_manager.GetPane(m_quick_help.m_ctrl).IsShown()) {
-//		aui_manager.GetPane(quick_html).Hide();
-//		aui_manager.Update();
-//	} 
-//}
-
 void mxMainWindow::CreateQuickHelp() {
 	m_quick_help.m_ctrl = new mxHtmlWindow(this, wxID_ANY, wxDefaultPosition, wxSize(400,300));
 	m_quick_help.m_ctrl->SetPage(wxString(_Z("PSeInt "))<<VERSION);
 	m_quick_help.m_aui = &aui_manager;
-	aui_manager.AddPane(m_quick_help.m_ctrl, wxAuiPaneInfo().Name("quick_html").Caption(_Z("Ayuda Rápida")).Bottom().CloseButton(true).MaximizeButton(true).Hide().Layer(phlp[0]).Row(phlp[1]).Position(phlp[2]));	
+	aui_manager.AddPane(m_quick_help.m_ctrl, wxAuiPaneInfo().Name("quick_html").Caption(_Z("Ayuda Rï¿½pida")).Bottom().CloseButton(true).MaximizeButton(true).Hide().Layer(phlp[0]).Row(phlp[1]).Position(phlp[2]));	
 }
 
 void mxMainWindow::SelectError(wxString text) {
-	// elegir el fuente que generó al error
+	// elegir el fuente que generï¿½ al error
 	int index = notebook->GetPageIndex(last_source);
 	if (index==wxNOT_FOUND) return;
 	if (index!=notebook->GetSelection()) notebook->SetSelection(index);
@@ -1133,16 +1123,16 @@ void mxMainWindow::InsertCode(wxArrayString &toins) {
 			source->ReplaceTarget("");
 		}
 		int line = source->LineFromPosition(ss);
-		// ver si había algo en la misma linea despues de la seleccion para saber si va un enter más o no
+		// ver si habï¿½a algo en la misma linea despues de la seleccion para saber si va un enter mï¿½s o no
 		int oline_end = source->GetLineEndPosition(line);
 		se=ss; while (se<oline_end && (source->GetCharAt(se)==' '||source->GetCharAt(se)=='\t')) se++;
 		if (se<oline_end) { source->InsertText(ss,"\n"); source->Indent(line+1,line+1); }
-		// ver si había algo en la misma linea antes de la seleccion para saber si va un enter más o no
+		// ver si habï¿½a algo en la misma linea antes de la seleccion para saber si va un enter mï¿½s o no
 		int oline_beg = source->PositionFromLine(line);
 		se=ss-1; while (se>=oline_beg && (source->GetCharAt(se)==' '||source->GetCharAt(se)=='\t')) se--;
 		if (se>=oline_beg) { source->InsertText(ss,"\n"); line++; }
 			
-		// insertar el código con su correspondiente formato (en la linea dada por line, que está en blanco)
+		// insertar el cï¿½digo con su correspondiente formato (en la linea dada por line, que estï¿½ en blanco)
 		int oline=line;
 		for (unsigned int i=0;i<toins.GetCount();i++) {
 			if (cfg_lang[LS_LAZY_SYNTAX] && toins[i].StartsWith("Fin"))
@@ -1171,7 +1161,7 @@ void mxMainWindow::InsertCode(wxArrayString &toins) {
 			}
 			line++;
 		}
-		// corregir el indentado y seleccionar el código nuevo 
+		// corregir el indentado y seleccionar el cï¿½digo nuevo 
 		source->Indent(oline,line-1);
 		source->SetSelectionStart(source->GetLineIndentPosition(oline));
 		source->SetSelectionEnd(source->GetLineEndPosition(line-1));
@@ -1188,7 +1178,7 @@ void mxMainWindow::OnEditFindNext (wxCommandEvent &event) {
 	if (not find_replace_dialog) find_replace_dialog = new mxFindDialog(this);
 	if (find_replace_dialog->last_search.Len()) {
 		if (!find_replace_dialog->FindNext())
-			wxMessageBox(_ZZ("La cadena \"")<<find_replace_dialog->last_search<<_Z("\" no se encontró."), _Z("Buscar"),wxOK|wxICON_HAND);
+			wxMessageBox(_ZZ("La cadena \"")<<find_replace_dialog->last_search<<_Z("\" no se encontrï¿½."), _Z("Buscar"),wxOK|wxICON_HAND);
 	} else {
 		OnEditFind(event);
 	}
@@ -1198,7 +1188,7 @@ void mxMainWindow::OnEditFindPrev (wxCommandEvent &event) {
 	if (not find_replace_dialog) find_replace_dialog = new mxFindDialog(this);
 	if (find_replace_dialog->last_search.Len()) {
 		if (!find_replace_dialog->FindPrev())
-			wxMessageBox(_ZZ("La cadena \"")<<find_replace_dialog->last_search<<_Z("\" no se encontró."), _Z("Buscar"),wxOK|wxICON_HAND);
+			wxMessageBox(_ZZ("La cadena \"")<<find_replace_dialog->last_search<<_Z("\" no se encontrï¿½."), _Z("Buscar"),wxOK|wxICON_HAND);
 	} else {
 		OnEditFind(event);
 	}
@@ -1415,7 +1405,7 @@ void mxMainWindow::OnConfigBigIcons(wxCommandEvent &evt) {
 		mi_big_icons->Check(true);
 		config->big_icons=true;
 	}
-	wxMessageBox(_Z("Deberá reiniciar PSeInt para que se aplique este cambio"),_Z("Íconos más grandes"),wxOK|wxICON_INFORMATION);
+	wxMessageBox(_Z("Deberï¿½ reiniciar PSeInt para que se aplique este cambio"),_Z("ï¿½conos mï¿½s grandes"),wxOK|wxICON_INFORMATION);
 }
 
 void mxMainWindow::OnConfigUseDarkTheme(wxCommandEvent &evt) {
@@ -1466,7 +1456,7 @@ void mxMainWindow::OnPaneClose(wxAuiManagerEvent& event) {
 void mxMainWindow::OnNotebookPageClose(wxAuiNotebookEvent& event)  {
 	mxSource *source = (mxSource*)notebook->GetPage(event.GetSelection());
 	if (source->GetModify()) {
-		int res=wxMessageBox(_Z("Hay cambios sin guardar. ¿Desea guardarlos antes de cerrar el archivo?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
+		int res=wxMessageBox(_Z("Hay cambios sin guardar. ï¿½Desea guardarlos antes de cerrar el archivo?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
 		if (res==wxCANCEL) {
 			event.Veto();
 			return;
@@ -1565,31 +1555,6 @@ void mxMainWindow::ResetInLogMode() {
 	system((command+" &").c_str());
 #else
 	wxExecute( command ); 
-#endif
-}
-	
-void mxMainWindow::OnHelpUpdates(wxCommandEvent &evt) {
-#ifdef DISABLE_UPDATES_CHECKER
-	wxMessageBox("Esta funcionalidad ya no está disponible en\n"
-				 "sistemas Windows debido a que muchos antivirus\n"
-				 "confunden el módulo encargado de realizar esta\n"
-				 "consulta con un virus e impiden el funcionamiento\n"
-				 "de PSeInt, o hasta su descarga; dañando además la\n"
-				 "reputación del proyecto.\n"
-				 "\n"
-				 "Dado que no tengo el tiempo necesario para\n"
-				 "continuar lidiando con esta estupidez (ya he\n"
-				 "perdido demsiados días intentandolo), y que el\n"
-				 "volumen de mensaje de usuarios que me escriben\n"
-				 "(con motivos más que razonables) preocupados por\n"
-				 "las alertas sigue creciendo, lamentablemente no\n"
-				 "me ha quedado otra opción por el momento.\n"
-				 "\n\n"
-				 "Puede visitar http://pseint.sourceforge.net para\n"
-				 "verificar si existen nuevas versiones.",
-				 "Búsqueda de Actualizaciones Deshabilitada",wxOK|wxICON_EXCLAMATION,this);
-#else
-	new mxUpdatesChecker(true);
 #endif
 }
 
@@ -1733,7 +1698,7 @@ void mxMainWindow::OnConfigNassiScheiderman (wxCommandEvent & evt) {
 void mxMainWindow::CreateButtonSubProceso(wxPanel *panel, wxSizer *sizer){
 	if (button_subproc) { sizer->Detach(button_subproc); button_subproc->Destroy(); }
 	if (cfg_lang[LS_ENABLE_USER_FUNCTIONS]) {
-		wxString but_label = cfg_lang[LS_PREFER_FUNCION]?_Z("Función"):(cfg_lang[LS_PREFER_ALGORITMO]?_Z("SubAlgoritmo"):_Z("SubProceso"));
+		wxString but_label = cfg_lang[LS_PREFER_FUNCION]?_Z("Funciï¿½n"):(cfg_lang[LS_PREFER_ALGORITMO]?_Z("SubAlgoritmo"):_Z("SubProceso"));
 		button_subproc = utils->AddImgButton(sizer,panel,mxID_CMD_SUBPROCESO,DIR_PLUS_FILE_2("inst",config->big_icons?"52":"35","funcion.png"),but_label);
 	} else 
 		button_subproc = NULL;
@@ -1862,7 +1827,7 @@ void mxMainWindow::ShowDebugPanel (bool show, bool anim) {
 
 void mxMainWindow::ShowVarsPanel (bool show, bool anim) {
 	config->show_vars=show; // rt_syntax actualiza o no el arbol de variables segun este bool
-	if (show) CheckIfNeedsRTS(); // aunque el codigo ya esté analizado, el arbol está vacio porque si no se muestra no se actualiza
+	if (show) CheckIfNeedsRTS(); // aunque el codigo ya estï¿½ analizado, el arbol estï¿½ vacio porque si no se muestra no se actualiza
 	if (show) ShowPanel("helper_vars",vars_window,anim);
 	else HidePanel("helper_vars",vars_window,anim);
 }
@@ -1889,7 +1854,7 @@ void mxMainWindow::ParseResults(mxSource *source) {
 			if (str[0]=='*') {
 				if (str.Contains(_Z("Finalizada"))) {
 					happy_ending=true;
-					if (!_avoid_results_tree) RTreeAdd(source->GetPageText()+_Z(": Ejecución Finalizada"),0);
+					if (!_avoid_results_tree) RTreeAdd(source->GetPageText()+_Z(": Ejecuciï¿½n Finalizada"),0);
 					source->SetStatus(STATUS_RUNNED_OK);
 				}
 			} else if (str.Len()) {
@@ -1900,7 +1865,7 @@ void mxMainWindow::ParseResults(mxSource *source) {
 //		wxRemoveFile(temp_filename);
 		if (!happy_ending) {
 			source->SetStatus(STATUS_RUNNED_INT);
-			RTreeAdd(source->GetPageText()+_Z(": Ejecución Interrumpida"),0);
+			RTreeAdd(source->GetPageText()+_Z(": Ejecuciï¿½n Interrumpida"),0);
 //			Raise(); // comentado porque con la nueva terminal, al presionar f9 se pasa el foco a la terminal, yu si hay error vuelve al editor sin dejar ver que paso
 //		} else {
 //			source->SetFocus(); // en linux, con wx2+gtk3 hace activa a la ventana, es muy molesto, no llegamos a ver el resultado en la terminal
@@ -2189,10 +2154,10 @@ void mxMainWindow::RTreeDone (bool show, bool error) {
 //		case QH_RT_SELECTERROR:
 //			if (last_code>=QH_LASTERR && last_code!=QH_RT_NOERROR) return; // no reemplazar si no era un mensaje de error
 //			_set_quick_help_check_code;
-//			quick_html->SetPage(_Z("La sintaxis no es correcta. Haga click sobre los errores señalados en el pseudocódigo para más detalles."));
+//			quick_html->SetPage(_Z("La sintaxis no es correcta. Haga click sobre los errores seï¿½alados en el pseudocï¿½digo para mï¿½s detalles."));
 //			break;
 //		default:
-//			last_code=code; // solo debería pasar para QH_NULL
+//			last_code=code; // solo deberï¿½a pasar para QH_NULL
 //		}
 //	}
 //}
@@ -2253,19 +2218,19 @@ void mxMainWindow::QuickHelpPanelPolicy::ShowRTResult (bool errors, bool force) 
 	if (m_mode==QHM_RT_RESULT && errors==(m_last_code!=0)) return;
 	m_mode = QHM_RT_RESULT; m_last_code = errors?1:0;
 	if (errors) 
-		m_ctrl->SetPage(_Z("La sintaxis no es correcta. Haga click sobre los errores señalados en el pseudocódigo para más detalles."));
+		m_ctrl->SetPage(_Z("La sintaxis no es correcta. Haga click sobre los errores seï¿½alados en el pseudocï¿½digo para mï¿½s detalles."));
 	else
 		m_ctrl->SetPage(_Z("La sintaxis es correcta. Puede presionar F9 para ejecutar el algoritmo."));
 	EnsureVisible();
 }
 
 void mxMainWindow::QuickHelpPanelPolicy::ShowHelpPage (wxString help_file) {
-	m_aui->GetPane(m_ctrl).Caption(_Z("Ayuda Rápida"));
+	m_aui->GetPane(m_ctrl).Caption(_Z("Ayuda Rï¿½pida"));
 	m_mode = QHM_HELP; m_ctrl->LoadPage(help_file); EnsureVisible();
 }
 
 void mxMainWindow::QuickHelpPanelPolicy::ShowHelpText (wxString html_text) {
-	m_aui->GetPane(m_ctrl).Caption(_Z("Ayuda Rápida"));
+	m_aui->GetPane(m_ctrl).Caption(_Z("Ayuda Rï¿½pida"));
 	m_mode = QHM_HELP; m_ctrl->SetPage(html_text); EnsureVisible();
 }
 

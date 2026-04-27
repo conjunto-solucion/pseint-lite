@@ -53,7 +53,6 @@ Módulos secundarios:
   * psdrawE: fuentes del exportador de diagramas de flujo (genera imagenes png/jpg/bmp)
   * psexport: fuentes del exportador (convierte de pseudocodigo a codigo C++)
   * pseval: fuentes de la interfaz que genera y evalúa los ejercicios autocontenidos
-  * updatem: fuentes del programa que busca actualizaciones
 
 Otros directorios:
   * dtl: biblioteca auxiliar para comparar texto simil diff
