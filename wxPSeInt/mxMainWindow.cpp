@@ -357,7 +357,6 @@ void mxMainWindow::CreateMenus() {
 //	help->AppendSeparator();
 //	utils->AddItemToMenu(help,mxID_HELP_LOGGER, _Z("Reiniciar en modo \"Logging\"...\t"),_Z("Reinicia PSeInt de un modo especial que recaba informaci�n para depuraci�n en un archivo de texto"),"");
 	help->AppendSeparator();
-	utils->AddItemToMenu(help,mxID_HELP_ABOUT, _Z("Acerca de..."),"","acerca_de.png");
 	menu->Append(help, _Z("A&yuda"));
 	
 	SetMenuBar(menu);
