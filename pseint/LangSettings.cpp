@@ -42,7 +42,7 @@ void LangSettings::init() {
 			"Con esta opci�n activada, el editor de diagramas utilizar� el formato de Nassi-Shneiderman\n"
 			"en lugar del formato cl�sico de diagrama de flujo."
 		);
-	data[LS_USE_ALTERNATIVE_IO_SHAPES].Set("use_alternative_io_shapes",	true,
+	data[LS_USE_ALTERNATIVE_IO_SHAPES].Set("use_alternative_io_shapes",	false,
 		"Usar formas alternativas para Leer y Escribir en el diagrama",
 			"Con esta opci�n activada, si se utiliza el diagrama de flujo cl�sico (no Nassi-Shneiderman), los bloques para las instrucciones"
 			"Leer y Escribir ser�n diferentes entre s�, siguiendo una convenci�n alternativa"

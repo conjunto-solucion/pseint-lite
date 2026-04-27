@@ -19,6 +19,7 @@ using namespace std;
 #endif
 
 #define PI 3.14159265358979323846
+const float et_escribir_wave_amplitude = 3.0f;
 
 static double cosx[circle_steps+1], sinx[circle_steps+1]; // para no calcular en el DrawShape del Para
 void make_trig() {
@@ -61,41 +62,39 @@ void Entity::DrawShapeSolid(const float *color,int x, int y, int w, int h) {
 
 
 	}
-	
-
 
 	else if (type==ET_LEER) {
-		// Figura "leer" versión pseint lite
 		glVertex2i(x+w/2+margin,y); glVertex2i(x-w/2+margin,y); 
 		glVertex2i(x+w/2-margin,y-h); glVertex2i(x-w/2-margin,y-h);
 		
 	}
-	else if (type==ET_ESCRIBIR) {
-		// Figura "escribir" versión pseint lite
-		int r=3*h/4,ax0=x+w/2-h,ax1=x-w/2+h,ay=y-h/2, *v;
-		glVertex2i(ax1-margin,ay+h/2);
-		glVertex2i(ax1-r,ay);
-		glVertex2i(ax1-r,ay);
-		glVertex2i(ax1-margin,ay-h/2);
-		glVertex2i(ax1-margin,ay+h/2);
-		make_trig(); h/=2;
-		for(int i=0;i<=circle_steps/2;i+=2) {
-			glVertex2d(ax0+sinx[i]*r,ay-cosx[i]*h);
-			glVertex2d(ax0+sinx[i]*r,ay+cosx[i]*h);
-		}
-	}
-	
-
-
-	
 	else if (type==ET_SEGUN) {
 		glVertex2i(x,y); glVertex2i(x+w/2,y-h); glVertex2i(x-w/2,y-h); glVertex2i(x,y-h);
-	} else {
+	}
+	
+	else if (type==ET_ASIGNAR||type==ET_OPCION) {
 		glVertex2i(x-w/2,y); glVertex2i(x+w/2,y);
 		glVertex2i(x-w/2,y-h); glVertex2i(x+w/2,y-h);
 	}
+	else if (type==ET_ESCRIBIR) {
+
+		const float points = 20.0f; 
+		for (int i = 0; i <= points; i++) {
+			float rel = (float)i / points;
+			float px = (x - w/2) + (rel * w);
+			float py_wavy = y - h + et_escribir_wave_amplitude * sin(rel * 6.28f + (float)PI);
+
+			glVertex2d(px, y);
+			glVertex2d(px, py_wavy);
+    	}
+	}
 	glEnd();
 }
+
+
+
+
+
 
 
 
@@ -123,23 +122,30 @@ void Entity::DrawShapeBorder(const float *color,int x, int y, int w, int h) {
 	}
 	
 	
-
 	else if (type==ET_LEER) {
 		glVertex2i(x-w/2+margin,y); glVertex2i(x+w/2+margin,y);
 		glVertex2i(x+w/2-margin,y-h); glVertex2i(x-w/2-margin,y-h);
 	}
 		
 	else if (type==ET_ESCRIBIR) {
-		int r=3*h/4,ax0=x+w/2-h,ax1=x-w/2+h,ay=y-h/2, *v;
-		glVertex2i(ax1-margin,ay-h/2); 
-		glVertex2i(ax1-r,ay); 
-		glVertex2i(ax1-margin,ay+h/2); 
-		make_trig(); h/=2;
-		for(int i=0;i<=circle_steps;i+=2)
-			glVertex2d(ax0+sinx[i]*r,ay+cosx[i]*h);
+		
+		glVertex2i(x + w/2, y-h); glVertex2i(x + w/2, y); // Lado derecho
+		glVertex2i(x + w/2, y); glVertex2i(x - w/2, y); // Lado superior
+    	glVertex2i(x - w/2, y); glVertex2i(x - w/2, y-h); // Lado izquierdo
+
+		// Base
+    	const float points = 20.0f; 
+    	for (int i = 0; i < points; i++) {
+
+			float rel1 = (float)i / points, rel2 = (float)(i+1) / points;
+			float x1 = (x - w/2) + (rel1 * w);
+    		float x2 = (x - w/2) + (rel2 * w);
+			float y1 = (y - h) + et_escribir_wave_amplitude * sin(rel1 * 6.28f + (float)PI);
+        	float y2 = (y - h) + et_escribir_wave_amplitude * sin(rel2 * 6.28f + (float)PI);
+			
+			glVertex2d(x1, y1); glVertex2d(x2, y2);
+    	}
 	}
-	
-	
 	
 	else if (type==ET_SEGUN) {
 		glVertex2i(x,y); glVertex2i(x+w/2,y-h); glVertex2i(x-w/2,y-h);
@@ -158,6 +164,10 @@ void Entity::DrawShapeBorder(const float *color,int x, int y, int w, int h) {
 	glEnd();
 	glLineWidth(g_constants.line_width_flechas);
 }
+
+
+
+
 
 inline void DrawTrue(int x, int y) { // V
 	glVertex2i(x,y); glVertex2i(x-margin/2,y+2*vf_size);
@@ -212,15 +222,22 @@ inline void DrawFlechaL(int x1, int x2, int y) {
 }
 
 void Entity::DrawClasico(bool force) {
-	if (!force && (type==ET_OPCION || type==ET_AUX_PARA)) return;
+
+	if (!force && (type==ET_OPCION || type==ET_AUX_PARA))
+	return;
 	if (this==g_state.mouse and (GetPrev() or GetParent())) // si se esta moviendo con el mouse, dibujar un ghost donde lo agregariamos al soltar
-		DrawShapeBorder(g_colors.ghost,g_view.d_dx+x,g_view.d_dy+y,bwr+bwl,h);
+	DrawShapeBorder(g_colors.ghost,g_view.d_dx+x,g_view.d_dy+y,bwr+bwl,h);
+
+
 	glBegin(GL_LINES); 
 	glColor3fv(g_colors.arrow);
 	if (!nolink) {
+
 		if (type==ET_OPCION) {
 			DrawLineaVerticalH((GetChild(0)?GetChild(0)->d_x:d_x),d_y-d_h,-flecha_h); 
-		} else if (type==ET_SEGUN) {
+		}
+		
+		else if (type==ET_SEGUN) {
 			for(int i=0;i<GetChildCount();i++) {
 				if (!GetChild(i)->GetChild(0)) {
 					DrawFlechaDownHead(d_x+child_dx[i],d_y-d_h-GetChild(i)->bh);
@@ -234,7 +251,9 @@ void Entity::DrawClasico(bool force) {
 			// linea horizontal de abajo
 			DrawLineaHorizontalW(d_x,d_y-d_bh+flecha_h,child_dx[0]+(GetChild(0)?GetChild(0)->child_dx[0]:0));
 			DrawLineaHorizontalW(d_x,d_y-d_bh+flecha_h,child_dx[GetChildCount()-1]+(GetChild(GetChildCount()-1)?GetChild(GetChildCount()-1)->child_dx[0]:0));
-		} else if (type==ET_MIENTRAS) {
+		}
+		
+		else if (type==ET_MIENTRAS) {
 			DrawTrue(d_fx+2*vf_size,d_fy-d_h-5*vf_size/2);
 			DrawFalse(d_fx+d_w/2+2*vf_size,d_fy-d_h/2+vf_size);
 			DrawLineaVerticalH(d_x,d_y,-flecha_in); // flecha que entra
@@ -246,7 +265,9 @@ void Entity::DrawClasico(bool force) {
 			DrawFlechaDown(d_x+d_bwr,d_y-flecha_h-d_h/2,d_y-d_bh+flecha_h); // baja
 			DrawLineaHorizontalW(d_x,d_y-d_bh+flecha_h,d_bwr); // va al punto de salida
 			DrawLineaVerticalH(d_fx,d_fy-d_h,-flecha_h);
-		} else if (type==ET_PARA) {
+		}
+		
+		else if (type==ET_PARA) {
 			DrawLineaVerticalH(d_x,d_y,-flecha_in); // flecha que entra del bloque
 			DrawLineaVerticalTo(d_x,d_y-child_bh[0]-flecha_h,d_y-d_bh+flecha_h); // flecha que sale del bloque
 			DrawLineaVerticalTo(d_fx,d_y,d_fy); // flecha que sale del circulo
@@ -255,7 +276,9 @@ void Entity::DrawClasico(bool force) {
 			DrawLineaVerticalTo(d_fx,d_y,d_fy); // flecha que sale del circulo
 			DrawFlechaUp(d_fx,d_y-d_bh+flecha_h,d_fy-d_h); // flecha que entra al circulo
 			DrawLineaHorizontalTo(d_fx,d_y-d_bh+flecha_h,d_x);
-		} else if (type==ET_REPETIR) {
+		}
+		
+		else if (type==ET_REPETIR) {
 			DrawFlechaDownHead(d_fx,d_fy);
 			if (variante) {
 				DrawFalse(d_fx+2*vf_size,d_fy-d_h-5*vf_size/2);
@@ -269,7 +292,9 @@ void Entity::DrawClasico(bool force) {
 			DrawFlechaUp(d_x-d_bwl,d_fy-d_h/2,d_y); // sube
 			DrawFlechaR(d_x-d_bwl,d_x,d_y); // entra arriba de la condicion
 			DrawLineaVerticalH(d_fx,d_fy,flecha_h); // flecha a la siguiente instruccion
-		} else if (type==ET_SI) {
+		}
+		
+		else if (type==ET_SI) {
 			DrawTrue(d_fx+d_w/2+2*vf_size,d_fy-d_h/2+vf_size);
 			DrawFalse(d_fx-d_w/2-2*vf_size,d_fy-d_h/2+vf_size);
 			// linea horizontal de arriba
@@ -284,7 +309,9 @@ void Entity::DrawClasico(bool force) {
 			DrawFlechaDown(d_x+child_dx[1],d_y-d_h-child_bh[1]-flecha_h,d_y-d_bh+flecha_h); 
 			// linea horizontal de abajo
 			DrawLineaHorizontalTo(d_x+child_dx[0],d_y-d_bh+flecha_h,d_x+child_dx[1]);
-		} else if (type==ET_COMENTARIO) {
+		}
+		
+		else if (type==ET_COMENTARIO) {
 			// linea de flecha que va al siguiente
 			if (GetParent()||GetPrev()||GetNext()) {
 				Entity *next_nc = GetNextNoComment();
@@ -310,18 +337,32 @@ void Entity::DrawClasico(bool force) {
 				}
 			}
 		}
-		if (type!=ET_OPCION && type!=ET_COMENTARIO && type!=ET_SELECTION) {
+
+		if (type==ET_ESCRIBIR) {
+			DrawFlechaDownHead(d_x, d_y-flecha_in);
+			DrawLineaVerticalH(d_x, d_y-d_bh+et_escribir_wave_amplitude, flecha_h);
+		}
+
+
+		else if (type!=ET_OPCION && type!=ET_COMENTARIO && type!=ET_SELECTION) {
 			// punta de flecha que viene del anterior
 			if (!(type==ET_PROCESO&&!variante)) DrawFlechaDownHead(d_x,d_y-flecha_in); // no en inicio
 			// linea de flecha que va al siguiente
 			if (!(type==ET_PROCESO&&variante)) DrawLineaVerticalH(d_x,d_y-d_bh,flecha_h);
 		}
-	} else if (g_state.mouse==this and (GetNext() or GetParent())) {
+	}
+	
+	
+	
+	
+	else if (g_state.mouse==this and (GetNext() or GetParent())) {
 		// flecha que va al siguiente item cuando este esta flotando
 		DrawLineaVerticalH(g_view.d_dx+x,g_view.d_dy+y-bh,flecha_h);
 		if (type!=ET_OPCION) DrawFlechaDownHead(g_view.d_dx+x,g_view.d_dy+y); // no en inicio
 	}
 	glEnd();
+
+
 	if (type==ET_COMENTARIO or type==ET_SELECTION) {
 #ifndef _FOR_EXPORT
 		glEnable(GL_LINE_STIPPLE);
@@ -331,22 +372,17 @@ void Entity::DrawClasico(bool force) {
 #ifndef _FOR_EXPORT
 		glDisable(GL_LINE_STIPPLE);
 #endif
-	} else {
+	}
+	
+	else {
 		// relleno de la forma
 		int icolor = g_config.shape_colors?type:ET_COUNT;
-//		float aux_color[3] = {
-//			g_colors.shape[icolor][0],
-//			g_colors.shape[icolor][1],
-//			g_colors.shape[icolor][2]
-//		};
+
 		DrawShapeSolid(g_colors.shape[icolor],d_fx,d_fy,d_w,d_h);
-//		aux_color[0]=pow(aux_color[0],5)*.75;
-//		aux_color[1]=pow(aux_color[1],5)*.75;
-//		aux_color[2]=pow(aux_color[2],5)*.75;
-		// borde de la forma
-		DrawShapeBorder(/*mouse==this?color_selection:*/(g_colors.border[icolor]),d_fx,d_fy,d_w,d_h);
+		DrawShapeBorder((g_colors.border[icolor]),d_fx,d_fy,d_w,d_h);
 	}
-	if (type==ET_OPCION) { // + para agregar opciones
+
+	if (type==ET_OPCION) {
 		if (g_state.edit_on and g_state.mouse!=this) {
 			glBegin(GL_LINES);
 			glColor3fv(g_colors.label_high[3]);
@@ -354,8 +390,9 @@ void Entity::DrawClasico(bool force) {
 			DrawLineaVerticalTo(d_x-d_bwl+flecha_w/2,d_y-1*d_h/3,d_y-2*d_h/3);
 			glEnd();
 		}
-	} else 
-	if (!nolink) {
+	}
+	
+	else if (!nolink) {
 		if (type==ET_SELECTION && !nolink) {
 			glColor3fv(g_colors.back);
 			int w = margin, x = d_fx+d_w/2, y = d_fy/*-d_h*/;
@@ -382,6 +419,8 @@ void Entity::DrawClasico(bool force) {
 			glLineWidth(g_constants.line_width_flechas);
 		}
 	}
+
+
 
 
 
