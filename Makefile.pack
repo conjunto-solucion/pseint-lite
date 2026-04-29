@@ -1,5 +1,5 @@
 all: 
-	@echo "Targets are: src (solo fuentes), w32(windows installer with wine+mingw32+inno setup), lnx (GNU/Linux version, current architecture), m64 (macOS x64_64), marm (macOS arm64)"
+	@echo "Targets are: src (solo fuentes), w32(windows installer with wine+mingw32+inno setup), lnx (GNU/Linux version, current architecture)"
 
 src:
 	make -f Makefile.pack clean
@@ -10,8 +10,6 @@ src:
 	@echo
 
 w32:
-	make -f Makefile.pack clean
-	make ARCH=wine
 	rm -rf dist/pseint 
 	mkdir -p dist/pseint
 	rm -rf bin/bin 
@@ -31,7 +29,7 @@ w32:
 	cp dist/dlls/* dist/pseint/
 	rm -f dist/pseint-w32-`cat dist/pseint/version`.zip
 	cd dist && zip -qr -9 pseint-w32-`cat pseint/version`.zip pseint
-#	ls -sh pseint-w32-`cat pseint/version`.*
+	#ls -sh pseint-w32-`cat pseint/version`.*
 	@echo 
 	@echo -n "DONE: "
 	@ls -sh dist/pseint-w32-`cat bin/version`.*
@@ -54,89 +52,7 @@ lnx:
 dist/mnt:
 	mkdir -p dist/mnt
 
-m64: dist/mnt
-	make -f Makefile.pack clean
-	make ARCH=m64
-	rm -rf dist/pseint.app
-	mkdir -p dist/pseint.app
-	mkdir -p dist/pseint.app/Contents
-	mkdir -p dist/pseint.app/Contents/MacOS
-	mkdir -p dist/pseint.app/Contents/Resources
-	mkdir -p dist/pseint.app/Contents/Resources/Fonts
-	cp -r bin/* dist/pseint.app/Contents/Resources
-	mv dist/pseint.app/Contents/Resources/*.ttf dist/pseint.app/Contents/Resources/Fonts/
-	mv dist/pseint.app/Contents/Resources/wxPSeInt dist/pseint.app/Contents/MacOS/pseint
-	cp dist/Info.plist dist/pseint.app/Contents/
-	cp bin/imgs/icon.icns dist/pseint.app/Contents/Resources/pseint.icns
 
-	bash dist/fix_dylibs.sh	x86_64-apple-darwin18 dist/pseint.app
-	
-	tar -czf dist/pseint-m64-`cat bin/version`.tgz -C dist pseint.app
-	@echo 
-	@echo -n "DONE: "
-	@ls -sh dist/pseint-m64-`cat bin/version`.tgz
-	@echo
-
-marm: dist/mnt
-	make -f Makefile.pack clean
-	make ARCH=marm
-	rm -rf dist/pseint.app
-	mkdir -p dist/pseint.app
-	mkdir -p dist/pseint.app/Contents
-	mkdir -p dist/pseint.app/Contents/MacOS
-	mkdir -p dist/pseint.app/Contents/Resources
-	mkdir -p dist/pseint.app/Contents/Resources/Fonts
-	cp -r bin/* dist/pseint.app/Contents/Resources
-	mv dist/pseint.app/Contents/Resources/*.ttf dist/pseint.app/Contents/Resources/Fonts/
-	mv dist/pseint.app/Contents/Resources/wxPSeInt dist/pseint.app/Contents/MacOS/pseint
-	cp dist/Info.plist dist/pseint.app/Contents/
-	cp bin/imgs/icon.icns dist/pseint.app/Contents/Resources/pseint.icns
-
-	bash dist/fix_dylibs.sh	arm64-apple-darwin20.4 dist/pseint.app
-	
-	tar -czf dist/pseint-marm-`cat bin/version`.tgz -C dist pseint.app
-	@echo 
-	@echo -n "DONE: "
-	@ls -sh dist/pseint-marm-`cat bin/version`.tgz
-	@echo
-
-# m32: dist/mnt
-# 	make -f Makefile.pack clean
-# 	make -f ARCH=m32
-# 	rm -rf dist/pseint.app
-# 	mkdir -p dist/pseint.app
-# 	mkdir -p dist/pseint.app/Contents
-# 	mkdir -p dist/pseint.app/Contents/MacOS
-# 	mkdir -p dist/pseint.app/Contents/Resources
-# 	cp -r bin/* dist/pseint.app/Contents/Resources
-# 	mv dist/pseint.app/Contents/Resources/wxPSeInt dist/pseint.app/Contents/MacOS/pseint
-# 	cp dist/Info.plist dist/pseint.app/Contents/
-# 	cp bin/imgs/icon.icns dist/pseint.app/Contents/Resources/pseint.icns
-# 
-# 	tar -czf dist/pseint-m32-`cat bin/version`.tgz -C dist pseint.app
-# 	@echo 
-# 	@echo -n "DONE: "
-# 	@ls -sh dist/pseint-m32-`cat bin/version`.tgz
-# 	@echo
-# 
-# ppc: dist/mnt
-# 	make -f Makefile.pack clean
-# 	make -f ARCH=ppc
-# 	rm -rf dist/pseint.app
-# 	mkdir -p dist/pseint.app
-# 	mkdir -p dist/pseint.app/Contents
-# 	mkdir -p dist/pseint.app/Contents/MacOS
-# 	mkdir -p dist/pseint.app/Contents/Resources
-# 	cp -r bin/* dist/pseint.app/Contents/Resources
-# 	mv dist/pseint.app/Contents/Resources/wxPSeInt dist/pseint.app/Contents/MacOS/pseint
-# 	cp dist/Info.plist dist/pseint.app/Contents/
-# 	cp bin/imgs/icon.icns dist/pseint.app/Contents/Resources/pseint.icns
-# 
-# 	tar -czf dist/pseint-ppc-`cat bin/version`.tgz -C dist pseint.app
-# 	@echo 
-# 	@echo -n "DONE: "
-# 	@ls -sh dist/pseint-ppc-`cat bin/version`.tgz
-# 	@echo
 
 clean:
 	rm -f bin/temp.psd

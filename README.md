@@ -2,7 +2,6 @@
 
 Este es una copia de https://pseint.sourceforge.net/index.php?page=descargas_old.php (la versión 20210609 de PSeInt)
 
----
 
 ## Objetivos
 
@@ -14,7 +13,6 @@ Esta fork tiene tres objetivos:
 
 3. Descartar algunas características. Se mantiene como mínimo el editor e intérprete, así como el editor y exportador de diagramas de flujo.
 
----
 
 ## Cómo compilar
 
@@ -96,11 +94,16 @@ make ARCH=wine
 
 Se generarán múltiples .exe dentro de `/bin`. El principal, que sirve para iniciar la aplicación es `bin/wxPSeInt.exe`.
 
-A partir de aquí, tiene la opción de crear un instalador. Para ello, copie todo el contenido de `/bin` al directorio `/dist/pseint` y abra el archivo `/dist/pseint.iss` usando innosetup. Puede descargar innosetup desde https://jrsoftware.org/isinfo.php, instalarlo y ejecutarlo con wine.
+A partir de aquí, tiene la opción de crear un instalador. Para ello, ejecute:
+```
+make -f Makefile.pack w32
+```
+Para que esto se ejecute correctamente, debe disponer de innosetup. Puede descargar innosetup desde https://jrsoftware.org/isinfo.php, instalarlo y ejecutarlo con wine. Debe estar instalado en `drive_c/Inno/`.
 
 En el mismo directorio `/dist` se generará el instalador en formato .exe.
 
----
+**Nota**: que no se produzca ningún error al ejecutar con Wine, no asegura que se ejecutará correctamente en Windows. Tenga cuidado al eliminar archivos o cambiar configuraciones.
+
 
 ## Directorios
 

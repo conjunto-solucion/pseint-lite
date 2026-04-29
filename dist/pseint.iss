@@ -1,8 +1,8 @@
 
-#define MyAppName "PSeInt"
-;#define MyAppVersion "20200401"
+#define MyAppName "PSeIntLite"
+#define MyAppVersion "20210609-lite"
 #define MyAppPublisher "Pablo Novara"
-#define MyAppURL "http://pseint.sourceforge.net/"
+#define MyAppURL "https://github.com/conjunto-solucion/pseint-lite"
 #define MyAppExeName "wxPSeInt.exe"
 
 [Setup]
@@ -10,7 +10,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{3BD1C406-A23E-410A-85C3-B2FB36BA3DE6}
 AppName={#MyAppName}
-AppVersion=1
+AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
@@ -27,7 +27,7 @@ WizardImageAlphaFormat=defined
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=commandline
 OutputDir=.
-OutputBaseFilename=pseint-w32-1
+OutputBaseFilename=pseint-lite-installer
 DisableReadyPage=yes
 DisableDirPage=no
 Compression=lzma
@@ -42,7 +42,7 @@ DirExistsWarning=no
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 
 [Messages]
-WelcomeLabel2=%n%nEste programa instalar· [name/ver] en su computadora.%n
+WelcomeLabel2=%n%nEste programa instalar√° [name/ver] en su computadora.%n
 
 ;[Tasks]
 ;Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: checked
