@@ -38,21 +38,7 @@ mxAboutWindow::mxAboutWindow(wxWindow *parent)
 	: wxDialog(parent, wxID_ANY, "Acerca de...", wxDefaultPosition, wxDefaultSize, wxALWAYS_SHOW_SB | wxALWAYS_SHOW_SB | wxDEFAULT_FRAME_STYLE | wxSUNKEN_BORDER) 
 {
 		
-	wxBoxSizer *mySizer = new wxBoxSizer(wxVERTICAL);
-
-	wxButton *ok_button = new wxButton (this, wxID_OK, "Cerrar");
-	ok_button->SetDefault(); 
-	SetEscapeId(wxID_OK);
 	
-	mySizer->Add(
-		//new wxStaticBitmap(this,wxID_ANY, wxBitmap(DIR_PLUS_FILE(config->Files.skin_dir,"about.png"), wxBITMAP_TYPE_PNG))
-		html = new wxHtmlWindow(this, wxID_ANY, wxDefaultPosition, wxSize(600,300))
-		,wxSizerFlags().Proportion(1).Expand());
-	mySizer->Add(ok_button,wxSizerFlags().Expand());
-	SetSizerAndFit(mySizer);
-	html->SetPage(MakePageText(false));
-	Show(); wxYield();
-	html->SetPage(MakePageText(true));
 }
 
 void mxAboutWindow::OnCloseButton(wxCommandEvent &event){
@@ -70,16 +56,16 @@ wxString mxAboutWindow::MakePageText(bool full) {
 	text<<_Z("</TD><TD>");
 	text<<_Z("<CENTER><B>Copyleft 2003-2021<BR>por Pablo Novara<BR>");
 	text<<_Z("zaskar_84@yahoo.com.ar<BR>");
-	text<<_Z("<A href=\"about\">(ver más...)</A><BR><BR>");
+	text<<_Z("<A href=\"about\">(ver mï¿½s...)</A><BR><BR>");
 	text<<_Z("Este software es Libre y gratuito.<BR>Se distribuye bajo licencia GPL</B><BR>(<A href=\"gpl\">General Public License</A>)");
 	text<<_Z("<BR><BR><B><A href=\"pseint\">http://pseint.sourceforge.net</A></B><BR></CENTER>");
 	text<<_Z("</TD></TR></TABLE></CENTER><HR><BR>");
 	
-//	text<<_Z("<A href=\"about\">Click aqui</A> para ver información más detallada sobre la ");
+//	text<<_Z("<A href=\"about\">Click aqui</A> para ver informaciï¿½n mï¿½s detallada sobre la ");
 //	text<<_Z("licencia de PSeInt y de las bibliotecas y otros componentes de terceros que utiliza.");
 //	text<<_Z("<BR><HR>");
 	
-	version_info=_Z("Versión general de la instalación: ");
+	version_info=_Z("Versiï¿½n general de la instalaciï¿½n: ");
 	wxTextFile fil("version"); 
 	if (fil.Exists()) {
 		fil.Open();
@@ -104,7 +90,7 @@ wxString mxAboutWindow::MakePageText(bool full) {
 	text<<"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<<GetVersion(config->psexport_command)<<"<BR>";
 	text<<"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<<GetVersion(config->pseval_command)<<"<BR>";
 	
-	text<<_Z("<BR><A href=\"copy\">click aquí para copiar esta información al portapapeles</A>");
+	text<<_Z("<BR><A href=\"copy\">click aquï¿½ para copiar esta informaciï¿½n al portapapeles</A>");
 	text<<_Z("<BR><BR>");
 	return text;
 }

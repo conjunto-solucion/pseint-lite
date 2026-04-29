@@ -122,8 +122,6 @@ public:
 	void OnHelpIndex(wxCommandEvent &evt);
 	void OnHelpQuickHelp(wxCommandEvent &evt);
 	void OnHelpExamples(wxCommandEvent &evt);
-//	void OnHelpLogger (wxCommandEvent &event);
-	void OnHelpUpdates (wxCommandEvent &event);
 
 	void OnViewNotebookNext (wxCommandEvent &event);
 	void OnViewNotebookPrev (wxCommandEvent &event);
@@ -251,7 +249,7 @@ private:
 	wxTreeCtrl *results_tree_ctrl; // si no hay rt_syntax mejor no usar el result_tree y poner todo en el...
 	wxString results_tree_text; // ...si no se usa el resulttree, aca va acumulando el equivalente para mostrarlo en el quick_html
 	wxArrayString results_tree_errors; // lista de errores para obtener el texto completo al hacer click en los mismos como links en el quick_html
-	int result_tree_text_level; // al ir armando por partes con el RTreeAdd el texto del html, se dejan listas e items incompletos (<OL>,<LI>), esto indica qué
+	int result_tree_text_level; // al ir armando por partes con el RTreeAdd el texto del html, se dejan listas e items incompletos (<OL>,<LI>), esto indica quï¿½
 	wxString RTreeAdd_auxHtml(wxString str); // pasa a html un mesaje de error, reemplazando caracteres especiales y convirtiendolo en hyperlink si corresponde
 public:
 	void RTreeReset();

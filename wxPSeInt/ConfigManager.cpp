@@ -78,7 +78,6 @@ void ConfigManager::LoadDefaults() {
 	use_dark_theme = (ref_color.Red()/255.f+ref_color.Green()/255.f+ref_color.Blue()/255.f)/3.f < 0.5f;
 	use_dark_psdraw = use_dark_theme;
 	use_dark_psterm = use_dark_theme;
-	check_for_updates = true;
 	fixed_port = false;
 	rt_syntax = true;
 	rt_annotate= true;
@@ -98,7 +97,6 @@ void ConfigManager::LoadDefaults() {
 	psdraw3_command  = bin_pre+"psdraw3"+bin_post;
 	psexport_command = bin_pre+"psexport"+bin_post;
 	pseval_command   = bin_pre+"pseval"+bin_post;
-	updatem_command  = bin_pre+"updatem"+bin_post;
 
 	wx_font_size = big_icons?12:10;
 	wx_font_name = wxSystemSettings::GetFont(wxSYS_ANSI_FIXED_FONT).GetFaceName();
@@ -174,8 +172,7 @@ void ConfigManager::Save() {
 	fil.AddLine(wxString("use_dark_theme=")<<(use_dark_theme?1:0));	
 	fil.AddLine(wxString("use_dark_psdraw=")<<(use_dark_psdraw?1:0));	
 	fil.AddLine(wxString("use_dark_psterm=")<<(use_dark_psterm?1:0));	
-	fil.AddLine(wxString("big_icons=")<<big_icons);
-	fil.AddLine(wxString("check_for_updates=")<<(check_for_updates?1:0));	
+	fil.AddLine(wxString("big_icons=")<<big_icons);	
 	fil.AddLine(wxString("fixed_port=")<<(fixed_port?1:0));	
 	for (unsigned int i=0;i<last_files.GetCount();i++)
 		fil.AddLine(wxString("history=")<<last_files[i]);
@@ -222,7 +219,6 @@ void ConfigManager::Read() {
 			else if (key=="use_dark_theme") use_dark_theme=utils->IsTrue(value);
 			else if (key=="use_dark_psdraw") use_dark_psdraw=utils->IsTrue(value);
 			else if (key=="use_dark_psterm") use_dark_psterm=utils->IsTrue(value);
-			else if (key=="check_for_updates") check_for_updates=utils->IsTrue(value);
 			else if (key=="fixed_port") fixed_port=utils->IsTrue(value);
 			else if (key=="stepstep_tspeed") { value.ToLong(&l); stepstep_tspeed=l; }
 			else if (key=="rt_syntax") rt_syntax=utils->IsTrue(value);
@@ -264,15 +260,15 @@ void ConfigManager::Read() {
 		lang.source = lang.name=="<personalizado>" ? LS_CUSTOM : LS_LIST;
 	}
 	if (lang.source==LS_LIST) {
-		// si era de la lista, luego de una actualización el perfil
-		// puede haber cambiado... o la interpretación del mismo
+		// si era de la lista, luego de una actualizaciï¿½n el perfil
+		// puede haber cambiado... o la interpretaciï¿½n del mismo
 		if (!LoadListedProfile(_S2W(lang.name))) lang.Fix();
 	}
 	if (version!=0 && version<20160321) temp_dir = home_dir;
 	if (version<20150627) shape_colors = true;
-	// asegurarse de que tamaños y posiciones de la ventana estén en el rango de 
-	// la pantalla actual (por si se guardaron cuando había un segundo monitor que
-	// ya no está)
+	// asegurarse de que tamaï¿½os y posiciones de la ventana estï¿½n en el rango de 
+	// la pantalla actual (por si se guardaron cuando habï¿½a un segundo monitor que
+	// ya no estï¿½)
 	if (pos_x<0) pos_x = 0; if (pos_y<0) pos_y = 0;
 	int screen_w = wxSystemSettings::GetMetric(wxSYS_SCREEN_X);
 	int screen_h = wxSystemSettings::GetMetric(wxSYS_SCREEN_Y);
