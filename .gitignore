@@ -24,6 +24,7 @@
 # este directorio es una copia de /bin con los archivos para Windows
 /dist/*.exe
 /dist/pseint
+/dist/*.zip
 
 # miscelánea
 /temp
