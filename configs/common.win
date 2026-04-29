@@ -23,9 +23,10 @@ CFLAGS=-O3 -DNDEBUG
 CXXFLAGS=-O3 -DNDEBUG -std=c++14 -DWIN32
 LDFLAGS=-s
 
-WX_CXXFLAGS=-I${MINGW_DIR}/wx3/include -DWX3 -DUNICODE
-WX_LDFLAGS=-L${MINGW_DIR}/wx3/lib/dynamic -lwxmsw31u_adv -lwxmsw31u_stc -lwxmsw31u_aui -lwxmsw31u_html -lwxbase31u_net -lwxmsw31u_core -lwxbase31u -lwxtiff -lwxjpeg -lwxpng -lwxzlib
+
+WX_CXXFLAGS=-I${MINGW_DIR}/wx3/include -I${MINGW_DIR}/wx3/lib/gcc_dll/mswu -DWX3 -DUNICODE
+WX_LDFLAGS=-L${MINGW_DIR}/wx3/lib/gcc_dll -lwxmsw31u_adv -lwxmsw31u_stc -lwxmsw31u_aui -lwxmsw31u_html -lwxbase31u_net -lwxmsw31u_core -lwxbase31u -lwxtiff -lwxjpeg -lwxpng -lwxzlib
 WX_LDFLAGS+=-lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lversion -lwsock32 -lwininet -mwindows
 
 GL_CXXFLAGS=-I ${MINGW_DIR}\\OpenGL\\include
-GL_LDFLAGS=-lwxmsw31u_gl  -L${MINGW_DIR}\\OpenGL\\lib -lopengl32 -lglu32  
+GL_LDFLAGS=-lwxmsw31u_gl  -L${MINGW_DIR}\\OpenGL\\lib -lopengl32 -lglu32

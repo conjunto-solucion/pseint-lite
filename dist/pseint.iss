@@ -10,7 +10,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{3BD1C406-A23E-410A-85C3-B2FB36BA3DE6}
 AppName={#MyAppName}
-AppVersion={#MyAppVersion}
+AppVersion=1
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
@@ -27,7 +27,7 @@ WizardImageAlphaFormat=defined
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=commandline
 OutputDir=.
-OutputBaseFilename=pseint-w32-{#MyAppVersion}
+OutputBaseFilename=pseint-w32-1
 DisableReadyPage=yes
 DisableDirPage=no
 Compression=lzma

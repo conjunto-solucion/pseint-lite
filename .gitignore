@@ -1,3 +1,4 @@
+# build de linux
 /bin/bin/psdraw3
 /bin/bin/psdrawE
 /bin/bin/pseint
@@ -6,12 +7,24 @@
 /bin/bin/psterm
 /bin/bin/updatem
 /bin/bin/wxPSeInt
-
 /bin/pseint
 /bin/wxPSeInt
 
+# build de windows
+/bin/log.exe
+/bin/pseint.exe
+/bin/psdraw3.exe
+/bin/psdrawE.exe
+/bin/pseval.exe
+/bin/psexport.exe
+/bin/psterm.exe
+/bin/wxPSeInt.exe
 
+# instalador para Windows
+# este directorio es una copia de /bin con los archivos para Windows
+/dist/*.exe
+/dist/pseint
+
+# miscelánea
 /temp
-/test
-/Makefile.pack
 .vscode
