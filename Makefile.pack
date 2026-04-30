@@ -21,19 +21,24 @@ w32:
 	rm -f dist/pseint/log.exe
 	rm -f dist/pseint/updatem.exe
 	cp dist/dlls/* dist/pseint/
+
+
 	find bin -type f | sed 's/bin/delete $$INSTDIR/' | sed 's/\//\\/g' > dist/uninstall.nsh
 	find bin -type d | sed 's/bin/rmdir $$INSTDIR/'  | sed 's/\//\\/g' | sort -r >>dist/uninstall.nsh
+	
+
 	#cd dist && wine c:/nsis/makensis.exe /DPRODUCT_VERSION\=`cat pseint/version` pseint.nsh
 	cd dist && wine C:/Inno/ISCC.exe pseint.iss /DMyAppVersion=`cat pseint/version`
-	cp dist/config.here dist/pseint/config.here
-	cp dist/dlls/* dist/pseint/
+	
+	
 	rm -f dist/pseint-w32-`cat dist/pseint/version`.zip
 	cd dist && zip -qr -9 pseint-w32-`cat pseint/version`.zip pseint
 	#ls -sh pseint-w32-`cat pseint/version`.*
 	@echo 
-	@echo -n "DONE: "
-	@ls -sh dist/pseint-w32-`cat bin/version`.*
+	@echo -n "DONE"
 	@echo
+
+
 
 lnx:
 	make -f Makefile.pack clean
