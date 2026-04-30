@@ -1147,11 +1147,9 @@ delete $INSTDIR\help\simples.html
 delete $INSTDIR\help\escritura.html
 delete $INSTDIR\help\comandos.hlp
 delete $INSTDIR\help\bugs.html
-delete $INSTDIR\pseint
 delete $INSTDIR\pseint.dir
 delete $INSTDIR\log.exe
 delete $INSTDIR\version
-delete $INSTDIR\wxPSeInt
 rmdir $INSTDIR\perfiles\icons
 rmdir $INSTDIR\perfiles
 rmdir $INSTDIR\imgs\vars\24
