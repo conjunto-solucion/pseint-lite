@@ -10,60 +10,60 @@ void LangSettings::init() {
 	
 	data[LS_FORCE_DEFINE_VARS		 ].Set("force_define_vars",			false,	
 		"Obligar a definir los tipos de variables",
-			"Si esta opci�n est� deshabilitada no se puede utilizar una variable sin previamente definir su tipo. "
+			"Si esta opción está deshabilitada no se puede utilizar una variable sin previamente definir su tipo. "
 			"Para esto se debe utilizar la palabra clave DEFINIR. Ej: \"DEFINIR X COMO REAL\". Los tipos posibles "
 			"son ENTERO, NUMERICO/REAL, LOGICO, CARACTER/TEXTO."
 		);
 	data[LS_FORCE_INIT_VARS			 ].Set("force_init_vars",			false,
 		"No permitir utilizar variables o posiciones de arreglos sin inicializar",
-			"Si esta opci�n est� deshabilitada se puede utilizar variables sin incializar (que nunca fueron leidas o asignadas) "
+			"Si esta opción está deshabilitada se puede utilizar variables sin incializar (que nunca fueron leidas o asignadas) "
 			"en expresiones o para mostrar en pantalla. En este caso asumen el valor por defecto 0, \"\", o FALSO segun el tipo "
-			"que corresponda. Si esta opci�n est� seleccionada escribir o evaluar una expresi�n que involucra una variable sin "
-			"inicializar genera un error en tiempo de ejecuci�n."
+			"que corresponda. Si esta opción está seleccionada escribir o evaluar una expresión que involucra una variable sin "
+			"inicializar genera un error en tiempo de ejecución."
 		);
 	data[LS_FORCE_SEMICOLON			 ].Set("force_semicolon",			false,
 		"Controlar el uso de ; al final de sentencias secuenciales",
-			"Si esta opci�n est� activada obliga a colocar punto y coma (;) al final de las instrucciones secuenciales, como se hace "
-			"en lenguajes como C++ o Pascal (util para acostumbrarse antes de dar el salto desde el pseudoc�digo a un lenguaje real). "
-			"si est� desactivada el uso del punto y coma es opcional."
+			"Si esta opción está activada obliga a colocar punto y coma (;) al final de las instrucciones secuenciales, como se hace "
+			"en lenguajes como C++ o Pascal (util para acostumbrarse antes de dar el salto desde el pseudocódigo a un lenguaje real). "
+			"si está desactivada el uso del punto y coma es opcional."
 		);
 	data[LS_BASE_ZERO_ARRAYS		 ].Set("base_zero_arrays",			false,
 		"Utilizar indices en arreglos y cadenas en base 0",
-			"Si esta opci�n esta activada, el primer elemento de un arreglo de N elementos ser� el 0 y el �ltimo el N-1, mientras "
-			"que en caso contrario el primero ser� el 1 y el �ltimo el N"
+			"Si esta opción esta activada, el primer elemento de un arreglo de N elementos será el 0 y el último el N-1, mientras "
+			"que en caso contrario el primero será el 1 y el último el N"
 		);
 	data[LS_ALLOW_CONCATENATION		 ].Set("allow_concatenation",		true,
 		"Permitir concatenar variables de texto con el operador +",
-			"Si esta opci�n esta activada se puede concatenar el contenido de dos variables de tipo caracter con el operador +. "
+			"Si esta opción esta activada se puede concatenar el contenido de dos variables de tipo caracter con el operador +. "
 			"Por ejemplo: NombreCompleto <- Nombre+\" \"+Apellido;"
 		);
 	data[LS_USE_NASSI_SHNEIDERMAN	 ].Set("use_nassi_shneiderman",		false,
 		"Usar diagramas de Nassi-Shneiderman",
-			"Con esta opci�n activada, el editor de diagramas utilizar� el formato de Nassi-Shneiderman\n"
-			"en lugar del formato cl�sico de diagrama de flujo."
+			"Con esta opción activada, el editor de diagramas utilizará el formato de Nassi-Shneiderman\n"
+			"en lugar del formato clásico de diagrama de flujo."
 		);
 	data[LS_USE_ALTERNATIVE_IO_SHAPES].Set("use_alternative_io_shapes",	false,
 		"Usar formas alternativas para Leer y Escribir en el diagrama",
-			"Con esta opci�n activada, si se utiliza el diagrama de flujo cl�sico (no Nassi-Shneiderman), los bloques para las instrucciones"
-			"Leer y Escribir ser�n diferentes entre s�, siguiendo una convenci�n alternativa"
+			"Con esta opción activada, si se utiliza el diagrama de flujo clásico (no Nassi-Shneiderman), los bloques para las instrucciones"
+			"Leer y Escribir serán diferentes entre sí, siguiendo una convención alternativa"
 		);
 	data[LS_ALLOW_DINAMYC_DIMENSIONS ].Set("allow_dinamyc_dimensions",	true,
 		"Permitir utilizar variables para dimensionar arreglos",
-			"Si esta opci�n est� seleccionada se puede utilizar una variable o una expresi�n que involucre variables para dimensionar un "
-			"arreglo (por ejemplo, se puede pedir al usuario del programa el tama�o leyendo un numero y utilizarlo luego para crear el "
+			"Si esta opción está seleccionada se puede utilizar una variable o una expresión que involucre variables para dimensionar un "
+			"arreglo (por ejemplo, se puede pedir al usuario del programa el tamaño leyendo un numero y utilizarlo luego para crear el "
 			"arreglo). Este suele ser el caso de los lenguajes interpretados, mientras que los lenguajes compilados suelen exigir que el "
-			"tama�o de los arreglos est�ticos sea una constante (por ejemplo, C y C++)."
+			"tamaño de los arreglos estáticos sea una constante (por ejemplo, C y C++)."
 		);
 	data[LS_OVERLOAD_EQUAL			 ].Set("overload_equal",			false,
 		"Permitir asignar con el signo igual (=)",
-			"Esta opcion habilita la asignaci�n con el signo igual (Ej: x=0;). En muchos casos esta sintaxis de asignaci�n no se"
+			"Esta opcion habilita la asignación con el signo igual (Ej: x=0;). En muchos casos esta sintaxis de asignación no se"
 			"permite, ya que en muchos lenguajes no se utilia el mismo operador para asignar y comparar, como sucede al activar"
-			"esta opci�n. En cualquier caso, las otras dos sintaxis de asignaci�n (con <- y con :=) siguen siendo v�lidas."
+			"esta opción. En cualquier caso, las otras dos sintaxis de asignación (con <- y con :=) siguen siendo válidas."
 		);
 	data[LS_COLOQUIAL_CONDITIONS	 ].Set("coloquial_conditions",		true,
 		"Permitir condiciones en lenguaje coloquial",
-			"Esta opcion permite expresar las condiciones en un lenguaje m�s coloquial con construcciones como \"X ES PAR\", "
-			"\"X NO ES MULTIPLO DE 5\", \"X ES IGUAL A Y\", \"X ES ENTERO\", etc. Esta opci�n activa adem�s el uso de palabras "
+			"Esta opcion permite expresar las condiciones en un lenguaje más coloquial con construcciones como \"X ES PAR\", "
+			"\"X NO ES MULTIPLO DE 5\", \"X ES IGUAL A Y\", \"X ES ENTERO\", etc. Esta opción activa además el uso de palabras "
 			"clave para reemplazar operadores."
 		);
 	data[LS_LAZY_SYNTAX				 ].Set("lazy_syntax",				true,
@@ -75,72 +75,72 @@ void LangSettings::init() {
 		);
 	data[LS_WORD_OPERATORS			 ].Set("word_operators",			true,
 		"Permitir las palabras Y, O, NO y MOD para los operadores &&, |, ~ y %",
-			"Con esta opci�n habilitada PSeInt acepta las palabras clave Y, O, NO, y MOD como sin�nimos de los operadores &&, |, ~ y % respectivamente. "
-			"Notar que en este caso estas palabras ser�n palabras reservadas y no se podr�n utilizar como nombres de variables."
+			"Con esta opción habilitada PSeInt acepta las palabras clave Y, O, NO, y MOD como sinónimos de los operadores &&, |, ~ y % respectivamente. "
+			"Notar que en este caso estas palabras serán palabras reservadas y no se podrán utilizar como nombres de variables."
 		);
 	data[LS_ENABLE_USER_FUNCTIONS	 ].Set("enable_user_functions",		true,
 		"Permitir definir funciones/subprocesos",
-			"Con esta opci�n activada se permite definir subprocesos/funciones en pseudoc�digo para mediante la palabra clase SubProceso."
+			"Con esta opción activada se permite definir subprocesos/funciones en pseudocódigo para mediante la palabra clase SubProceso."
 		);
 	data[LS_ENABLE_STRING_FUNCTIONS	 ].Set("enable_string_functions",	true,
 		"Habilitar funciones para el manejo de cadenas",
-			"Esta opci�n habilita un conjunto de funciones predefinidas que sirven para operar sobre cadenas de "
+			"Esta opción habilita un conjunto de funciones predefinidas que sirven para operar sobre cadenas de "
 			"caracteres. Las funciones son: Longitud, SubCadena, Mayusculas, Minusculas y Concatenar)."
 		);
 	data[LS_INTEGER_ONLY_SWITCH].Set("integer_only_switch",				false,
-		"Limitar la estructura Seg�n a variables de control num�ricas",
-			"Muchos lenguajes solo permiten utilizar n�meros enteros para las expresiones de control de la estructura de "
-			"selecci�n m�ltiple (\"Seg�n\" en PSeInt). Si habilita esta opci�n, PSeInt aplicar� esta restricci�n. En caso "
-			"contrario, podr� utilizar tambi�n variables de tipo caracter."
+		"Limitar la estructura Según a variables de control numéricas",
+			"Muchos lenguajes solo permiten utilizar números enteros para las expresiones de control de la estructura de "
+			"selección múltiple (\"Según\" en PSeInt). Si habilita esta opción, PSeInt aplicará esta restricción. En caso "
+			"contrario, podrá utilizar también variables de tipo caracter."
 		);
 	data[LS_DEDUCE_NEGATIVE_FOR_STEP].Set("deduce_negative_for_step",	true,
 		"Permitir omitir el paso -1 en ciclos Para",
-			"Con esta opci�n activa, si no se especifica el valor del \"paso\" en una estructura de tipo \"Para\", se utiliza +1 o -1 "
-			"seg�n corresponda. Se determina comparando los valores iniciales y finales, si el primero es mayor al segundo +1, o -1 "
-			"en caso contrario. Si se desactiva esta opci�n, se utilizar� siempre +1 como paso por defecto."
+			"Con esta opción activa, si no se especifica el valor del \"paso\" en una estructura de tipo \"Para\", se utiliza +1 o -1 "
+			"según corresponda. Se determina comparando los valores iniciales y finales, si el primero es mayor al segundo +1, o -1 "
+			"en caso contrario. Si se desactiva esta opción, se utilizará siempre +1 como paso por defecto."
 		);
 	data[LS_ALLOW_ACCENTS].Set("allow_accents",							true,
 		"Permitir utilizar acentos en nombres de variables",
-			"Con esta opci�n activada, los identificadores de variables y funciones pueden incluir letras con "
-			"acento, di�resis y/o la letra �. Si est� desactivada, el uso de estas letras generar� errores de "
-			"\"identificador no v�lido\" y/o \"caracter no v�lido\"."
+			"Con esta opción activada, los identificadores de variables y funciones pueden incluir letras con "
+			"acento, diéresis y/o la letra ñ. Si está desactivada, el uso de estas letras generará errores de "
+			"\"identificador no válido\" o \"caracter no válido\"."
 		);
 	data[LS_PREFER_ALGORITMO].Set("prefer_algoritmo",					true,
 		"Preferir las palabras clave \"Algoritmo\" y \"FinAlgoritmo\"",
-			"Con esta opci�n activada, al insertar plantillas, generar o autocompletar el pseudoc�digo, "
-			"se priorizar� el uso de las palabras claves \"Algoritmo\" y \"FinAlgoritmo\" frente a "
-			"\"Proceso\" y \"FinProceso\" respectivamente. Si la opci�n est� desactivada se utilizar�n "
+			"Con esta opción activada, al insertar plantillas, generar o autocompletar el pseudocódigo, "
+			"se priorizará el uso de las palabras claves \"Algoritmo\" y \"FinAlgoritmo\" frente a "
+			"\"Proceso\" y \"FinProceso\" respectivamente. Si la opción está desactivada se utilizarán "
 		    "por defecto las palabras clave \"Proceso\" y \"FinProceso\""
 		);
 	data[LS_PREFER_FUNCION].Set("prefer_funcion",						true,
-		"Preferir las palabras clave \"Funci�n\" y \"FinFunci�n\"",
-			"Con esta opci�n activada, al insertar plantillas, generar o autocompletar el pseudoc�digo, "
-			"se priorizar� el uso de las palabras claves \"Funci�n\" y \"FinFunci�n\" frente a "
+		"Preferir las palabras clave \"Función\" y \"FinFunción\"",
+			"Con esta opción activada, al insertar plantillas, generar o autocompletar el pseudocódigo, "
+			"se priorizará el uso de las palabras claves \"Función\" y \"FinFunción\" frente a "
 			"\"Proceso\" y \"FinProceso\" (o \"Algoritmo\" y \"FinAlgoritmo\") respectivamente."
 		);
 	data[LS_ALLOW_REPEAT_WHILE].Set("allow_repeat_while",					true,
-		"Permitir la variaci�n \"Repetir ... Mientras Que...\"",
-			"Habilita el uso de \"Mientras que <condici�n>\" en lugar de \"Hasta que <condici�n>\" "
-			"para cerrar una estructura RepetirEsta construcci�n alternativa itera por verdadero "
+		"Permitir la variación \"Repetir ... Mientras Que...\"",
+			"Habilita el uso de \"Mientras que <condición>\" en lugar de \"Hasta que <condición>\" "
+			"para cerrar una estructura RepetirEsta construcción alternativa itera por verdadero "
 			"en lugar de iterar por falso."
 		);
 	data[LS_PREFER_REPEAT_WHILE].Set("prefer_repeat_while",					false,
 		"Preferir \"Repetir ... Mientras Que...\"",
-			"Con esta opci�n activada, al seleccionar la estructura de control \"Repetir\" desde "
-			"el panel de comandos (tanto del editor de pseudoc�digo como del editor de diagramas "
-			"de flujo) se insertar� la versi�n \"Repetir ... Mientras que\" (que itera por "
-			"verdadero); mientras que si est� desactivada se inserta la versi�n \"Repetir ... "
+			"Con esta opción activada, al seleccionar la estructura de control \"Repetir\" desde "
+			"el panel de comandos (tanto del editor de pseudocódigo como del editor de diagramas "
+			"de flujo) se insertará la versión \"Repetir ... Mientras que\" (que itera por "
+			"verdadero); mientras que si está desactivada se inserta la versión \"Repetir ... "
 			"Hasta que\" (que itera por falso)."
 		);
 	data[LS_ALLOW_FOR_EACH].Set("allow_for_each",				true,
 			"Habilitar estructura \"Para Cada...\"",
-			"Con esta opci�n habilitada se puede utilizar la versi�n alternativa de la estructura "
-			"repetitiva \"Para\" que permite recorrer los elementos de un arreglo de forma m�s "
+			"Con esta opción habilitada se puede utilizar la versión alternativa de la estructura "
+			"repetitiva \"Para\" que permite recorrer los elementos de un arreglo de forma más "
 			"simple. Ej: \"Para Cada Elemento de V Hacer ... FinPara\"."
 		);
 	data[LS_PROTECT_FOR_COUNTER].Set("protect_for_counter",				false,
 			"Proteger contador del Para",
-			"Con esta opci�n habilitada no se puede modificar la variable que se utiliza como "
+			"Con esta opción habilitada no se puede modificar la variable que se utiliza como "
 			"contador dentro de un para, y adicionalmente la variable deja de estar inicializada "
 			"una vez finalizado el bucle."
 		);
@@ -239,7 +239,7 @@ void LangSettings::Fix ( ) {
 	}
 	if (version<20160321) { 
 		settings[LS_ALLOW_ACCENTS]=settings[LS_LAZY_SYNTAX]; // LS_ALLOW_ACCENTS era parte de LS_LAZY_SYNTAX
-		settings[LS_PREFER_ALGORITMO]=settings[LS_PREFER_FUNCION] = false; // LS_PREFER_ALGORITMO y LS_PREFER_FUNCION no exist�an
+		settings[LS_PREFER_ALGORITMO]=settings[LS_PREFER_FUNCION] = false; // LS_PREFER_ALGORITMO y LS_PREFER_FUNCION no existían
 	}
 	if (version<20150304) { // LS_INTEGER_ONLY_SWITCH y LS_DEDUCE_NEGATIVE_FOR_STEP eran parte de LS_LAZY_SYNTAX
 		settings[LS_INTEGER_ONLY_SWITCH]=!settings[LS_LAZY_SYNTAX];
@@ -247,7 +247,7 @@ void LangSettings::Fix ( ) {
 	}
 	if (settings[LS_COLOQUIAL_CONDITIONS]) settings[LS_WORD_OPERATORS]=true; // no se puede usar LS_COLOQUIAL_CONDITIONS sin LS_WORD_OPERATORS
 	if (!settings[LS_ALLOW_REPEAT_WHILE]) settings[LS_PREFER_REPEAT_WHILE] = false; // no tiene sentido LS_PREFER_REPEAT_WHILE sin LS_ALLOW_REPEAT_WHILE
-	version=LS_VERSION; // colocar version nueva, para que el fix ya no actualice el perfil en la pr�xima carga
+	version=LS_VERSION; // colocar version nueva, para que el fix ya no actualice el perfil en la próxima carga
 }
 
 bool LangSettings::SetFromSingleString (const std::string & str) {
@@ -264,30 +264,30 @@ static const char *mxSourceWords1 =
 	"repetir mientras de otro modo escribir finpara "
 	"fin finproceso finsi finmientras finsegun "
 	"verdadero falso algoritmo finalgoritmo "
-	"numero n�mero numeros n�meros numerico num�rico numerica num�rica numericas num�ricas numericos num�ricos "
+	"numero número numeros números numerico numérico numerica numérica numericas numéricas numericos numéricos "
 	"entero entera enteros enteras real reales "
-	"caracter car�cter caracteres texto cadena cadenas "
-	"logico l�gico logica l�gica logicos l�gicos logicas l�gicas "
+	"caracter carácter caracteres texto cadena cadenas "
+	"logico lógico logica lógica logicos lógicos logicas lógicas "
 	"borrar limpiar pantalla borrarpantalla limpiarpantalla esperar tecla esperartecla segundos milisegundos segundo milisegundo sinsaltar sin saltar sinbajar bajar "
-	"seg�n finseg�n dimensi�n ";
+	"según finsegún dimensión ";
 
 static const char *mxSourceWords1_op =
 	"y no o mod ";
 
 static const char *mxSourceWords1_extra =
-	"es sies opcion caso desde imprimir cada mostrar opci�n son ";
+	"es sies opcion caso desde imprimir cada mostrar opción son ";
 
 static const char *mxSourceWords1_conds =
 	"es par impar igual divisible multiplo distinto distinta de por cero positivo negativo negativa positiva entero mayor menor ";
 
 static const char *mxSourceWords1_funcs =
-	"subproceso finsubproceso funci�n funcion finfunci�n finfuncion por referencia valor copia subalgoritmo finsubalgoritmo ";
+	"subproceso finsubproceso función funcion finfunción finfuncion por referencia valor copia subalgoritmo finsubalgoritmo ";
 
 static const char* mxSourceWords2_math =
 	"cos sen tan acos asen atan raiz rc ln abs exp aleatorio azar trunc redon pi euler ";
 
 static const char* mxSourceWords2_string =
-	"concatenar longitud mayusculas minusculas subcadena may�sculas min�sculas convertiranumero convertiratexto ";
+	"concatenar longitud mayusculas minusculas subcadena mayúsculas minúsculas convertiranumero convertiratexto ";
 
 
 std::string LangSettings::GetKeywords ( ) const {

@@ -56,16 +56,16 @@ wxString mxAboutWindow::MakePageText(bool full) {
 	text<<_Z("</TD><TD>");
 	text<<_Z("<CENTER><B>Copyleft 2003-2021<BR>por Pablo Novara<BR>");
 	text<<_Z("zaskar_84@yahoo.com.ar<BR>");
-	text<<_Z("<A href=\"about\">(ver m�s...)</A><BR><BR>");
+	text<<_Z("<A href=\"about\">(ver más...)</A><BR><BR>");
 	text<<_Z("Este software es Libre y gratuito.<BR>Se distribuye bajo licencia GPL</B><BR>(<A href=\"gpl\">General Public License</A>)");
 	text<<_Z("<BR><BR><B><A href=\"pseint\">http://pseint.sourceforge.net</A></B><BR></CENTER>");
 	text<<_Z("</TD></TR></TABLE></CENTER><HR><BR>");
 	
-//	text<<_Z("<A href=\"about\">Click aqui</A> para ver informaci�n m�s detallada sobre la ");
+//	text<<_Z("<A href=\"about\">Click aqui</A> para ver información más detallada sobre la ");
 //	text<<_Z("licencia de PSeInt y de las bibliotecas y otros componentes de terceros que utiliza.");
 //	text<<_Z("<BR><HR>");
 	
-	version_info=_Z("Versi�n general de la instalaci�n: ");
+	version_info=_Z("Versión general de la instalación: ");
 	wxTextFile fil("version"); 
 	if (fil.Exists()) {
 		fil.Open();
@@ -90,7 +90,7 @@ wxString mxAboutWindow::MakePageText(bool full) {
 	text<<"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<<GetVersion(config->psexport_command)<<"<BR>";
 	text<<"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<<GetVersion(config->pseval_command)<<"<BR>";
 	
-	text<<_Z("<BR><A href=\"copy\">click aqu� para copiar esta informaci�n al portapapeles</A>");
+	text<<_Z("<BR><A href=\"copy\">click aquí para copiar esta información al portapapeles</A>");
 	text<<_Z("<BR><BR>");
 	return text;
 }
