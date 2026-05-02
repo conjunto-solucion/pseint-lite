@@ -260,15 +260,15 @@ void ConfigManager::Read() {
 		lang.source = lang.name=="<personalizado>" ? LS_CUSTOM : LS_LIST;
 	}
 	if (lang.source==LS_LIST) {
-		// si era de la lista, luego de una actualizaci�n el perfil
-		// puede haber cambiado... o la interpretaci�n del mismo
+		// si era de la lista, luego de una actualización el perfil
+		// puede haber cambiado... o la interpretación del mismo
 		if (!LoadListedProfile(_S2W(lang.name))) lang.Fix();
 	}
 	if (version!=0 && version<20160321) temp_dir = home_dir;
 	if (version<20150627) shape_colors = true;
-	// asegurarse de que tama�os y posiciones de la ventana est�n en el rango de 
-	// la pantalla actual (por si se guardaron cuando hab�a un segundo monitor que
-	// ya no est�)
+	// asegurarse de que tamaños y posiciones de la ventana están en el rango de 
+	// la pantalla actual (por si se guardaron cuando había un segundo monitor que
+	// ya no está)
 	if (pos_x<0) pos_x = 0; if (pos_y<0) pos_y = 0;
 	int screen_w = wxSystemSettings::GetMetric(wxSYS_SCREEN_X);
 	int screen_h = wxSystemSettings::GetMetric(wxSYS_SCREEN_Y);

@@ -30,17 +30,17 @@ enum ETYPE { ET_COMENTARIO, ET_LEER, ET_PROCESO, ET_ESCRIBIR, ET_ASIGNAR, ET_SI,
 struct Entity : public EntityLinking<Entity> {
 	ETYPE type;
 	// cosas definidas por el constructor al setear la etiqueta
-	int w,h; // tama�o real
-	int t_w,t_h,t_dy,t_dx,t_prew; // tama�o del texto de la etiqueta, deltapara el texto (para y segun), y tama�o del prefijo no editable
+	int w,h; // tamaño real
+	int t_w,t_h,t_dy,t_dx,t_prew; // tamaño del texto de la etiqueta, deltapara el texto (para y segun), y tamaño del prefijo no editable
 	int x,y; // posiciones reales absolutas, independientes del dibujo, del punto de entrada al bloque completo
 	// cosas que debe setear la funcion Calculate...
 	int fx,fy; // posiciones reales absolutas del punto de entrada a la forma de la entidad
-	int bwl, bwr,bh; // tama�o del bloque completo real, incluyendo hijos y la cfl
+	int bwl, bwr,bh; // tamaño del bloque completo real, incluyendo hijos y la cfl
 	// cosas auxiliares para animaciones
 	int d_fx,d_fy; // posiciones para el dibujo del punto de entrada a la forma de la entidad
-	int d_w, d_h; // tama�o de la forma en el dibujo, tiende a w,h con el tiempo
+	int d_w, d_h; // tamaño de la forma en el dibujo, tiende a w,h con el tiempo
 	int d_x, d_y; // posiciones del dibujo, tienden a x+d_dx,y+d_dy con el tiempo
-	int d_bwl, d_bwr,d_bh; // tama�o del bloque completo en el dibujo, incluyendo hijos
+	int d_bwl, d_bwr,d_bh; // tamaño del bloque completo en el dibujo, incluyendo hijos
 	// otras
 	int m_x,m_y; // coordenadas del mouse relativas a x,y, para cuando se arrastra
 	Vector<int> child_dx; // posicion de los hijos relativa al x del padre(this)
@@ -102,10 +102,10 @@ struct Entity : public EntityLinking<Entity> {
 
 static const int flecha_h=25; // separacion entre bloques consecutivos
 static const int flecha_w=20; // separacion entre bloques hermanos
-static const int flecha_d=5; // tama�o de la punta de la flecha
+static const int flecha_d=5; // tamaño de la punta de la flecha
 static const int selection_tolerance_y=15; // tolerancia en y para la seleccion de puntos
 static const int selection_tolerance_x=30; // tolerancia en x para la seleccion de puntos
-static const int margin=6; // margen entre cuadro y texto en un bloque (y para los botones de confirm, por eso no es static, �ni const?)
+static const int margin=6; // margen entre cuadro y texto en un bloque (y para los botones de confirm, por eso no es static, ni const?)
 static const int vf_size=5;
 static const int shadow_delta_x=4; // diferencia entre la posicion de un objeto y su sombra
 static const int shadow_delta_y=5; // diferencia entre la posicion de un objeto y su sombra

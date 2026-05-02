@@ -70,7 +70,7 @@ mxProfile::mxProfile(wxWindow *parent) :
 	
 	wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
 	
-	sizer->Add(new wxStaticText(this,wxID_ANY,_Z(" Puede buscar por nombre de la institución, materia, docente, siglas, etc.")),wxSizerFlags().Expand().Proportion(0).Border(wxTOP,5));
+	sizer->Add(new wxStaticText(this,wxID_ANY,_Z(" Puede buscar por nombre de la instituciï¿½n, materia, docente, siglas, etc.")),wxSizerFlags().Expand().Proportion(0).Border(wxTOP,5));
 	
 	wxBoxSizer *search_sizer = new wxBoxSizer(wxHORIZONTAL);
 	search=new wxTextCtrl(this,wxID_FIND,"");
@@ -88,7 +88,7 @@ mxProfile::mxProfile(wxWindow *parent) :
 //	sizer->Add(new wxStaticText(this,wxID_ANY,_Z(" Seleccione un perfil para configurar las reglas del lenguaje: ")),wxSizerFlags().Expand().Proportion(0).Border(wxTOP,5));
 //	sizer->Add(list,wxSizerFlags().Expand().Proportion(3).FixedMinSize());
 //	sizer->Add(new wxStaticText(this,wxID_ANY,_Z("")),wxSizerFlags().Expand().Proportion(0));
-//	sizer->Add(new wxStaticText(this,wxID_ANY,_Z(" Descripción del perfil seleccionado:")),wxSizerFlags().Expand().Proportion(0));
+//	sizer->Add(new wxStaticText(this,wxID_ANY,_Z(" Descripciï¿½n del perfil seleccionado:")),wxSizerFlags().Expand().Proportion(0));
 //	sizer->Add(text,wxSizerFlags().Expand().Proportion(1).FixedMinSize());
 //	sizer->Add(new wxStaticText(this,wxID_ANY,""),wxSizerFlags().Expand().Proportion(0));
 //	sizer->Add(button_sizer,wxSizerFlags().Expand().Proportion(0));
@@ -116,7 +116,7 @@ mxProfile::mxProfile(wxWindow *parent) :
 	
 	SetSizerAndFit(sizer);
 	
-	this->Layout(); // para ajustar el tamaño de la columna de la lista
+	this->Layout(); // para ajustar el tamaï¿½o de la columna de la lista
 	list->SetColumnWidth(0,list->GetSize().GetWidth()-32);
 	
 	search->SetFocus();
@@ -165,14 +165,14 @@ void mxProfile::UpdateDetails() {
 	if (!text) return;
 	if (lang.source==LS_FILE) {
 		text->SetValue(wxString()
-					   <<_Z("Su personalización actual ha sido cargada desde el archivo: ") << _S2W(lang.name)); 
+					   <<_Z("Su personalizaciï¿½n actual ha sido cargada desde el archivo: ") << _S2W(lang.name)); 
 	} else if (lang.source==LS_LIST) {
 		int p = perfiles.Index(GetListSelection());
 		text->SetValue(p==wxNOT_FOUND 
 					     ?  "Error: archivo de perfil no encontrado" 
 					     : descripciones[p]);
 	} else {
-		text->SetValue(_Z("Puede utilizar el botón \"Personalizar\" para definir su propia configuración.")); 
+		text->SetValue(_Z("Puede utilizar el botï¿½n \"Personalizar\" para definir su propia configuraciï¿½n.")); 
 	}
 }
 
@@ -193,13 +193,13 @@ void mxProfile::OnSearchText (wxCommandEvent & evt) {
 
 static wxString normalize(wxString s) {
 	s.MakeLower();
-	s.Replace(_Z("á"),_T("a"),true);
-	s.Replace(_Z("é"),_T("e"),true);
-	s.Replace(_Z("í"),_T("i"),true);
-	s.Replace(_Z("ó"),_T("o"),true);
-	s.Replace(_Z("ú"),_T("u"),true);
-	s.Replace(_Z("ñ"),_T("n"),true);
-	s.Replace(_Z("ü"),_T("u"),true);
+	s.Replace(_Z("ï¿½"),_T("a"),true);
+	s.Replace(_Z("ï¿½"),_T("e"),true);
+	s.Replace(_Z("ï¿½"),_T("i"),true);
+	s.Replace(_Z("ï¿½"),_T("o"),true);
+	s.Replace(_Z("ï¿½"),_T("u"),true);
+	s.Replace(_Z("ï¿½"),_T("n"),true);
+	s.Replace(_Z("ï¿½"),_T("u"),true);
 	return s;
 }
 
@@ -222,7 +222,7 @@ void mxProfile::Search ( ) {
 		cont++;
 	}
 	if (sel!=-1) SetListSelection(sel); 
-//	else text->SetValue(wxString()<<_Z("El perfil seleccionado actualmente (")<<lang.name<<_Z(") no aparece en esta búsqueda."));
+//	else text->SetValue(wxString()<<_Z("El perfil seleccionado actualmente (")<<lang.name<<_Z(") no aparece en esta bï¿½squeda."));
 }
 
 void mxProfile::OnLoadButton (wxCommandEvent & evt) {

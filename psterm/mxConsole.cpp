@@ -184,9 +184,9 @@ void mxConsole::OnPaint (wxPaintEvent & event) {
 		dc.DrawText(wxString()<<"|",margin+cur_x*char_w-char_w/2,margin+cur_y*char_h);
 	}
 	wxString status[2]; // una variable por linea porque en windows el drawtext no hace el salto de linea
-	if (dimmed) { status[0]=_Z("El algoritmo fue modificado."); status[1]=_Z("Click aquí para aplicar los cambios."); }
+	if (dimmed) { status[0]=_Z("El algoritmo fue modificado."); status[1]=_Z("Click aquÃ­ para aplicar los cambios."); }
 	else if (selection_is_input) { status[0]=_Z("Utilice doble click para"); status[1]=_Z("modificar solo esa lectura."); }
-	else if ( (want_input || wait_one_key) && cur_loc.IsValid()) status[1]<<_Z("línea ")<<cur_loc.line<<_Z(" instrucción ")<<cur_loc.inst;
+	else if ( (want_input || wait_one_key) && cur_loc.IsValid()) status[1]<<_Z("lï¿½nea ")<<cur_loc.line<<_Z(" instrucciÃ³n ")<<cur_loc.inst;
 	if (status[1].Len()) {
 		wxColour &ct=colors[16][0];
 		wxColour &cb=colors[16][1];
@@ -634,14 +634,14 @@ void mxConsole::OnMouseRightDown (wxMouseEvent & evt) {
 	wxMenuItem *mpaste=menu.Append(CONSOLE_ID_POPUP_PASTE,_Z("&Pegar"));
 	if (!GetClipboardText().Len()) mpaste->Enable(false);
 	menu.AppendSeparator();
-//	menu.Append(CONSOLE_ID_POPUP_RESET,"Reiniciar ejecución");
-//	menu.Append(CONSOLE_ID_POPUP_FROM_HERE,"Continuar desde aquí");
+//	menu.Append(CONSOLE_ID_POPUP_RESET,"Reiniciar ejecuciï¿½n");
+//	menu.Append(CONSOLE_ID_POPUP_FROM_HERE,"Continuar desde aquï¿½");
 	if (popup_src_pos!=-1 && GetInputPositionFromBufferPosition(popup_src_pos)!=-1) {
 		menu.Append(CONSOLE_ID_POPUP_CHANGE_INPUT,_Z("Cambiar valor ingresado"));
 		menu.AppendSeparator();
 	}
 	menu.AppendCheckItem(CONSOLE_ID_POPUP_STAY_ON_TOP,_Z("Ventana siempre visible"))->Check(parent->GetStayOnTop());
-	menu.AppendCheckItem(CONSOLE_ID_POPUP_CLOSE_AFTER_RUN,_Z("Cerrar al finalizar la ejecución"))->Check(!parent->GetDoNotClose());
+	menu.AppendCheckItem(CONSOLE_ID_POPUP_CLOSE_AFTER_RUN,_Z("Cerrar al finalizar la ejecuciï¿½n"))->Check(!parent->GetDoNotClose());
 	PopupMenu(&menu);
 }
 
@@ -693,7 +693,7 @@ void mxConsole::GetSourceLocationFromOutput (int pos) {
 	while (selection_end+1<buffer_w*buffer_h && buffer[selection_end+1].loc==buffer[pos].loc) selection_end++;
 	// buscar en los eventos de entrada, si justo seleccionamos uno para ofrecer modificarla
 	selection_is_input = (buffer[pos].loc!=cur_loc||cur_loc.is_error) && GetInputPositionFromBufferPosition(pos)!=-1;
-	// mostrar seleccion y marcar en el pseudocódigo la instrucción correspondiente
+	// mostrar seleccion y marcar en el pseudocï¿½digo la instrucciï¿½n correspondiente
 	Refresh();
 	parent->SendLocation(buffer[pos].loc.line,buffer[pos].loc.inst);
 }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <clocale>
 #include <wx/image.h>
 #include <wx/socket.h>
 #include <wx/filename.h>
@@ -18,7 +19,6 @@
 #include "mxIconInstaller.h"
 #include "CommunicationsManager.h"
 #include "error_recovery.h"
-#include "mxWelcome.h"
 #include "mxStatusBar.h"
 #include "osdep.h"
 #include "mxSplashScreen.h"
@@ -28,10 +28,14 @@ IMPLEMENT_APP(mxApplication)
 
 wxSplashScreen *splash;
 
+
 bool mxApplication::OnInit() {
+
 	
 #ifndef DEBUG
 	wxDisableAsserts();
+
+
 #endif
 	
 	_handle_version_query("wxPSeInt",false);
@@ -132,7 +136,6 @@ bool mxApplication::OnInit() {
 	
 	if (!config->version) {
 		_LOG("mxApplication::OnInit NO_PROFILE");
-		mxWelcome(main_window).ShowModal();
 		main_window->NewProgram();
 		main_window->ProfileChanged();
 	}
@@ -155,7 +158,7 @@ void mxApplication::RecoverFromError ( ) {
 	fil.GetFirstLine(); // hora de explosion
 	wxString str;
 	while (!fil.Eof()) {
-		str = fil.GetNextLine(); // nombre de la pesta�a
+		str = fil.GetNextLine(); // nombre de la pestaña
 		if (str.Len() && !fil.Eof()) {
 			fil.GetNextLine(); // nombre real del archivo antes de la explosion
 			rec_names.Add(str);
@@ -172,10 +175,10 @@ void mxApplication::RecoverFromError ( ) {
 		src->SetModified(true);
 		src->sin_titulo = true;
 	}
-	wxMessageBox(_Z("PSeInt no se cerr� correctamente durante su �ltima ejecuci�n.\n"
+	wxMessageBox(_Z("PSeInt no se cerró correctamente durante su última ejecución.\n"
 					"Algunos algoritmos en los que trabajaba fueron guardados,\n"
 					"automaticamente y ahora han sido recuperados."),
-				_Z("PSeInt - Recuperaci�n ante errores"),wxOK|wxICON_WARNING);
+				_Z("PSeInt - Recuperación ante errores"),wxOK|wxICON_WARNING);
 	
 	wxRemoveFile(er_get_recovery_fname());
 }
