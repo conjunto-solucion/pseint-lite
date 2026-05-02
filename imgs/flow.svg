@@ -359,9 +359,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.15030214"
-     inkscape:cx="-3476.3311"
-     inkscape:cy="755.1456"
+     inkscape:zoom="0.8502373"
+     inkscape:cx="-2743.3518"
+     inkscape:cy="571.01706"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -415,9 +415,9 @@
          inkscape:export-ydpi="43.830002" />
       <g
          id="g1234"
-         inkscape:export-filename="/mnt/ex/pseint/bin/imgs/flow/shapes.png"
-         inkscape:export-xdpi="43.830002"
-         inkscape:export-ydpi="43.830002"
+         inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/asignar.png"
+         inkscape:export-xdpi="16.602806"
+         inkscape:export-ydpi="16.602806"
          transform="matrix(0.6146759,0,0,0.6146759,162.41097,101.77741)"
          style="stroke-width:2.71145606;stroke-miterlimit:4;stroke-dasharray:none">
         <rect
@@ -469,14 +469,14 @@
          d="m 422.91332,162.72915 v 11.52246"
          style="fill:#ffffff;fill-rule:evenodd;stroke:#800000;stroke-width:1.66666663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          inkscape:connector-curvature="0"
-         inkscape:export-filename="/mnt/ex/pseint/bin/imgs/flow/shapes.png"
-         inkscape:export-xdpi="43.830002"
-         inkscape:export-ydpi="43.830002" />
+         inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/asignar.png"
+         inkscape:export-xdpi="16.602806"
+         inkscape:export-ydpi="16.602806" />
       <path
          inkscape:connector-curvature="0"
-         inkscape:export-ydpi="43.830002"
-         inkscape:export-xdpi="43.830002"
-         inkscape:export-filename="/mnt/ex/pseint/bin/imgs/flow/shapes.png"
+         inkscape:export-ydpi="16.602806"
+         inkscape:export-xdpi="16.602806"
+         inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/asignar.png"
          sodipodi:nodetypes="ccccc"
          id="path2469-4"
          d="m 418.38754,169.017 4.67396,1.55134 3.9784,-1.48204 -4.1246,6.96582 z"
@@ -510,14 +510,14 @@
        id="path60653"
        sodipodi:nodetypes="sscsccsss"
        style="fill:#aaffaa;fill-opacity:1;stroke:#268325;stroke-opacity:1"
-       inkscape:export-filename="/home/juan/Downloads/shapes.png"
-       inkscape:export-xdpi="42.395691"
-       inkscape:export-ydpi="42.395691" />
+       inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/escribir.png"
+       inkscape:export-xdpi="15.013959"
+       inkscape:export-ydpi="15.013959" />
     <g
        id="g1254"
-       inkscape:export-filename="/home/juan/Downloads/shapes.png"
-       inkscape:export-xdpi="42.395691"
-       inkscape:export-ydpi="42.395691"
+       inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/escribir.png"
+       inkscape:export-xdpi="15.013959"
+       inkscape:export-ydpi="15.013959"
        transform="matrix(1.8440277,0,0,1.8440277,-3391.1185,-581.03449)"
        style="stroke-width:2.71146;stroke-miterlimit:4;stroke-dasharray:none">
       <text
@@ -581,13 +581,19 @@
            height="55.078484"
            width="173.21428"
            id="rect1296"
-           style="fill:#ffc3ff;fill-opacity:1;stroke:#ff0382;stroke-width:2.8980484;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+           style="fill:#ffc3ff;fill-opacity:1;stroke:#ff0382;stroke-width:2.8980484;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/leer.png"
+           inkscape:export-xdpi="14.361036"
+           inkscape:export-ydpi="14.361036" />
         <text
            id="text1298"
            y="394.51184"
            x="371.54019"
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/leer.png"
+           inkscape:export-xdpi="14.361036"
+           inkscape:export-ydpi="14.361036"><tspan
              y="394.51184"
              x="371.54019"
              id="tspan1300"
@@ -667,16 +673,19 @@
          height="93.449867"
          width="93.449867"
          id="rect1332"
-         style="fill:#c1d9ff;fill-opacity:1;stroke:#0063ff;stroke-width:3.71075749;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         style="fill:#c1d9ff;fill-opacity:1;stroke:#0063ff;stroke-width:3.71075749;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/si.png"
+         inkscape:export-xdpi="18.416929"
+         inkscape:export-ydpi="18.416929" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
          x="305.44083"
          y="619.56366"
          id="text1334"
-         inkscape:export-filename="/mnt/ex/PSeInt/pseint/wxPSeInt/imgs/asignar.png"
-         inkscape:export-xdpi="35.146439"
-         inkscape:export-ydpi="35.146439"><tspan
+         inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/si.png"
+         inkscape:export-xdpi="18.416929"
+         inkscape:export-ydpi="18.416929"><tspan
            sodipodi:role="line"
            id="tspan1336"
            x="305.44083"
@@ -767,25 +776,28 @@
          height="148.95096"
          width="148.95087"
          id="rect1368"
-         style="fill:#c1d9ff;fill-opacity:1;stroke:#0063ff;stroke-width:3.81953;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         style="fill:#c1d9ff;fill-opacity:1;stroke:#0063ff;stroke-width:3.81953;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/segun.png"
+         inkscape:export-xdpi="14.373151"
+         inkscape:export-ydpi="14.373151" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000080;fill-opacity:1;stroke:none"
          x="-1973.8324"
          y="-539.87146"
          id="text1370"
-         inkscape:export-filename="/mnt/ex/PSeInt/pseint/wxPSeInt/imgs/asignar.png"
-         inkscape:export-xdpi="35.146439"
-         inkscape:export-ydpi="35.146439"><tspan
+         inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/segun.png"
+         inkscape:export-xdpi="14.373151"
+         inkscape:export-ydpi="14.373151"><tspan
            sodipodi:role="line"
            id="tspan1372"
            x="-1973.8324"
            y="-539.87146"
            style="font-size:40px;line-height:1.25">dat</tspan></text>
       <rect
-         inkscape:export-ydpi="35.146439"
-         inkscape:export-xdpi="35.146439"
-         inkscape:export-filename="/mnt/ex/PSeInt/pseint/wxPSeInt/imgs/asignar.png"
+         inkscape:export-ydpi="14.373151"
+         inkscape:export-xdpi="14.373151"
+         inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/segun.png"
          ry="0"
          y="-532.78369"
          x="-2080.9634"
@@ -814,9 +826,9 @@
          x="-2040.5504"
          y="-494.72461"
          id="text1380"
-         inkscape:export-filename="/mnt/ex/PSeInt/pseint/wxPSeInt/imgs/asignar.png"
-         inkscape:export-xdpi="35.146439"
-         inkscape:export-ydpi="35.146439"><tspan
+         inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/segun.png"
+         inkscape:export-xdpi="14.373151"
+         inkscape:export-ydpi="14.373151"><tspan
            sodipodi:role="line"
            id="tspan1382"
            x="-2040.5504"
@@ -929,9 +941,9 @@
     <g
        id="g1434"
        transform="matrix(1.3880466,0,0,1.3880466,-776.57451,1468.8023)"
-       inkscape:export-filename="/home/juan/Downloads/shapes.png"
-       inkscape:export-xdpi="42.395691"
-       inkscape:export-ydpi="42.395691">
+       inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/mientras.png"
+       inkscape:export-xdpi="14.90311"
+       inkscape:export-ydpi="14.90311">
       <path
          style="fill:#ffffff;fill-rule:evenodd;stroke:#800000;stroke-width:3.00000072;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m -1331.8416,-392.8155 v 14.00803"
@@ -1067,9 +1079,9 @@
     <g
        id="g1480"
        transform="matrix(1.3848368,0,0,1.3848368,-1435.2541,1576.9617)"
-       inkscape:export-filename="/home/juan/Downloads/shapes.png"
-       inkscape:export-xdpi="42.395691"
-       inkscape:export-ydpi="42.395691">
+       inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/repetir.png"
+       inkscape:export-xdpi="16.134888"
+       inkscape:export-ydpi="16.134888">
       <g
          id="g1518">
         <path
@@ -1175,9 +1187,9 @@
     <g
        transform="matrix(1.4463811,0,0,1.4463811,-2638.6163,960.64528)"
        id="g1554"
-       inkscape:export-filename="/home/juan/Downloads/shapes.png"
-       inkscape:export-xdpi="42.395691"
-       inkscape:export-ydpi="42.395691">
+       inkscape:export-filename="/home/juan/Coding/projects/pseint-lite/bin/imgs/inst/35/para.png"
+       inkscape:export-xdpi="11.268283"
+       inkscape:export-ydpi="11.268283">
       <g
          id="g1612">
         <path

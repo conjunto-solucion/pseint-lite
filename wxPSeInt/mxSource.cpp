@@ -91,7 +91,7 @@ BEGIN_EVENT_TABLE (mxSource, wxStyledTextCtrl)
 	EVT_STC_SAVEPOINTREACHED(wxID_ANY, mxSource::OnSavePointReached)
 	EVT_STC_SAVEPOINTLEFT(wxID_ANY, mxSource::OnSavePointLeft)
 	EVT_STC_MARGINCLICK (wxID_ANY, mxSource::OnMarginClick)
-	// la siguiente linea va sin el prefijo "Z_", pero genera un error, hay que parchear wx/stc/stc.h, quitando un paréntesis izquierdo que sobra en la definicion de la macro EVT_STC_CALLTIP_CLICK (justo despues de los argumentos)
+	// la siguiente linea va sin el prefijo "Z_", pero genera un error, hay que parchear wx/stc/stc.h, quitando un parï¿½ntesis izquierdo que sobra en la definicion de la macro EVT_STC_CALLTIP_CLICK (justo despues de los argumentos)
 	EVT_STC_CALLTIP_CLICK(wxID_ANY, mxSource::OnCalltipClick)
 	EVT_SET_FOCUS (mxSource::OnSetFocus)
 	EVT_MOUSEWHEEL(mxSource::OnMouseWheel)
@@ -185,7 +185,7 @@ mxSource::mxSource (wxWindow *parent, wxString ptext, wxString afilename)
 	SetStyling(); // aplicarlo luego de definir las demas opciones de estilo, puede
 				  // modificar el resultado
 	
-	SetMarginWidth (0, TextWidth (wxSTC_STYLE_LINENUMBER," XXX")); // este sí despues del estilo, para que use la fuente adecuada para calcular
+	SetMarginWidth (0, TextWidth (wxSTC_STYLE_LINENUMBER," XXX")); // este sï¿½ despues del estilo, para que use la fuente adecuada para calcular
 	
 	AutoCompSetSeparator('|');
 	AutoCompSetIgnoreCase(true);
@@ -253,8 +253,8 @@ void mxSource::SetStyle(int idx, const char *foreground, const char *background,
 	wxFont font (wxFontInfo(1+config->wx_font_size-((fontStyle&mxSOURCE_SMALLER)?1:0))
 				 .Family(wxFONTFAMILY_MODERN).FaceName(config->wx_font_name));
 	// el 1+ es porque la fuente por defecto, inconsolata, tiene caracteres relativamente
-	// pequeños, y al dibujar el resto con fuente "normal", cosas como el autocompletado
-	// o los calltips quedan más grandes
+	// pequeï¿½os, y al dibujar el resto con fuente "normal", cosas como el autocompletado
+	// o los calltips quedan mï¿½s grandes
 	
 	StyleSetFont (idx, font);
 	if (foreground) StyleSetForeground (idx, wxColour (foreground));
@@ -288,7 +288,7 @@ void mxSource::SetStyling(bool colour) {
 	MarkerDefine(MARKER_BLOCK_HIGHLIGHT,wxSTC_MARK_BACKGROUND, CL_BLOCK_BACK, CL_BLOCK_BACK);
 
 	
-	const char *CL_REG_BACK  = config->use_dark_theme ? "#333333" : "#FFFFFF" ;
+	const char *CL_REG_BACK  = config->use_dark_theme ? "#111111" : "#FFFFFF" ;
 	const char *CL_REG_FORE  = config->use_dark_theme ? "#FAFAFA" : "#000000" ;
 	const char *CL_DIMM_FORE = config->use_dark_theme ? "#888888" : "#888888" ;
 	const char *CL_KEYWORD   = config->use_dark_theme ? "#9999FA" : "#000080" ;
@@ -588,8 +588,8 @@ void mxSource::OnCharAdded (wxStyledTextEvent &event) {
 		int pend = GetLineEndPosition(line)-1;
 		while(pend>p and GetCharAt(pend)==' ') --pend;
 		if (pend==p) {
-			// buscar la ultima palabra clave de esta linea para sabe qué estructra comienza
-			// y asegurarse de que tengamos algo más en medio (o sea, por ej, no sugerir "ENTONCES" 
+			// buscar la ultima palabra clave de esta linea para sabe quï¿½ estructra comienza
+			// y asegurarse de que tengamos algo mï¿½s en medio (o sea, por ej, no sugerir "ENTONCES" 
 			// justo despues de SI)
 			int pbeg = PositionFromLine(line);
 			bool something_between = false; 
@@ -625,7 +625,7 @@ void mxSource::OnCharAdded (wxStyledTextEvent &event) {
 			wxArrayString res;
 			MakeCompletionFromKeywords(res,p1,str);
 			MakeCompletionFromIdentifiers(res,p1,str);
-			if (res.GetCount()==1 and res[0].Len()==comp_to-comp_from) return; // es molesto cuando sugiere solamente lo que ya está completamente escrito
+			if (res.GetCount()==1 and res[0].Len()==comp_to-comp_from) return; // es molesto cuando sugiere solamente lo que ya estï¿½ completamente escrito
 			if (not res.IsEmpty()) ShowUserList(res,p1,p2);
 		}
 	} else if (chr==';' && GetStyleAt(GetCurrentPos()-2)!=wxSTC_C_STRINGEOL) HideCalltip(false,true);
@@ -936,10 +936,10 @@ void mxSource::MessageReadOnly() {
 	static wxDateTime last_msg=wxDateTime((time_t)0);
 	if (wxDateTime::Now().Subtract(last_msg).GetSeconds()>0) {
 		if (flow_socket) {
-			wxMessageBox(_Z("Cierre la ventana del editor de diagramas de flujo para este algortimo, antes de continuar editando el pseudocódigo."));
+			wxMessageBox(_Z("Cierre la ventana del editor de diagramas de flujo para este algortimo, antes de continuar editando el pseudocï¿½digo."));
 			flow_socket->Write("raise\n",6); 
 		}
-		else if (!is_example) wxMessageBox(_Z("No se puede modificar el pseudocódigo mientras está siendo ejecutado paso a paso."));
+		else if (!is_example) wxMessageBox(_Z("No se puede modificar el pseudocï¿½digo mientras estï¿½ siendo ejecutado paso a paso."));
 		else wxMessageBox(_Z("No se permite modificar los ejemplos, pero puede copiarlo y pegarlo en un nuevo archivo."));
 	}
 	last_msg=wxDateTime::Now();
@@ -960,7 +960,7 @@ void mxSource::SetExample() {
 			int p2=aux.Index('}');
 			if (p2==wxNOT_FOUND) {
 				_LOG("mxSource::SetExample ERROR 1 parsing example: "<<page_text);
-				wxMessageBox(_Z("Ha ocurrido un error al procesar el ejemplo. Puede que el pseudocódigo no sea correcto."));
+				wxMessageBox(_Z("Ha ocurrido un error al procesar el ejemplo. Puede que el pseudocï¿½digo no sea correcto."));
 				break;
 			}
 			if (p1==wxNOT_FOUND||p1>p2) {
@@ -1063,7 +1063,7 @@ bool mxSource::IndentLine(int l, bool goup) {
 		else if (fword=="DE" && we+10<len && line.SubString(ws,we+10).Upper()=="DE OTRO MODO:") cur-=4;
 		else if (fword=="HASTA" && we+4<len && line.SubString(ws,we+4).Upper()=="HASTA QUE ") cur-=4;
 		else if (fword=="MIENTRAS" && we+4<len && line.SubString(ws,we+4).Upper()=="MIENTRAS QUE ") cur-=4;
-		else if (fword=="FINSEGUN"||fword==_Z("FINSEGÚN")) cur-=8;
+		else if (fword=="FINSEGUN"||fword==_Z("FINSEGï¿½N")) cur-=8;
 		else if (fword=="FINMIENTRAS") cur-=4;
 		else if (fword=="FINPARA") cur-=4;
 		else if (fword=="FIN") { 
@@ -1072,11 +1072,11 @@ bool mxSource::IndentLine(int l, bool goup) {
 			we = SkipWord(line,ws,len);
 			fword = line.Mid(ws,we-ws);
 			MakeUpper(fword);
-			if (fword=="SEGUN"||fword==_Z("SEGÚN")) cur-=4;
+			if (fword=="SEGUN"||fword==_Z("SEGï¿½N")) cur-=4;
 		}
 		else if (fword=="FINSI") cur-=4;
 		else if (fword=="FINPROCESO"||fword=="FINALGORITMO") cur=0;
-		else if (fword=="FINSUBPROCESO"||fword=="FINFUNCION"||fword=="FINSUBALGORITMO"||fword==_Z("FINFUNCIÓN")) cur=0;
+		else if (fword=="FINSUBPROCESO"||fword=="FINFUNCION"||fword=="FINSUBALGORITMO"||fword==_Z("FINFUNCIï¿½N")) cur=0;
 		else {
 			ws = we;
 			while (ws<len) {
@@ -1137,15 +1137,15 @@ int mxSource::GetIndentLevel(int l, bool goup, int &e_btype, bool diff_proc_sub_
 						else if (word=="SINO") { cur+=4; e_btype=BT_SINO; }
 						else if (word=="PROCESO") { cur+=4; e_btype=BT_PROCESO; }
 						else if (word=="ALGORITMO") { cur+=4; e_btype=diff_proc_sub_func?BT_ALGORITMO:BT_PROCESO; }
-						else if (word=="FUNCION"||word==_Z("FUNCIÓN")) { cur+=4; e_btype=diff_proc_sub_func?BT_FUNCION:BT_PROCESO; }
+						else if (word=="FUNCION"||word==_Z("FUNCIï¿½N")) { cur+=4; e_btype=diff_proc_sub_func?BT_FUNCION:BT_PROCESO; }
 						else if (word=="SUBPROCESO") { cur+=4; e_btype=diff_proc_sub_func?BT_SUBPROCESO:BT_PROCESO; }
 						else if (word=="SUBALGORITMO") { cur+=4; e_btype=diff_proc_sub_func?BT_SUBALGORITMO:BT_PROCESO; }
 						else if (word=="MIENTRAS" && !(i+4<n && line.SubString(wstart,i+4).Upper()=="MIENTRAS QUE ")) { cur+=4; e_btype=BT_MIENTRAS; }
-						else if (word=="SEGUN"||word==_Z("SEGÚN")) { cur+=8; e_btype=BT_SEGUN; }
+						else if (word=="SEGUN"||word==_Z("SEGï¿½N")) { cur+=8; e_btype=BT_SEGUN; }
 						else if (word=="PARA") { cur+=4; e_btype=BT_PARA;	}
 						else if (word=="REPETIR"||(first_word && word=="HACER")) { cur+=4; e_btype=BT_REPETIR; }
 						else if (word=="FIN") { ignore_next=true; e_btype=BT_NONE; }
-						else if (e_btype!=BT_NONE && (word=="FINSEGUN"||word==_Z("FINSEGÚN")||word=="FINPARA"||word=="FINMIENTRAS"||word=="FINSI"||word=="MIENTRAS"||word=="FINPROCESO"||word=="FINALGORITMO"||word=="FINSUBALGORITMO"||word=="FINSUBPROCESO"||word=="FINFUNCION"||word==_Z("FINFUNCIÓN"))) {
+						else if (e_btype!=BT_NONE && (word=="FINSEGUN"||word==_Z("FINSEGï¿½N")||word=="FINPARA"||word=="FINMIENTRAS"||word=="FINSI"||word=="MIENTRAS"||word=="FINPROCESO"||word=="FINALGORITMO"||word=="FINSUBALGORITMO"||word=="FINSUBPROCESO"||word=="FINFUNCION"||word==_Z("FINFUNCIï¿½N"))) {
 							if (e_btype==BT_SEGUN) cur-=4;
 							e_btype=BT_NONE; cur-=4;
 						}
@@ -1184,7 +1184,7 @@ void mxSource::SetWords() {
 void mxSource::SetCalltips() {
 	calltips_functions.clear(); calltips_instructions.clear();
 	
-	calltips_instructions.push_back(calltip_text(_Z("FUNCIÓN"),     _Z("{variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )\n{nombre} ( {lista de argumentos, separados por coma} )")));
+	calltips_instructions.push_back(calltip_text(_Z("FUNCIï¿½N"),     _Z("{variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )\n{nombre} ( {lista de argumentos, separados por coma} )")));
 	calltips_instructions.push_back(calltip_text(_Z("FUNCION"),     _Z("{variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )\n{nombre} ( {lista de argumentos, separados por coma} )")));
 	calltips_instructions.push_back(calltip_text(_Z("SUBPROCESO"),  _Z("{variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )\n{nombre} ( {lista de argumentos, separados por coma} )")));
 	calltips_instructions.push_back(calltip_text(_Z("SUBALGORITMO"),_Z("{variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )\n{nombre} ( {lista de argumentos, separados por coma} )")));
@@ -1196,50 +1196,50 @@ void mxSource::SetCalltips() {
 		calltips_instructions.push_back(calltip_text(_Z("MOSTRAR"), _Z("{una o mas expresiones, separadas por comas}")));
 		calltips_instructions.push_back(calltip_text(_Z("IMPRIMIR"),_Z("{una o mas expresiones, separadas por comas}")));
 	}
-	calltips_instructions.push_back(calltip_text(_Z("MIENTRAS"),_Z("{condición, expresion lógica}")));
-	calltips_instructions.push_back(calltip_text(_Z("QUE"),_Z("{condición, expresion lógica}")));
-	calltips_instructions.push_back(calltip_text(_Z("PARA"),_Z("{asignación inicial: variable <- valor}")));
+	calltips_instructions.push_back(calltip_text(_Z("MIENTRAS"),_Z("{condiciï¿½n, expresion lï¿½gica}")));
+	calltips_instructions.push_back(calltip_text(_Z("QUE"),_Z("{condiciï¿½n, expresion lï¿½gica}")));
+	calltips_instructions.push_back(calltip_text(_Z("PARA"),_Z("{asignaciï¿½n inicial: variable <- valor}")));
 	calltips_instructions.push_back(calltip_text(_Z("DESDE"),_Z("{valor inicial}")));
 	calltips_instructions.push_back(calltip_text(_Z("HASTA"),_Z("{valor final}"),true));
 	calltips_instructions.push_back(calltip_text(_Z("PASO"),_Z("{valor del paso}")));
-	calltips_instructions.push_back(calltip_text(_Z("SI"),_Z("{condicion, expresión lógica}")));
+	calltips_instructions.push_back(calltip_text(_Z("SI"),_Z("{condicion, expresiï¿½n lï¿½gica}")));
 	calltips_instructions.push_back(calltip_text(_Z("ENTONCES"),_Z("{acciones por verdadero}")));
 	calltips_instructions.push_back(calltip_text(_Z("SINO"),_Z("{acciones por falso}")));
-	calltips_instructions.push_back(calltip_text(_Z("SEGUN"),_Z(cfg_lang[LS_INTEGER_ONLY_SWITCH]?"{variable o expresión numérica entera}":"{variable o expresión de control}")));
-	calltips_instructions.push_back(calltip_text(_Z("SEGÚN"),_Z(cfg_lang[LS_INTEGER_ONLY_SWITCH]?"{variable o expresión numérica entera}":"{variable o expresión de control}")));
+	calltips_instructions.push_back(calltip_text(_Z("SEGUN"),_Z(cfg_lang[LS_INTEGER_ONLY_SWITCH]?"{variable o expresiï¿½n numï¿½rica entera}":"{variable o expresiï¿½n de control}")));
+	calltips_instructions.push_back(calltip_text(_Z("SEGï¿½N"),_Z(cfg_lang[LS_INTEGER_ONLY_SWITCH]?"{variable o expresiï¿½n numï¿½rica entera}":"{variable o expresiï¿½n de control}")));
 	if (cfg_lang[LS_LAZY_SYNTAX]) {
-		calltips_instructions.push_back(calltip_text(_Z("OPCION"),_Z("{posible valor para la expresión de control}")));
-		calltips_instructions.push_back(calltip_text(_Z("OPCIÓN"),_Z("{posible valor para la expresión de control}")));
-		calltips_instructions.push_back(calltip_text(_Z("SIES"),  _Z("{posible valor para la expresión de control}")));
-		calltips_instructions.push_back(calltip_text(_Z("CASO"),  _Z("{posible valor para la expresión de control}")));
+		calltips_instructions.push_back(calltip_text(_Z("OPCION"),_Z("{posible valor para la expresiï¿½n de control}")));
+		calltips_instructions.push_back(calltip_text(_Z("OPCIï¿½N"),_Z("{posible valor para la expresiï¿½n de control}")));
+		calltips_instructions.push_back(calltip_text(_Z("SIES"),  _Z("{posible valor para la expresiï¿½n de control}")));
+		calltips_instructions.push_back(calltip_text(_Z("CASO"),  _Z("{posible valor para la expresiï¿½n de control}")));
 	}
 	
-	calltips_functions.push_back(calltip_text(_Z("ALEATORIO"),_Z("{valor mínimo}, {valor máximo}")));
-	calltips_functions.push_back(calltip_text(_Z("AZAR"),_Z("{expresión numérica entera positiva (máximo valor posible +1)}")));
-	calltips_functions.push_back(calltip_text(_Z("TRUNC"),_Z("{expresión numérica}")));
-	calltips_functions.push_back(calltip_text(_Z("REDON"),_Z("{expresión numérica}")));
-	calltips_functions.push_back(calltip_text(_Z("RC"),_Z("{expresión numérica no negativa}")));
-	calltips_functions.push_back(calltip_text(_Z("RAIZ"),_Z("{expresión numérica no negativa}")));
-	calltips_functions.push_back(calltip_text(_Z("ABS"),_Z("{expresión numérica}")));
-	calltips_functions.push_back(calltip_text(_Z("EXP"),_Z("{expresión numérica}")));
-	calltips_functions.push_back(calltip_text(_Z("LN"),_Z("{expresión numérica positiva}")));
-	calltips_functions.push_back(calltip_text(_Z("COS"),_Z("{ángulo en radianes}")));
-	calltips_functions.push_back(calltip_text(_Z("SIN"),_Z("{ángulo en radianes}")));
-	calltips_functions.push_back(calltip_text(_Z("TAN"),_Z("{ángulo en radianes}")));
-	calltips_functions.push_back(calltip_text(_Z("ACOS"),_Z("{expresión numérica (en el intervalo [-1;+1])}")));
-	calltips_functions.push_back(calltip_text(_Z("ASIN"),_Z("{expresión numérica (en el intervalo [-1;+1])}")));
-	calltips_functions.push_back(calltip_text(_Z("ATAN"),_Z("{expresión numérica}")));
+	calltips_functions.push_back(calltip_text(_Z("ALEATORIO"),_Z("{valor mï¿½nimo}, {valor mï¿½ximo}")));
+	calltips_functions.push_back(calltip_text(_Z("AZAR"),_Z("{expresiï¿½n numï¿½rica entera positiva (mï¿½ximo valor posible +1)}")));
+	calltips_functions.push_back(calltip_text(_Z("TRUNC"),_Z("{expresiï¿½n numï¿½rica}")));
+	calltips_functions.push_back(calltip_text(_Z("REDON"),_Z("{expresiï¿½n numï¿½rica}")));
+	calltips_functions.push_back(calltip_text(_Z("RC"),_Z("{expresiï¿½n numï¿½rica no negativa}")));
+	calltips_functions.push_back(calltip_text(_Z("RAIZ"),_Z("{expresiï¿½n numï¿½rica no negativa}")));
+	calltips_functions.push_back(calltip_text(_Z("ABS"),_Z("{expresiï¿½n numï¿½rica}")));
+	calltips_functions.push_back(calltip_text(_Z("EXP"),_Z("{expresiï¿½n numï¿½rica}")));
+	calltips_functions.push_back(calltip_text(_Z("LN"),_Z("{expresiï¿½n numï¿½rica positiva}")));
+	calltips_functions.push_back(calltip_text(_Z("COS"),_Z("{ï¿½ngulo en radianes}")));
+	calltips_functions.push_back(calltip_text(_Z("SIN"),_Z("{ï¿½ngulo en radianes}")));
+	calltips_functions.push_back(calltip_text(_Z("TAN"),_Z("{ï¿½ngulo en radianes}")));
+	calltips_functions.push_back(calltip_text(_Z("ACOS"),_Z("{expresiï¿½n numï¿½rica (en el intervalo [-1;+1])}")));
+	calltips_functions.push_back(calltip_text(_Z("ASIN"),_Z("{expresiï¿½n numï¿½rica (en el intervalo [-1;+1])}")));
+	calltips_functions.push_back(calltip_text(_Z("ATAN"),_Z("{expresiï¿½n numï¿½rica}")));
 	if (cfg_lang[LS_ENABLE_STRING_FUNCTIONS]) {
-		calltips_functions.push_back(calltip_text(_Z("CONVERTIRANÚMERO"),_Z("{cadena}")));
+		calltips_functions.push_back(calltip_text(_Z("CONVERTIRANï¿½MERO"),_Z("{cadena}")));
 		calltips_functions.push_back(calltip_text(_Z("CONVERTIRANUMERO"),_Z("{cadena}")));
 		calltips_functions.push_back(calltip_text(_Z("MAYUSCULAS"),_Z("{cadena}")));
-		calltips_functions.push_back(calltip_text(_Z("MAYÚSCULAS"),_Z("{cadena}")));
+		calltips_functions.push_back(calltip_text(_Z("MAYï¿½SCULAS"),_Z("{cadena}")));
 		calltips_functions.push_back(calltip_text(_Z("MINUSCULAS"),_Z("{cadena}")));
-		calltips_functions.push_back(calltip_text(_Z("MINÚSCULAS"),_Z("{cadena}")));
+		calltips_functions.push_back(calltip_text(_Z("MINï¿½SCULAS"),_Z("{cadena}")));
 		calltips_functions.push_back(calltip_text(_Z("CONCATENAR"),_Z("{dos cadenas}")));
 		calltips_functions.push_back(calltip_text(_Z("LONGITUD"),_Z("{cadena}")));
-		calltips_functions.push_back(calltip_text(_Z("SUBCADENA"),_Z("{cadena}, {posición desde}, {posición hasta}")));
-		calltips_functions.push_back(calltip_text(_Z("CONVERTIRATEXTO"),_Z("{expresión numérica}")));
+		calltips_functions.push_back(calltip_text(_Z("SUBCADENA"),_Z("{cadena}, {posiciï¿½n desde}, {posiciï¿½n hasta}")));
+		calltips_functions.push_back(calltip_text(_Z("CONVERTIRATEXTO"),_Z("{expresiï¿½n numï¿½rica}")));
 	}
 }
 
@@ -1395,7 +1395,7 @@ void mxSource::ReloadFromTempPSD (bool check_syntax) {
 	if (isro) SetReadOnly(false);
 	SetStatus(STATUS_FLOW); // antes de LoadFile
 	LoadFile(file);
-	// convertir en campos lo que esté incompleto
+	// convertir en campos lo que estï¿½ incompleto
 	for (int i=0;i<GetLineCount();i++) {
 		wxString line=GetLine(i); 
 		int l=line.Len(), j0, l0=PositionFromLine(i);
@@ -1423,7 +1423,7 @@ void mxSource::ReloadFromTempPSD (bool check_syntax) {
 		Analyze(i);
 	}
 	
-	// reestablecer la posición del cursor en el nuevo código
+	// reestablecer la posiciï¿½n del cursor en el nuevo cï¿½digo
 	int lc=GetLineCount(); if (cl>=lc) cl=lc-1;
 	int pl=PositionFromLine(cl);
 	int le=GetLineEndPosition(cl)-pl; if (cp>=le) cp=le-1;
@@ -1581,9 +1581,9 @@ void mxSource::MarkError(wxString line) {
 }
 
 /**
-* @param l número de linea del error
-* @param i número instrucción dentro de esa linea del error
-* @param n número de error (para obtener su descripción)
+* @param l nï¿½mero de linea del error
+* @param i nï¿½mero instrucciï¿½n dentro de esa linea del error
+* @param n nï¿½mero de error (para obtener su descripciï¿½n)
 * @param str texto del mensaje corto de error
 * @param specil indica que va de otro color (se usa para los "falta cerrar....")
 **/
@@ -1604,7 +1604,7 @@ void mxSource::MarkError(int l, int i, int n, wxString str, bool special) {
 		flow_socket->Write(msg.c_str(),msg.Len());
 	}
 	
-	// marcarlo en el pseudocódigo subrayando la instrucción y poniendo la cruz en el margen
+	// marcarlo en el pseudocï¿½digo subrayando la instrucciï¿½n y poniendo la cruz en el margen
 	if (int(v.size())<=2*i+1) return;
 	if (!(MarkerGet(l)&(1<<MARKER_ERROR_LINE))) MarkerAdd(l,MARKER_ERROR_LINE);
 	// agregar el error como anotacion y subrayar la instruccion
@@ -1680,7 +1680,7 @@ void mxSource::ShowCalltip (int pos, const wxString & l, bool is_error) {
 		current_calltip.is_error=is_error;
 		CallTipShow(pos,l);
 	}
-	// si era un error y está el panel de ayuda rápida muestra también la descripción larga
+	// si era un error y estï¿½ el panel de ayuda rï¿½pida muestra tambiï¿½n la descripciï¿½n larga
 	if (!is_error || !main_window->QuickHelp().IsVisible()) return;
 	int il=LineFromPosition(pos);
 	if (il<0||il>int(rt_errors.size())) return;
@@ -1908,7 +1908,7 @@ wxString mxSource::SaveTemp() {
 }
 
 /**
-* @param ignore_rt  Cuando el usuario incia la ejecución desde el diagrama de flujo los datos errores en tiempo real estan desactualizados (el código acaba de recibirse desde psdraw3).
+* @param ignore_rt  Cuando el usuario incia la ejecuciï¿½n desde el diagrama de flujo los datos errores en tiempo real estan desactualizados (el cï¿½digo acaba de recibirse desde psdraw3).
 **/
 bool mxSource::UpdateRunningTerminal (bool raise, bool ignore_rt) {
 	if (!run_socket) return false;
@@ -2076,7 +2076,7 @@ void mxSource::OnMouseWheel (wxMouseEvent & event) {
 
 void mxSource::OnPopupMenu(wxMouseEvent &evt) {
 	
-	// mover el cursor a la posición del click (a menos que haya una selección y se clickeó dentro)
+	// mover el cursor a la posiciï¿½n del click (a menos que haya una selecciï¿½n y se clickeï¿½ dentro)
 	int p1=GetSelectionStart();
 	int p2=GetSelectionEnd();
 	int mp = PositionFromPointClose(evt.GetX(),evt.GetY());
@@ -2143,7 +2143,7 @@ bool mxSource::IsDimOrDef(int line) {
 	wxString fword = GetFirstWord(GetLine(line));
 	if (fword=="DEFINIR ") return true;
 	if (fword=="DIMENSION ") return true;
-	if (fword=="DIMENSIÓN ") return true;
+	if (fword=="DIMENSIï¿½N ") return true;
 	return false;
 }
 
@@ -2154,12 +2154,12 @@ bool mxSource::IsProcOrSub(int line) {
 	if (cfg_lang[LS_ENABLE_USER_FUNCTIONS]) {
 		if (fword=="SUBPROCESO") return true;
 		if (fword=="FUNCION") return true;
-		if (fword=="FUNCIÓN") return true;
+		if (fword=="FUNCIï¿½N") return true;
 		if (fword=="SUBALGORITMO") return true;
 //		while (i<l) {
 //			if (i+12<l && s.Mid(i,12).Upper()==" SUBPROCESO ") return true;
 //			if (i+9<l && s.Mid(i,9).Upper()==" FUNCION ") return true;
-//			if (i+9<l && s.Mid(i,9).Upper()==" FUNCIÓN ") return true;
+//			if (i+9<l && s.Mid(i,9).Upper()==" FUNCIï¿½N ") return true;
 //			if (i+9<l && s.Mid(i,14).Upper()==" SUBALGORITMO ") return true;
 //			i++;
 //		}
@@ -2168,9 +2168,9 @@ bool mxSource::IsProcOrSub(int line) {
 }
 
 /**
-* @brief Agrega una instrucción a un proceso para definir explícitamente una variable
+* @brief Agrega una instrucciï¿½n a un proceso para definir explï¿½citamente una variable
 *
-* @param where    linea donde comienza el proceso (la de Proceso...., después de esta agregará la definición)
+* @param where    linea donde comienza el proceso (la de Proceso...., despuï¿½s de esta agregarï¿½ la definiciï¿½n)
 * @param var_name nombre de la variable a definir
 * @param type     tipo de la variable, si es -1 lo consulta en el panel de variables
 **/
@@ -2200,8 +2200,8 @@ void mxSource::DefineVar(int where, wxString var_name, int line_from, int type) 
 	else { // si el tipo es ambiguo o desconocido, preguntar
 		wxArrayString types, real_types;
 		if (type==0 || (type&LV_LOGICA)) { types.Add("Logica"); real_types.Add("Logica"); }
-		if (type==0 || (type&LV_NUMERICA)) { types.Add("Numérica (real)"); real_types.Add("Numerica"); }
-		if (type==0 || (type&LV_NUMERICA)) { types.Add("Numérica Entera"); real_types.Add("Entera"); }
+		if (type==0 || (type&LV_NUMERICA)) { types.Add("Numï¿½rica (real)"); real_types.Add("Numerica"); }
+		if (type==0 || (type&LV_NUMERICA)) { types.Add("Numï¿½rica Entera"); real_types.Add("Entera"); }
 		if (type==0 || (type&LV_CARACTER)) { types.Add("Caracter/Cadena"); real_types.Add("Caracter"); }
 		var_type=wxGetSingleChoice("Tipo de variable:",var_name,types);
 		if (!var_type.Len()) return;
@@ -2336,7 +2336,9 @@ static void FixExtraUnicode_impl(wxString &s, int i0, int iN) {
 		int iM = (i0+iN)/2;
 		FixExtraUnicode_impl(s,i0,iM);
 		FixExtraUnicode_impl(s,iM,iN); 
-			}}
+		
+	}
+}
 
 void mxSource::FixExtraUnicode(wxString &s) {
 	return FixExtraUnicode_impl(s,0,s.Len());
@@ -2390,7 +2392,7 @@ void mxSource::ShowUserList (wxArrayString &arr, int p1, int p2) {
 * del stc cuando se llama desde el evento de udateui. A cambio, para que igual sea
 * instantaneo se llama desde el evento painted, y para evitar que reentre mil veces
 * se guardan las ultimas posiciones y no se vuelve a llamar si son las mismas.
-* El problema es que está recalculando el BraceMatch en cada paint.
+* El problema es que estï¿½ recalculando el BraceMatch en cada paint.
 **/
 void mxSource::MyBraceHighLight (int b1, int b2) {
 	if (b1==brace_1&&b2==brace_2) return;
@@ -2430,8 +2432,8 @@ const std::vector<int> &mxSource::MapCharactersToPositions(int line, const wxStr
 	static std::vector<int> vpos; 
 	if (line!=-1) {
 		// el wxStyledTextCtrl mide las posiciones en bytes, pero el wxString en 
-		// caracteres... y en utf hay caracteres multibyte... no encontré mejor
-		// forma de mapear, ya que no hay método que retorne el verdadero offset
+		// caracteres... y en utf hay caracteres multibyte... no encontrï¿½ mejor
+		// forma de mapear, ya que no hay mï¿½todo que retorne el verdadero offset
 		// en wxUniCharRef (es el atrib m_pos, es privado) ni un puntero como para restar
 		int pbeg = wxStyledTextCtrl::PositionFromLine(line);
 		int pend = wxStyledTextCtrl::GetLineEndPosition(line);
@@ -2504,7 +2506,8 @@ void mxSource::StyleLine(int line) {
 				else if (c==':' || c==';') word_count = 0;
 				while (p<pN and not (EsLetra(c,false) or EsNumero(c,true) or EsEspacio(c) or EsComilla(c) )) {
 					if (c=='/' and prev_c=='/') { --p; break; } // comentario
-					if (nesting==0 and word_count<=1 and (c==']' or c==')')) { ++p; break; } // asignación en arreglos					prev_c = c; c = text[++p];
+					if (nesting==0 and word_count<=1 and (c==']' or c==')')) { ++p; break; } // asignaciï¿½n en arreglos
+					prev_c = c; c = text[++p];
 					if (c=='(' or c=='[') ++nesting; 
 					else if (c==']' or c==')') --nesting;
 				}
@@ -2600,7 +2603,8 @@ void mxSource::ToUnicodeOpers (int line) {
 			} else
 				torep.push(std::make_tuple(vpos[i],vpos[i+1],UOP_AND));
 		}
-		else if (c=='|' and GetStyleAt(vpos[i])==wxSTC_C_OPERATOR) {			if (text[i+1]=='|') {
+		else if (c=='|' and GetStyleAt(vpos[i])==wxSTC_C_OPERATOR) {
+			if (text[i+1]=='|') {
 				torep.push(std::make_tuple(vpos[i],vpos[i+2],UOP_OR)); ++i;
 			} else
 				torep.push(std::make_tuple(vpos[i],vpos[i+1],UOP_OR));
@@ -2659,7 +2663,7 @@ void mxSource::Analyze ( ) {
 
 void mxSource::OnZoomChange (wxStyledTextEvent & evt) {
 	evt.Skip();
-	SetMarginWidth (0, TextWidth (wxSTC_STYLE_LINENUMBER," XXX")); // este sí despues del estilo, para que use la fuente adecuada para calcular
+	SetMarginWidth (0, TextWidth (wxSTC_STYLE_LINENUMBER," XXX")); // este sï¿½ despues del estilo, para que use la fuente adecuada para calcular
 }
 
 wxString mxSource::GetFileName (bool sugest) const {

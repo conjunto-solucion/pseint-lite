@@ -33,7 +33,7 @@ void GlobalInitPre( ) {
 
 void GlobalInitPost() {
 	g_view.win_h = g_config.big_icons ? 800 : 600;
-	g_view.win_w = g_config.big_icons ? 1200 : 800; // tamaño de la ventana
+	g_view.win_w = g_config.big_icons ? 1200 : 800; // tamaï¿½o de la ventana
 	g_constants.imgs_path = g_config.big_icons ? "imgs/flow/32/" : "imgs/flow/24/";
 }
 
@@ -99,7 +99,7 @@ void SetColors( ) {
 	SetColor(g_colors.ghost, "#B2B2B2");
 	SetColor(g_colors.error,"#B20000");
 	
-	SetColor(g_colors.back, g_config.shape_colors ? (g_config.dark_theme ? "#333333" : "#F7FFF7") : "#FFFFFF");
+	SetColor(g_colors.back, g_config.shape_colors ? (g_config.dark_theme ? "#111111" : "#F7FFF7") : "#FFFFFF");
 	
 	for(int i=0;i<ET_COUNT;i++)
 		SetColor(g_colors.shape[i], "#FFF2CC");

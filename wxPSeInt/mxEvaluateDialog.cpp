@@ -21,7 +21,7 @@ mxEvaluateDialog::mxEvaluateDialog(wxWindow *parent) : wxDialog(parent,wxID_ANY,
 	wxBoxSizer *comboSizer= new wxBoxSizer(wxHORIZONTAL);
 	wxBoxSizer *bottomSizer = new wxBoxSizer(wxHORIZONTAL);
 	
-	mySizer->Add(new wxStaticText(this, wxID_ANY, "Introduzca una expresión y presione Enter:", wxDefaultPosition, wxDefaultSize, 0), wxSizerFlags().Border(wxTOP|wxLEFT|wxRIGHT,5));
+	mySizer->Add(new wxStaticText(this, wxID_ANY, "Introduzca una expresiï¿½n y presione Enter:", wxDefaultPosition, wxDefaultSize, 0), wxSizerFlags().Border(wxTOP|wxLEFT|wxRIGHT,5));
 	
 	combo = new wxComboBox(this, wxID_ANY);
 	comboSizer->Add(combo, wxSizerFlags()/*.Border(wxALL,5)*/.Proportion(1).Expand());
@@ -61,7 +61,7 @@ void mxEvaluateDialog::OnEvaluateButton(wxCommandEvent &evt) {
 
 void mxEvaluateDialog::Evaluate() {
 	if (!debug->debugging || !debug->paused) {
-		result->SetValue("<<La ejecución paso a paso debe estar iniciada y pausada para poder evaluar expresiones>>");
+		result->SetValue("<<La ejecuciÃ³n paso a paso debe estar iniciada y pausada para poder evaluar expresiones>>");
 	} else if (combo->GetValue().Len()) {
 //		result->SetValue("<<evaluando...>>");
 		act_expression=combo->GetValue();
@@ -72,7 +72,7 @@ void mxEvaluateDialog::Evaluate() {
 		combo->SetSelection(0,act_expression.Len());
 		last_expression=act_expression;
 	} else
-		result->SetValue("<<Debe ingresar una expresión>>");
+		result->SetValue("<<Debe ingresar una expresiÃ³n>>");
 }
 
 void mxEvaluateDialog::OnCloseButton(wxCommandEvent &evt) {
@@ -108,12 +108,12 @@ void mxEvaluateDialog::EvaluateExpression (wxString exp) {
 
 wxString mxEvaluateDialog::Char2Tipo (char c) {
 	switch (c) {
-	case '1': return "Lógico";
-	case '2': return "Numérico";
-	case '3': return "Lógico o Numérico";
+	case '1': return "Lï¿½gico";
+	case '2': return "Numï¿½rico";
+	case '3': return "Lï¿½gico o Numï¿½rico";
 	case '4': return "Caracter";
-	case '5': return "Lógico o Caracter";
-	case '6': return "Numérico o Caracter";
+	case '5': return "Lï¿½gico o Caracter";
+	case '6': return "Numï¿½rico o Caracter";
 	default:  return "Indefinido";
 	}
 }

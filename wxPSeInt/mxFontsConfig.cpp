@@ -29,7 +29,7 @@ mxFontsConfig::mxFontsConfig()
 	m_wx_sample = new wxStyledTextCtrl(this,wxID_ANY,wxDefaultPosition,wxDefaultSize,0);
 	m_wx_sample->SetText("Ejemplo");
 	
-	wxStaticText *print_label = new wxStaticText(this,wxID_ANY,_Z("Tamaño de fuente para imprimir:"));
+	wxStaticText *print_label = new wxStaticText(this,wxID_ANY,_Z("Tamaï¿½o de fuente para imprimir:"));
 	m_print_font_size = new wxTextCtrl(this,wxID_ANY,wxString()<<config->print_font_size,wxDefaultPosition,wxDefaultSize);
 	
 	wxStaticText *term_label = new wxStaticText(this,wxID_ANY,_Z("Fuente de la terminal:"));

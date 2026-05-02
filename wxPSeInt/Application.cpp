@@ -19,7 +19,6 @@
 #include "mxIconInstaller.h"
 #include "CommunicationsManager.h"
 #include "error_recovery.h"
-#include "mxWelcome.h"
 #include "mxStatusBar.h"
 #include "osdep.h"
 #include "mxSplashScreen.h"
@@ -137,7 +136,6 @@ bool mxApplication::OnInit() {
 	
 	if (!config->version) {
 		_LOG("mxApplication::OnInit NO_PROFILE");
-		mxWelcome(main_window).ShowModal();
 		main_window->NewProgram();
 		main_window->ProfileChanged();
 	}

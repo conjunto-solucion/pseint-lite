@@ -90,7 +90,7 @@ void MainWindow::ToggleFullScreen ( ) {
 }
 
 void MainWindow::AskForExit ( ) {
-	int ans=wxMessageBox(_Z("Hay cambios sin aplicar al pseudocódigo.\n¿Aplicar los cambios antes de cerrar el editor?"),g_main_window->GetTitle(),wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
+	int ans=wxMessageBox(_Z("Hay cambios sin aplicar al pseudocÃ³digo.\nÂ¿Aplicar los cambios antes de cerrar el editor?"),g_main_window->GetTitle(),wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
 	if (ans==wxYES) {
 		Save(); SendUpdate(MO_SAVE); Salir(true);
 	} else if (ans==wxNO) {

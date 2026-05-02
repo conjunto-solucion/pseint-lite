@@ -1,14 +1,14 @@
 # descripcion del perfil
 
 # puede utilizar varias lineas desc=...... para escribir una descripcion del perfil para mostrar en el cuadro de configuracion
-desc=Este perfil configura el pseudolenguaje de la forma más flexible y permisiva posible. Si no sabe qué perfil seleccionar puede comenzar con este.
+desc=Este perfil configura el pseudolenguaje de la forma mÃ¡s flexible y permisiva posible. Si no sabe quÃ© perfil seleccionar puede comenzar con este.
 
-# Version del intérprete que generó esta configuración
+# Version del intï¿½rprete que generï¿½ esta configuraciï¿½n
 version=20160321
 
 # configuracion de perfil, para los siguientes valores se acepta 1 como verdadero, 0 como falso
 
-# permitir dimensionar arreglos con variables en lugar de constantes para los tamaños (ej: dimension a[N])
+# permitir dimensionar arreglos con variables en lugar de constantes para los tamaï¿½os (ej: dimension a[N])
 allow_dinamyc_dimensions=1
 
 # permitir concatenar variables o constantes de tipo caracter con mas (ej: frase <- "Hola " + "Mundo")
@@ -29,7 +29,7 @@ lazy_syntax=1
 # indexar arreglos en base 0 (en lugar de base 1 que es el valor por defecto)
 base_zero_arrays=0
 
-# permitir asignar con = (además de <- y :=)
+# permitir asignar con = (ademï¿½s de <- y :=)
 overload_equal=1
 
 # permitir condiciones como "A ES IGUAL A B", "X ES MULTIPLO DE 5", "Z ES IMPAR", etc
@@ -47,11 +47,11 @@ enable_string_functions=1
 # permitir definir nuevas funciones en el algoritmo con las palabras claves funcion o subproceso
 enable_user_functions=1
 
-# habilitar el uso de acentos y eñes en nombres de variables y funciones
+# habilitar el uso de acentos y eï¿½es en nombres de variables y funciones
 allow_accents=1
 
 # preferir "algoritmo" antes que "subproceso"
-	=1
+# =1
 
 # preferir "funcion" antes que "subproceso" o "algoritmo"
 prefer_funcion=1

@@ -20,12 +20,13 @@
 /bin/psterm.exe
 /bin/wxPSeInt.exe
 
-# instalador para Windows
-# este directorio es una copia de /bin con los archivos para Windows
+# instalador
 /dist/*.exe
 /dist/pseint
 /dist/*.zip
 
 # miscelánea
 /temp
+/bin/temp
+/bin/*.psd
 .vscode
