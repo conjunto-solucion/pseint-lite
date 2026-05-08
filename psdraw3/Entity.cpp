@@ -465,8 +465,8 @@ void Entity::DrawText() {
 //	glColor3fv(edit==this?color_selection:(type==ET_PROCESO?color_arrow:(type==ET_COMENTARIO?color_comment:color_label)));
 
 	if (type==ET_PARA && !label_was_modified) {
-		int for_initial_value = std::stoi(GetChild(1)->label);
-		int for_final_value = std::stoi(GetChild(3)->label);
+		float for_initial_value = std::stof(GetChild(1)->label);
+		float for_final_value = std::stof(GetChild(3)->label);
 		char for_comparison_symbol;
 		if (for_initial_value==for_final_value) for_comparison_symbol = '=';
 		if (for_initial_value<for_final_value) for_comparison_symbol = '>';
