@@ -13,8 +13,8 @@ using namespace std;
 
 // ********************* Ejecutar un Bloque de Instrucciones **************************
 // Ejecuta desde linestart+1 hasta lineend inclusive, o hasta finproceso/finsubproceso si lineend es -1.
-// Las variables aux?, tmp? y tipo quedaron del código viejo, se reutilizan para diferentes
-// cosas, por lo que habría que analizarlas y cambiarlas por varias otras variables con scope y 
+// Las variables aux?, tmp? y tipo quedaron del cï¿½digo viejo, se reutilizan para diferentes
+// cosas, por lo que habrï¿½a que analizarlas y cambiarlas por varias otras variables con scope y 
 // nombres mas claros... por ahora cambie las obvias y reduje el scope de las que quedaron, pero falta...
 void Ejecutar(int LineStart, int LineEnd) {
 	// variables auxiliares
@@ -86,7 +86,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 					
 					if (colored_output) setForeColor(COLOR_OUTPUT);
 					if (with_io_references) Inter.SendIOPositionToTerminal(arg_num);
-					_sub(line,string("Se evalúa la expresion: ")+aux1);
+					_sub(line,string("Se evalï¿½a la expresion: ")+aux1);
 					DataValue res = Evaluar(aux1);
 					if (res.IsOk()) {
 						string ans = res.GetForUser(); fixwincharset(ans);
@@ -147,7 +147,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 						aux1=getLine();  
 						if (for_eval) {
 							if (aux1=="<{[END_OF_INPUT]}>") {
-								cout << "<<No hay más datos de entrada>>" << endl; exit(0);
+								cout << "<<No hay mï¿½s datos de entrada>>" << endl; exit(0);
 							}
 							cout<<aux1<<endl; // la entrada en psEval es un stream separado de la salida, entonces la reproducimos alli para que la salida contenga todo el "dialogo"
 						}
@@ -200,7 +200,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 					}
 					int *dim = new int[cant_dims+1]; dim[0]=cant_dims; // arreglo para las dimensiones
 					int last=0, num_idx=0; anid_parent = 0;
-					if (lang[LS_ALLOW_DINAMYC_DIMENSIONS]) { _sub(line,string("Se evalúan las expresiones para cada dimensión del arreglo ")+name); }
+					if (lang[LS_ALLOW_DINAMYC_DIMENSIONS]) { _sub(line,string("Se evalï¿½an las expresiones para cada dimensiï¿½n del arreglo ")+name); }
 					for(size_t i=0;i<aux2.size();i++) {
 						while (i<aux2.size() && !(anid_parent==0 && aux2[i]==',')) {
 							if (aux2[i]=='(') anid_parent++;
@@ -253,14 +253,14 @@ void Ejecutar(int LineStart, int LineEnd) {
 					memoria->DefinirTipo(aux2,tipo,rounded);
 					if (tipo==vt_numerica) {
 						if (rounded) {
-							_sub(line,string("Se define el tipo de la variable \"")+aux2+"\" como Numérico(Entero).");
+							_sub(line,string("Se define el tipo de la variable \"")+aux2+"\" como Numï¿½rico(Entero).");
 						} else {
-							_sub(line,string("Se define el tipo de la variable \"")+aux2+"\" como Numérico(Real).");
+							_sub(line,string("Se define el tipo de la variable \"")+aux2+"\" como Numï¿½rico(Real).");
 						}
 					} else if (tipo==vt_caracter) {
 						_sub(line,string("Se define el tipo de la variable \"")+aux2+"\" como Caracter/Cadena de Caracteres.");
 					} else if (tipo==vt_logica) {
-						_sub(line,string("Se define el tipo de la variable \"")+aux2+"\" como Lógico.");
+						_sub(line,string("Se define el tipo de la variable \"")+aux2+"\" como Lï¿½gico.");
 					} 
 				}
 			} else
@@ -272,9 +272,9 @@ void Ejecutar(int LineStart, int LineEnd) {
 				else if (RightCompare(aux2," SEGUNDOS;")) { factor=1000; aux2.erase(aux2.size()-10); }
 				if (RightCompare(aux2," MILISEGUNDO;")) { factor=1; aux2.erase(aux2.size()-13); }
 				else if (RightCompare(aux2," MILISEGUNDOS;")) { factor=1; aux2.erase(aux2.size()-14); }
-				_sub(line,string("Se evalúa la cantidad de tiempo: ")+aux2);
+				_sub(line,string("Se evalï¿½a la cantidad de tiempo: ")+aux2);
 				DataValue time = Evaluar(aux2);
-				if (!time.CanBeReal()) ExeError(219,string("La longitud del intervalo debe ser numérica."));
+				if (!time.CanBeReal()) ExeError(219,string("La longitud del intervalo debe ser numï¿½rica."));
 				else {
 					_sub(line,string("Se esperan ")+time.GetForUser()+(factor==1?" milisengudos":" segundos"));
 					if (for_test) cout<<"***Esperar"<<time.GetAsInt()*factor<<"***"<<endl;
@@ -300,7 +300,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 					ExeError(201,"La variable ("+aux1.substr(0,aux1.find("(",0))+") no es un arreglo.");
 				}
 				// evaluar expresion
-				_sub(line,string("Se evalúa la expresion a asignar: ")+aux2);
+				_sub(line,string("Se evalï¿½a la expresion a asignar: ")+aux2);
 				DataValue result = Evaluar(aux2);
 				// comprobar tipos
 				tipo_var tipo_aux1 = memoria->LeerTipo(aux1);
@@ -316,7 +316,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 				result.type.rounded=false; // no forzar a entera la variable en la que se asigna
 				memoria->DefinirTipo(aux1,result.type);
 				memoria->EscribirValor(aux1,result);
-			} // ya deberíamos haber cubierto todas las opciones
+			} // ya deberï¿½amos haber cubierto todas las opciones
 			else {
 				ExeError(0,"Ha ocurrido un error interno en PSeInt.");
 			}
@@ -325,7 +325,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 			if (instruction_type==IT_SI) {
 				cadena.erase(0,3);
 				_pos(line);
-				_sub(line,string("Se evalúa la condición para Si-Entonces: ")+cadena);
+				_sub(line,string("Se evalÃºa la condiciÃ³n para Si-Entonces: ")+cadena);
 				tipo_var tipo;
 				bool condition_is_true = Evaluar(cadena,vt_logica).GetAsBool();
 				if (tipo!=vt_error) {
@@ -366,7 +366,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 				cadena.erase(0,9);
 				cadena.erase(cadena.size()-6,6);
 				_pos(line);
-				_sub(line,string("Se evalúa la condición para Mientras: ")+cadena);
+				_sub(line,string("Se evalÃºa la condiciÃ³n para Mientras: ")+cadena);
 				tipo_var tipo;
 				bool condition_is_true = Evaluar(cadena,vt_logica).GetAsBool();
 				if (tipo!=vt_error) {
@@ -378,15 +378,15 @@ void Ejecutar(int LineStart, int LineEnd) {
 						line_finmientras++;
 					}
 					while (condition_is_true) {
-						_sub(line,"La condición es Verdadera, se iniciará una iteración.");
+						_sub(line,"La condiciÃ³n es Verdadera, se iniciarÃ¡ una iteraciÃ³n.");
 						Ejecutar(line+1,line_finmientras-1);
 						_pos(line);
-						_sub(line,string("Se evalúa nuevamente la condición: ")+cadena);
+						_sub(line,string("Se evalÃºa nuevamente la condiciÃ³n: ")+cadena);
 						condition_is_true = Evaluar(cadena,vt_logica).GetAsBool();
 					}
 					line=line_finmientras;
 					_pos(line);
-					_sub(line,"La condición es Falsa, se sale de la estructura Mientras.");
+					_sub(line,"La condiciÃ³n es Falsa, se sale de la estructura Mientras.");
 				}
 			} else 
 			// ---------------- REPETIR HASTA QUE ------------------ //
@@ -410,20 +410,20 @@ void Ejecutar(int LineStart, int LineEnd) {
 					cadena.erase(0,13);
 					valor_verdad=true;
 				}
-				_sub(line,"Se ejecutarán las acciones contenidas en la estructura Repetir");
+				_sub(line,"Se ejecutarÃ¡n las acciones contenidas en la estructura Repetir hasta que");
 				tipo_var tipo;
 				bool should_continue_iterating=true;
 				while (should_continue_iterating) {
 					Ejecutar(line+1,line_hastaque-1);
 					// evaluar condicion y seguir
 					_pos(line_hastaque);
-					_sub(line_hastaque,string("Se evalúa la condición: ")+cadena);
+					_sub(line_hastaque,string("Se evalÃºa la condiciÃ³n: ")+cadena);
 					should_continue_iterating = Evaluar(cadena,vt_logica).GetAsBool()==valor_verdad;
 					if (should_continue_iterating)
-						_sub(line_hastaque,string("La condición es ")+(valor_verdad?VERDADERO:FALSO)+", se contiúa iterando.");
+						_sub(line_hastaque,string("La condiciÃ³n es ")+(valor_verdad?VERDADERO:FALSO)+", se contiï¿½a iterando.");
 				} while (should_continue_iterating);
 				line=line_hastaque;
-				_sub(line_hastaque,string("La condición es ")+(valor_verdad?FALSO:VERDADERO)+", se sale de la estructura Repetir.");
+				_sub(line_hastaque,string("La condiciÃ³n es ")+(valor_verdad?FALSO:VERDADERO)+", se sale de la estructura Repetir.");
 			} else 
 			// ------------------- PARA --------------------- //
 			if (instruction_type==IT_PARA) {
@@ -440,7 +440,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 				memoria->DefinirTipo(aux1,vt_numerica);
 				if (lang[LS_PROTECT_FOR_COUNTER]) memoria->SetearSoloLectura(contador,true);
 				string expr_ini = aux1.substr(tmp1+2); // valor inicial
-				_sub(line,string("Se evalúa la expresion para el valor inicial: ")+expr_ini);
+				_sub(line,string("Se evalÃºa la expresion para el valor inicial: ")+expr_ini);
 				
 				DataValue res_ini = Evaluar(expr_ini,vt_numerica), res_paso(vt_numerica,"1"), res_fin;
 				if (!res_ini.CanBeReal()) ExeError(126,"No coinciden los tipos."); /// @todo: parece que esto no es posible, salta antes adentro del evaluar
@@ -452,16 +452,16 @@ void Ejecutar(int LineStart, int LineEnd) {
 						expr_fin = expr_fin.substr(0,expr_fin.size()-6);
 					res_fin = Evaluar(expr_fin,vt_numerica);
 					string expr_paso = cadena.substr(pos_paso+10);
-					_sub(line,string("Se evalúa la expresion para el paso: ")+expr_paso);
+					_sub(line,string("Se evalÃºa la expresion para el paso: ")+expr_paso);
 					res_paso = Evaluar(expr_paso,vt_numerica);
 					positivo = res_paso.GetAsReal()>=0;
 				} else { // si no hay paso adivinar
 					res_fin = Evaluar(cadena,vt_numerica);
 					if (lang[LS_DEDUCE_NEGATIVE_FOR_STEP] && res_ini.GetAsReal()>res_fin.GetAsReal()) {
-						_sub(line,"Se determina que el paso será -1.");
+						_sub(line,"Se determina que el paso serÃ¡ -1.");
 						positivo=false; res_paso.SetFromInt(-1);
 					} else {
-						_sub(line,"Se determina que el paso será +1.");
+						_sub(line,"Se determina que el paso serÃ¡ +1.");
 						positivo=true; res_paso.SetFromInt(1);
 					}
 				}
@@ -483,7 +483,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 					_sub(line,string("Se compara el contador con el valor final: ")+contador+"<="+res_fin.GetForUser());
 					DataValue res_cont = Evaluar(contador,vt_numerica);
 					if ( positivo ? (res_cont.GetAsReal()>res_fin.GetAsReal()) : (res_cont.GetAsReal()<res_fin.GetAsReal()) ) break;
-					_sub(line,"La expresión fue Verdadera, se iniciará una iteración.");
+					_sub(line,"La expresiÃ³n fue Verdadera, se iniciarÃ¡ una iteraciÃ³n.");
 					Ejecutar(line+1,line_finpara-1);
 					_pos(line);
 					res_cont = Evaluar(contador,vt_numerica); // pueden haber cambiado a para el contador!!!
@@ -534,7 +534,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 					elemento=aux2+"("+elemento.substr(1);
 					// asignar el elemento en la variable del bucle
 					if (primer_iteracion) primer_iteracion=false; else { _pos(line); }
-					_sub(line,aux1+" será equivalente a "+elemento+" en esta iteración.");
+					_sub(line,aux1+" serï¿½ equivalente a "+elemento+" en esta iteraciï¿½n.");
 					if (!memoria->DefinirTipo(aux1,memoria->LeerTipo(elemento)))
 						ExeError(277,"No coinciden los tipos.");
 					memoria->EscribirValor(aux1,memoria->LeerValor(elemento));
@@ -555,13 +555,13 @@ void Ejecutar(int LineStart, int LineEnd) {
 				string expr_control = cadena.substr(6,cadena.size()-12); // Cortar la variable (sacar SEGUN y HACER)
 				tipo_var tipo_master=vt_caracter_o_numerica;
 				_pos(line);
-				_sub(line,string("Se evalúa la expresion: ")+expr_control);
+				_sub(line,string("Se evalÃºa la expresion: ")+expr_control);
 				DataValue val_control = Evaluar(expr_control,tipo_master); // evaluar para verificar el tipo
 				if (!val_control.CanBeReal()&&(lang[LS_INTEGER_ONLY_SWITCH]||!val_control.CanBeString())) {
 					if (!lang[LS_INTEGER_ONLY_SWITCH]) 
-						ExeError(205,"La expresión del SEGUN debe ser de tipo numerica o caracter.");
+						ExeError(205,"La expresiÃ³n del SI MÃšLTIPLE debe ser de tipo numerica o caracter.");
 					else
-						ExeError(206,"La expresión del SEGUN debe ser numerica.");
+						ExeError(206,"La expresiÃ³n del SI MÃšLTIPLE debe ser numerica.");
 				}
 				_sub(line,string("El resultado es: ")+val_control.GetForUser());
 				int line_finsegun=line+1, anidamiento=0; // Buscar hasta donde llega el bucle
@@ -579,7 +579,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 					else if ((instruction_type==IT_OPCION||instruction_type==IT_DEOTROMODO) && anidamiento==0) {
 						if (instruction_type==IT_DEOTROMODO) { 
 							_pos(line_opcion);
-							_sub(line_opcion,"Se ingresará en la opción De Otro Modo");
+							_sub(line_opcion,"Se ingresarÃ¡ en la opciÃ³n De Otro Modo");
 							encontrado=true; break;
 						}
 						else {
@@ -591,12 +591,12 @@ void Ejecutar(int LineStart, int LineEnd) {
 								string expr_opcion=posibles_valores.substr(0,pos_fin_valor);
 								posibles_valores.erase(0,expr_opcion.size()+1);
 								_pos(line_opcion);
-								_sub(line_opcion,string("Se evalúa la opcion: ")+expr_opcion);
+								_sub(line_opcion,string("Se evalÃºa la opcion: ")+expr_opcion);
 								DataValue val_opcion = Evaluar(expr_opcion,tipo_master);
 								if (!val_opcion.CanBeReal()&&(lang[LS_INTEGER_ONLY_SWITCH]||!val_opcion.CanBeString())) ExeError(127,"No coinciden los tipos.");
 								// evaluar la condicion (se pone como estaban y no los resultados de la evaluaciones de antes porque sino las variables indefinida pueden no tomar el valor que corresponde
 								if (Evaluar(string("(")+expr_control+")=("+expr_opcion+")").GetAsBool()) {
-									_sub(line_opcion,"El resultado coincide, se ingresará en esta opción.");
+									_sub(line_opcion,"El resultado coincide, se ingresarÃ¡ en esta opciÃ³n.");
 									encontrado=true; break;
 								} else {
 									_sub(line_opcion,string("El resultado no coincide: ")+val_opcion.GetForUser());
@@ -620,7 +620,7 @@ void Ejecutar(int LineStart, int LineEnd) {
 				line=line_finsegun;
 				_pos(line);
 				_sub(line,"Se sale de la estructura Segun.	");
-			} // ya deberíamos haber cubierto todas las opciones
+			} // ya deberï¿½amos haber cubierto todas las opciones
 			else {
 				ExeError(0,"Ha ocurrido un error interno en PSeInt.");
 			}
