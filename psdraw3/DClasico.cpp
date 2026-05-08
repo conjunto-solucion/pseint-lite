@@ -41,26 +41,26 @@ inline void DrawLineaVerticalTo(int x0, int y0, int y1) { glVertex2i(x0,y0); glV
 inline void DrawLineaVerticalH(int x, int y, int h) { glVertex2i(x,y); glVertex2i(x,y+h); }
 inline void DrawLinea(int x0, int y0, int x1, int y1) { glVertex2i(x0,y0); glVertex2i(x1,y1); }
 
+
+
 void Entity::DrawShapeSolid(const float *color,int x, int y, int w, int h) {
 	glColor3fv(color);
 	glBegin(GL_QUAD_STRIP);
-	if (type==ET_PARA) {
-		make_trig(); w=w/2; h=h/2; y-=h;
-		for(int i=0;i<=circle_steps;i++) {
-			glVertex2d(x-sinx[i]*w,y+cosx[i]*h);
-			glVertex2d(x+sinx[i]*w,y+cosx[i]*h);
-		}
-	} else if (type==ET_PROCESO) {
+
+	
+	if (type==ET_PROCESO) {
 		make_trig(); w=w/2-h; h=h/2; y-=h;
 		for(int i=0;i<=circle_steps;i+=2) {
 			glVertex2d(x-w-sinx[i]*h,y+cosx[i]*h);
 			glVertex2d(x+w+sinx[i]*h,y+cosx[i]*h);
 		}
-	} else if (type==ET_REPETIR||type==ET_MIENTRAS||type==ET_SI) {
-		glVertex2i(x,y); glVertex2i(x+w/2,y-h/2);
-		glVertex2i(x-w/2,y-h/2); glVertex2i(x,y-h);
-
-
+	}
+	
+	else if (type==ET_REPETIR||type==ET_MIENTRAS||type==ET_SI||type==ET_PARA) {
+		glVertex2i(x,y);
+		glVertex2i(x+w/2,y-h/2);
+		glVertex2i(x-w/2,y-h/2);
+		glVertex2i(x,y-h);
 	}
 
 	else if (type==ET_LEER) {
@@ -105,18 +105,24 @@ void Entity::DrawShapeBorder(const float *color,int x, int y, int w, int h) {
 	glBegin(GL_LINE_LOOP);
 
 	if (type==ET_PARA) {
-		make_trig(); w=w/2; h=h/2; y-=h;
-		for(int i=0;i<circle_steps;i++)
-			glVertex2d(x+sinx[i]*w,y+cosx[i]*h);
-		for(int i=circle_steps;i>=0;i--)
-			glVertex2d(x-sinx[i]*w,y+cosx[i]*h);
-	} else if (type==ET_PROCESO) {
+		glVertex2i(x,y); glVertex2i(x+w/2,y-h/2);
+		glVertex2i(x,y-h); glVertex2i(x-w/2,y-h/2);
+		glEnd();
+
+		glBegin(GL_LINES);
+		glVertex2i(x+w/20,y-h/20); glVertex2i(x-w/2+w/20,y-h/2-h/20);
+	}
+	
+	
+	else if (type==ET_PROCESO) {
 		make_trig(); w=w/2-h; h=h/2; y-=h;
 		for(int i=0;i<=circle_steps;i+=2)
 			glVertex2d(x+w+sinx[i]*h,y+cosx[i]*h);
 		for(int i=circle_steps;i>=0;i-=2)
 			glVertex2d(x-w-sinx[i]*h,y+cosx[i]*h);
-	} else if (type==ET_REPETIR||type==ET_MIENTRAS||type==ET_SI) {
+	}
+	
+	else if (type==ET_REPETIR||type==ET_MIENTRAS||type==ET_SI) {
 		glVertex2i(x,y); glVertex2i(x+w/2,y-h/2);
 		glVertex2i(x,y-h); glVertex2i(x-w/2,y-h/2);
 	}
@@ -221,6 +227,11 @@ inline void DrawFlechaL(int x1, int x2, int y) {
 	glEnd(); glBegin(GL_LINES);
 }
 
+
+
+
+
+
 void Entity::DrawClasico(bool force) {
 
 	if (!force && (type==ET_OPCION || type==ET_AUX_PARA))
@@ -253,7 +264,8 @@ void Entity::DrawClasico(bool force) {
 			DrawLineaHorizontalW(d_x,d_y-d_bh+flecha_h,child_dx[GetChildCount()-1]+(GetChild(GetChildCount()-1)?GetChild(GetChildCount()-1)->child_dx[0]:0));
 		}
 		
-		else if (type==ET_MIENTRAS) {
+
+		else if (type==ET_MIENTRAS || type==ET_PARA) {
 			DrawTrue(d_fx+2*vf_size,d_fy-d_h-5*vf_size/2);
 			DrawFalse(d_fx+d_w/2+2*vf_size,d_fy-d_h/2+vf_size);
 			DrawLineaVerticalH(d_x,d_y,-flecha_in); // flecha que entra
@@ -265,17 +277,6 @@ void Entity::DrawClasico(bool force) {
 			DrawFlechaDown(d_x+d_bwr,d_y-flecha_h-d_h/2,d_y-d_bh+flecha_h); // baja
 			DrawLineaHorizontalW(d_x,d_y-d_bh+flecha_h,d_bwr); // va al punto de salida
 			DrawLineaVerticalH(d_fx,d_fy-d_h,-flecha_h);
-		}
-		
-		else if (type==ET_PARA) {
-			DrawLineaVerticalH(d_x,d_y,-flecha_in); // flecha que entra del bloque
-			DrawLineaVerticalTo(d_x,d_y-child_bh[0]-flecha_h,d_y-d_bh+flecha_h); // flecha que sale del bloque
-			DrawLineaVerticalTo(d_fx,d_y,d_fy); // flecha que sale del circulo
-			DrawFlechaR(d_fx,(d_fx+d_x)/2,d_y); 
-			DrawLineaHorizontalTo((d_fx+d_x)/2,d_y,d_x); 
-			DrawLineaVerticalTo(d_fx,d_y,d_fy); // flecha que sale del circulo
-			DrawFlechaUp(d_fx,d_y-d_bh+flecha_h,d_fy-d_h); // flecha que entra al circulo
-			DrawLineaHorizontalTo(d_fx,d_y-d_bh+flecha_h,d_x);
 		}
 		
 		else if (type==ET_REPETIR) {
@@ -426,32 +427,32 @@ void Entity::DrawClasico(bool force) {
 
 	// texto;
 	DrawText();
+
+	
 	if (!nolink) {
 		if (type==ET_SEGUN) {
 			for(int i=0;i<GetChildCount();i++) { 
 				GetChild(i)->Draw(true);
 			}
-		} else if (type==ET_PARA) {
-			glColor3fv(g_colors.border[g_config.shape_colors?ET_PARA:ET_COUNT]);
+		}
+		
+		
+		else if (type==ET_PARA) {
+			
 			glBegin(GL_LINES);
-			DrawLinea(d_x-2*margin,d_y-d_bh+flecha_h-margin,d_x+2*margin,d_y-d_bh+flecha_h+margin);
-			DrawLinea(d_x-2*margin,d_y-margin,d_x+2*margin,d_y+margin);
-			glEnd();
-			glLineWidth(g_constants.line_width_bordes);
-			glBegin(GL_LINES);
-			DrawLineaHorizontalW(d_fx-w/2,d_fy-d_h/2,w); // separadores de las cuatro partes del circulo
+
 			if (!variante) {
-				if (g_state.edit_on or GetChild(2)->label.size()) {
-					DrawLineaVerticalTo(d_x+child_dx[1],d_fy-d_h/2,d_fy-d_h+margin);
-					DrawLineaVerticalTo(d_x+child_dx[2],d_fy-d_h/2,d_fy-d_h+margin);
-				} else {
-					DrawLineaVerticalTo(d_x+(child_dx[1]+child_dx[2])/2,d_fy-d_h/2,d_fy-d_h+margin);
-				}
 				glEnd();
+				GetChild(1)->lpre = "desde ";
+				GetChild(1)->t_prew = 50;
 				GetChild(1)->DrawText();
+
+				GetChild(2)->t_prew = 100;
+				GetChild(2)->lpre = "con paso ";
 				GetChild(2)->DrawText();
-				GetChild(3)->DrawText();
-			} else {
+				//GetChild(3)->DrawText();
+			}
+			else {
 				glEnd();
 				GetChild(2)->DrawText();
 			}
@@ -475,9 +476,8 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 	
 	// calcular tamanos de la forma segun el texto
 	h=t_h+2*margin; if (!t_w) w=margin*6; else { w=t_w; if (type!=ET_PROCESO) w+=2*margin; else w+=2*(h-margin); }
-	if (type==ET_REPETIR||type==ET_MIENTRAS||type==ET_SI) {
+	if (type==ET_REPETIR||type==ET_MIENTRAS||type==ET_SI||type==ET_PARA) {
 		w*=2; h*=2;
-
 	}
 	
 	else if (type==ET_ESCRIBIR||type==ET_LEER) {
@@ -491,9 +491,10 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 	
 	else if (type==ET_ASIGNAR && variante) {
 		w+=2*margin;
-	} else if (type==ET_PARA) {
-		h=2*h+3*margin; w=1.3*w+2*margin;
-	} else if (type==ET_SEGUN) {
+	}
+	
+	
+	else if (type==ET_SEGUN) {
 		h*=2;
 	}
 	
@@ -582,20 +583,34 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 			if (GetChild(1)) GetChild(1)->MoveX(child_dx[1]);
 			if (c1l-child_dx[0]>bwl) bwl=c1l-child_dx[0];
 			if (c2r+child_dx[1]>bwr) bwr=c2r+child_dx[1];
-		} else if (type==ET_MIENTRAS||type==ET_REPETIR) {
+		}
+		
+
+
+		else if (type==ET_MIENTRAS||type==ET_REPETIR||type==ET_PARA) {
 			int c1l=0,c1r=0,c1h=0;
+
 			if (GetChild(0)) {
-				GetChild(0)->y=y-(type==ET_MIENTRAS?bh+flecha_h:flecha_h); GetChild(0)->x=x;
+				GetChild(0)->y=y-(type==ET_MIENTRAS||type==ET_PARA?bh+flecha_h:flecha_h);
+				GetChild(0)->x=x;
 				GetChild(0)->Calculate(c1l,c1r,c1h);
-			} 
-			child_dx[0]=0; child_bh[0]=c1h;
+			}
+
+			child_dx[0]=0;
+			child_bh[0]=c1h;
 			if (c1l>bwl) bwl=c1l;
 			if (c1r>bwr) bwr=c1r;
-			bwr+=flecha_w; bwl+=flecha_w; bh+=c1h;
-			fy-= (type==ET_MIENTRAS)?flecha_h:c1h+flecha_h;
-			bh+= (type==ET_MIENTRAS)?flecha_h*3:flecha_h;
-		} else if (type==ET_PARA) {
-			t_dy=(t_h+margin)/2;
+			bwr+=flecha_w;
+			bwl+=flecha_w;
+			bh+=c1h;
+			fy-= (type==ET_MIENTRAS||type==ET_PARA)?flecha_h:c1h+flecha_h;
+			bh+= (type==ET_MIENTRAS||type==ET_PARA)?flecha_h*3:flecha_h;
+		}
+		
+
+		
+		if (type==ET_PARA) {
+			// t_dy=(t_h+margin)/2;
 			
 			// averiguar cuanto miden las tres etiquetas de abajo en el circulo
 			GetChild(1)->x=GetChild(2)->x=GetChild(3)->x=x;
@@ -606,34 +621,55 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 			int v2=vl+vr; vl=vr=0;
 			GetChild(3)->Calculate(vl,vr,vh); 
 			int v3=vl+vr;
-			if (variante) { v1=v3=0; GetChild(1)->w=GetChild(3)->w=0; }
-			else if ((not g_state.edit_on) and GetChild(2)->label.empty()) { v2=0; GetChild(2)->w=0; }
+			if (variante) {
+				v1=v3=0;
+				GetChild(1)->w=GetChild(3)->w=0;
+			}
+			else if ((not g_state.edit_on) and GetChild(2)->label.empty()) {
+				v2=0; GetChild(2)->w=0;
+			}
 			
 			// calcular el ancho del circulo, puede estar dominado por las tres etiquetas de abajo o por la propia 
 			int v=v1+v2+v3-2*margin;
-			w=(v>t_w?v:t_w)*1.3+2*margin;
-			v+=2*margin;
+			//w=(v>t_w?v:t_w)*1.3+2*margin;
+			//v+=2*margin;
 			
 			// acomodar el circulo
-			bwr=0; bwl=w;
+			/* bwr=0; bwl=w;
 			int c1l=0,c1r=0,c1h=0;
 			if (GetChild(0)) {
 				GetChild(0)->y=y-flecha_h; GetChild(0)->x=x;
 				GetChild(0)->Calculate(c1l,c1r,c1h);
-			} 
+			}
+
+
 			child_dx[0]=0; child_bh[0]=c1h;
 			if (c1r>bwr) bwr=c1r;
 			bwl=bwl+c1l+flecha_w;
 			if (c1h>bh) bh=c1h;
 			bh+=2*flecha_h;
 			fx=-c1l-w/2-flecha_w;
-			fy=y+(flecha_h-bh+h)/2;
+			fy=y+(flecha_h-bh+h)/2; */
 			
 			// acomodar las tres etiquetas
-			int cy=fy-h/2-margin/2;
-			GetChild(1)->fy=cy; GetChild(1)->MoveX(fx-x+(-v+v1)/2); child_dx[1]=GetChild(1)->fx+v1/2;
-			GetChild(2)->fy=cy; GetChild(2)->MoveX(fx-x+(-v+v2)/2+v1); child_dx[2]=GetChild(2)->fx+v2/2;
-			GetChild(3)->fy=cy; GetChild(3)->MoveX(fx-x+(v-v3)/2); child_dx[3]=GetChild(3)->fx+v3/2;
+			int cy = fy - h/2 - margin/2;
+
+
+			// Valor inicial
+			GetChild(1)->fy = fy + 30;
+			GetChild(1)->MoveX(fx + (v)/2 - 15);
+			child_dx[1]=GetChild(1)->fx+v1/2;
+
+			// Paso
+			GetChild(2)->fy = fy + 18;
+			GetChild(2)->MoveX(fx + (v)/2 - 15 );
+			child_dx[2]=GetChild(2)->fx+v3/2;
+
+			// Valor final
+			//GetChild(3)->fy=cy;
+			//GetChild(3)->MoveX(fx-x+(-v+v2)/2+v1);
+			//child_dx[3]=GetChild(3)->fx+v2/2;
 		}
+
 	}
 }

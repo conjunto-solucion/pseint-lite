@@ -14,14 +14,14 @@
 #endif
 using namespace std;
 
-static int edit_pos; // posición del cursor cuando se edita un texto
+static int edit_pos; // posiciï¿½n del cursor cuando se edita un texto
 static const unsigned char SC_FLECHA = 27;
 static const unsigned char SC_DISTINTO = 29;
 static const unsigned char SC_MEN_IGUAL = 30;
 static const unsigned char SC_MAY_IGUAL = 31;
 
 
-// tamaño de las letras
+// tamaï¿½o de las letras
 #define char_w 12
 #define char_h 18
 
@@ -49,19 +49,25 @@ Entity::Entity(ETYPE _type, string _label, bool _variante)
 	SetLabel(label);
 	if (type==ET_SI) { // dos hijos
 		SetChildCount(2);
-	} else if (type==ET_PARA) { // cuatro hijos
+	}
+	
+	
+	else if (type==ET_PARA) { // cuatro hijos
 		SetChildCount(4);
 		flecha_in=flecha_h;
 		LinkChild(1,new Entity(ET_AUX_PARA,"")); GetChild(1)->SetLabels();
 		LinkChild(2,new Entity(ET_AUX_PARA,"")); GetChild(2)->SetLabels();
 		LinkChild(3,new Entity(ET_AUX_PARA,"")); GetChild(3)->SetLabels();
-	} else if (type==ET_MIENTRAS||type==ET_REPETIR||type==ET_OPCION||type==ET_SEGUN||type==ET_SELECTION) { // un hijo
+	}
+	
+	
+	else if (type==ET_MIENTRAS||type==ET_REPETIR||type==ET_OPCION||type==ET_SEGUN||type==ET_SELECTION) { // un hijo
 		SetChildCount(1);
 		if (type!=ET_OPCION && type!=ET_SEGUN) flecha_in=flecha_h; 
 		else if (type==ET_SEGUN) LinkChild(0,new Entity(ET_OPCION,"De Otro Modo",true));
 	}
 	SetLabels();
-	Calculate(false); // para que tengan un tamaño inicial no nulo al arrastrarlas desde la shapebar
+	Calculate(false); // para que tengan un tamaï¿½o inicial no nulo al arrastrarlas desde la shapebar
 }
 
 Entity::~Entity() {
@@ -125,13 +131,13 @@ static bool is_sep(char c) {
 	if (c>='A' and c<='Z') return false;
 	if (c>='0' and c<='9') return false;
 	if (c=='_' or c=='.') return false;
-	if (c=='á' or c=='Á') return false;
-	if (c=='é' or c=='É') return false;
-	if (c=='í' or c=='Í') return false;
-	if (c=='ó' or c=='Ó') return false;
-	if (c=='ú' or c=='Ú') return false;
-	if (c=='ü' or c=='Ü') return false;
-	if (c=='ñ' or c=='Ñ') return false;
+	if (c=='ï¿½' or c=='ï¿½') return false;
+	if (c=='ï¿½' or c=='ï¿½') return false;
+	if (c=='ï¿½' or c=='ï¿½') return false;
+	if (c=='ï¿½' or c=='ï¿½') return false;
+	if (c=='ï¿½' or c=='ï¿½') return false;
+	if (c=='ï¿½' or c=='ï¿½') return false;
+	if (c=='ï¿½' or c=='ï¿½') return false;
 	return true;
 }
 
@@ -159,13 +165,13 @@ void load_keywords() {
 void to_lower(string &s){
 	for(size_t i=0;i<s.size();i++) { 
 		if (s[i]>='A' and s[i]<='Z') s[i] = tolower(s[i]); 
-		else if (s[i]=='Á') s[i] = 'á';
-		else if (s[i]=='É') s[i] = 'é';
-		else if (s[i]=='Í') s[i] = 'í';
-		else if (s[i]=='Ó') s[i] = 'ó';
-		else if (s[i]=='Ú') s[i] = 'ú';
-		else if (s[i]=='Ü') s[i] = 'ü';
-		else if (s[i]=='Ñ') s[i] = 'ñ';
+		else if (s[i]=='ï¿½') s[i] = 'ï¿½';
+		else if (s[i]=='ï¿½') s[i] = 'ï¿½';
+		else if (s[i]=='ï¿½') s[i] = 'ï¿½';
+		else if (s[i]=='ï¿½') s[i] = 'ï¿½';
+		else if (s[i]=='ï¿½') s[i] = 'ï¿½';
+		else if (s[i]=='ï¿½') s[i] = 'ï¿½';
+		else if (s[i]=='ï¿½') s[i] = 'ï¿½';
 	}
 }
 
@@ -299,16 +305,16 @@ static void beautify_label(ETYPE type, string &label, int &edit_pos) {
 void Entity::EditLabel(unsigned char key) {
 	static bool acento=false; // para emular el acento como dead key
 	if (acento) {
-		if (key=='a') key='á';
-		else if (key=='e') key='é';
-		else if (key=='i') key='í';
-		else if (key=='o') key='ó';
-		else if (key=='u') key='ú';
-		else if (key=='A') key='Á';
-		else if (key=='E') key='É';
-		else if (key=='I') key='Í';
-		else if (key=='O') key='Ó';
-		else if (key=='U') key='Ú';
+		if (key=='a') key='Ã¡';
+		else if (key=='e') key='Ã©';
+		else if (key=='i') key='Ã­';
+		else if (key=='o') key='Ã³';
+		else if (key=='u') key='Ãº';
+		else if (key=='A') key='Ã';
+		else if (key=='E') key='Ã‰';
+		else if (key=='I') key='Ã';
+		else if (key=='O') key='Ã“';
+		else if (key=='U') key='Ãš';
 		acento=false;
 	}
 	if (key==0) { int aux=0; beautify_label(type,label,aux); return; }
@@ -352,9 +358,15 @@ int Entity::IsLabelCropped ( ) {
 
 
 void Entity::SetLabel(string _label, bool recalc) {
+
+
 	if (_label!=label) SetModified();
-	for (unsigned int i=0;i<label.size();i++) if (label[i]=='\'') label[i]='\"';
-	label=_label; 
+
+	for (unsigned int i=0;i<label.size();i++)
+	if (label[i]=='\'') label[i]='\"';
+	label=_label;
+
+
 	Colourize();
 	GetTextSize(t_w,t_h); w=t_w; h=t_h;
 	int aux; GetTextSize(lpre,t_prew,aux); t_w+=t_prew;
@@ -370,6 +382,7 @@ void Entity::SetLabel(string _label, bool recalc) {
 
 int Entity::CheckLinkChild(int x, int y) {
 	if (nolink||!GetChildCount()||type==ET_SEGUN) return -1;
+	
 	if (type==ET_PARA||type==ET_REPETIR) { // h no tiene sentido porque la forma esta al final
 		if (GetChild(0)!=g_state.mouse and d_x+child_dx[0]+selection_tolerance_x>x and d_x+child_dx[0]-selection_tolerance_x<x and y>d_y-flecha_in-2*flecha_h/3-selection_tolerance_y and y<d_y-flecha_in-2*flecha_h/3+selection_tolerance_y)
 			return 0; else return -1;
@@ -428,32 +441,67 @@ void Entity::Tick() {
 	}
 }
 
+bool label_was_modified = false;
 void Entity::DrawText() {
+	
 	glPushMatrix();
 	glTranslated(d_fx+t_dx-t_w/2+(g_state.edit_on&&type==ET_OPCION?flecha_w/2:0),d_fy-(d_h/2+margin)+t_dy,0);
-	if (this==g_state.edit) { glScaled(.105,.15,1); } // el escalado molesta visualmente al editar el texto
+	if (this==g_state.edit) {
+		glScaled(.105,.15,1);
+	} // el escalado molesta visualmente al editar el texto
+
+
 	else glScaled((.105*d_w)/w,(.15*d_h)/h,1);
 	begin_texto();
 	glColor3fv(g_colors.label_high[3]);
+
+	
 	for (unsigned int i=0;i<lpre.size();i++) {
 		dibujar_caracter(lpre[i]);
 	}
+
+	
+
 //	glColor3fv(edit==this?color_selection:(type==ET_PROCESO?color_arrow:(type==ET_COMENTARIO?color_comment:color_label)));
+
+	if (type==ET_PARA && !label_was_modified) {
+		int for_initial_value = std::stoi(GetChild(1)->label);
+		int for_final_value = std::stoi(GetChild(3)->label);
+		char for_comparison_symbol;
+		if (for_initial_value==for_final_value) for_comparison_symbol = '=';
+		if (for_initial_value<for_final_value) for_comparison_symbol = '>';
+		if (for_initial_value>for_final_value) for_comparison_symbol = '<';
+
+		std::string __prefix = "";
+		for (int i = 0; i<GetChild(3)->label.length(); i++) {
+			__prefix += GetChild(3)->label.at(i);
+		}
+		__prefix += for_comparison_symbol;
+		label_was_modified = true;
+		lpre = __prefix;
+		SetLabel(label, true);
+	}
+
 	int llen = label.size(), crop_len = IsLabelCropped();
 	if (crop_len) llen=crop_len-3;
 	int last_color = 'a'; bool syntax = true;//type!=ET_COMENTARIO; 
 	if (syntax) glColor3fv(g_colors.label_high[last_color-'a']);
+	
 	for (int i=0;i<llen;i++) {
-		if (syntax && colourized[i]!=last_color) 
+		if (syntax && colourized[i]!=last_color && type != ET_PARA) {
 			glColor3fv(g_colors.label_high[(last_color=colourized[i])]);
+			
+		}
 		dibujar_caracter(label[i]);
 	}
+
+
 	if (llen!=int(label.size()))
 		for (unsigned int i=0;i<3;i++)
 			dibujar_caracter('.');
 	end_texto();
 	glPopMatrix();
-	// dibuja el cursor de edición si estamos editando justo este texto
+	// dibuja el cursor de ediciï¿½n si estamos editando justo este texto
 	if (g_state.edit==this and g_state.mouse!=this and w>0) {
 		g_state.blink++; if (g_state.blink==20) g_state.blink=0;
 		if (g_state.blink<10) {
@@ -485,7 +533,7 @@ void Entity::Draw(bool force) {
 	else DrawClasico(force);
 }
 
-void Entity::Calculate(bool also_parent) { // devuelve el tamaño total del bloque
+void Entity::Calculate(bool also_parent) { // devuelve el tamaï¿½o total del bloque
 	int awl,awr,ah;
 	Calculate(awl,awr,ah);
 	if (also_parent && GetParent()) GetParent()->Calculate(true);
@@ -527,7 +575,7 @@ void Entity:: ResizeW(int aw, bool up) {
 	if (!up && GetNext()) GetNext()->ResizeW(aw,false);
 }
 
-void Entity::Calculate(int &gwl, int &gwr, int &gh) { // calcula lo propio y manda a calcular al siguiente y a sus hijos, y acumula en gw,gh el tamaño de este item (para armar el tamaño del bloque)
+void Entity::Calculate(int &gwl, int &gwr, int &gh) { // calcula lo propio y manda a calcular al siguiente y a sus hijos, y acumula en gw,gh el tamaï¿½o de este item (para armar el tamaï¿½o del bloque)
 	if (g_config.nassi_shneiderman) CalculateNassiShne();
 	else CalculateClasico();
 	// pasar a la siguiente entidad
@@ -555,7 +603,7 @@ bool Entity::CheckMouse(int x, int y, bool click) {
 	if ((not g_state.edit_on) or ((not g_config.show_comments) and type==ET_COMENTARIO)) return false;
 	if (click) {
 		if (type==ET_OPCION) {
-			if (x>=d_fx-d_bwl && x<=d_fx-d_bwl+flecha_w && y<=d_fy && y>=d_fy-d_h) { // agregar una opción más
+			if (x>=d_fx-d_bwl && x<=d_fx-d_bwl+flecha_w && y<=d_fy && y>=d_fy-d_h) { // agregar una opciï¿½n mï¿½s
 				GetParent()->InsertChild(GetChildId(),new Entity(ET_OPCION,""));
 				GetParent()->GetChild(GetChildId()-1)->SetEdit();
 				GetParent()->GetChild(GetChildId()-1)->CopyPos(this);
@@ -600,7 +648,7 @@ bool Entity::IsInside(int x0, int y0, int x1, int y1) {
 #define _tabs "\t"
 
 // ADVERTENCIA, si estas macros se usan en un if o en un else, deben estar entre
-// llaves, porque contienen más de una instrucción
+// llaves, porque contienen mï¿½s de una instrucciï¿½n
 #define _endl_this inline_comments<<endl; inline_comments=""; {stringstream ss; ss<<line_num<<":1"; g_code.code2draw[ss.str()]=LineInfo(process,this);} line_num++;
 #define _endl_prev inline_comments<<endl; inline_comments=""; {stringstream ss; ss<<line_num<<":1"; g_code.code2draw[ss.str()]=LineInfo(nullptr,this);} line_num++;
 #define _endl_none inline_comments<<endl; inline_comments=""; {stringstream ss; ss<<line_num<<":1"; g_code.code2draw[ss.str()]=LineInfo(nullptr,nullptr);} line_num++;
@@ -637,23 +685,29 @@ void Entity::Print(ostream &out, string tab, Entity *process, int &line_num) {
 			tab.erase(tab.size()-1);
 			out<<tab<<lpre<<_endl_this;
 		}
-	} else if (type==ET_ESCRIBIR) {
+	}
+	else if (type==ET_ESCRIBIR) {
 		if (g_lang[LS_FORCE_SEMICOLON] && label[label.size()-1]==';') label=label.erase(label.size()-1);
 		out<<tab<<"Escribir "<<_fix(label,"{lista_de_expresiones}")<<(variante?" Sin Saltar":"")<<(g_lang[LS_FORCE_SEMICOLON]?";":"")<<_endl_this;
-	} else if (type==ET_LEER) {
+	}
+	else if (type==ET_LEER) {
 		if (g_lang[LS_FORCE_SEMICOLON] && label[label.size()-1]==';') label=label.erase(label.size()-1);
 		out<<tab<<"Leer "<<_fix(label,"{lista_de_variables}")<<(g_lang[LS_FORCE_SEMICOLON]?";":"")<<_endl_this;
-	} else if (type==ET_MIENTRAS) {
+	}
+	else if (type==ET_MIENTRAS) {
 		out<<tab<<"Mientras "<<_fix(label,"{condicion}")<<" Hacer"<<_endl_this;
 		if (GetChild(0)) GetChild(0)->Print(out,tab+_tabs,process,line_num);
 		else { out<<(add_tab?tab+_tabs:tab)<<_endl_none; }
 		out<<tab<<"FinMientras"<<_endl_prev;
-	} else if (type==ET_REPETIR) {
+	}
+	else if (type==ET_REPETIR) {
 		out<<tab<<"Repetir"<<_endl_prev;
 		if (GetChild(0)) GetChild(0)->Print(out,tab+_tabs,process,line_num);
 		else { out<<(add_tab?tab+_tabs:tab)<<_endl_none; }
 		out<<tab<<(variante?"Mientras Que ":"Hasta Que ")<<_fix(label,"{condicion}")<<_endl_this;
-	} else if (type==ET_PARA) {
+	}
+	
+	else if (type==ET_PARA) {
 		if (variante) {
 			out<<tab<<"Para Cada"<<_fix(label,"{variable}")<<" de "<<_fix(GetChild(2)->label,"{arreglo}")<<" Hacer"<<_endl_this;
 		} else {
@@ -664,7 +718,9 @@ void Entity::Print(ostream &out, string tab, Entity *process, int &line_num) {
 		if (GetChild(0)) GetChild(0)->Print(out,tab+_tabs,process,line_num);
 		else { out<<(add_tab?tab+_tabs:tab)<<_endl_none; }
 		out<<tab<<"FinPara"<<_endl_prev;
-	} else if (type==ET_SELECTION) {
+	}
+	
+	else if (type==ET_SELECTION) {
 		GetChild(0)->Print(out,_tabs,process,line_num);
 	} else if (type==ET_SEGUN) {
 		out<<tab<<"Segun "<<_fix(label,"{expresion}")<<" Hacer"<<_endl_this;
@@ -755,7 +811,7 @@ bool Entity::IsOutOfProcess() {
 	return IsOutOfProcess(GetNextNoComment());
 }
 
-// habria que sacar esto y reemplazarlo por recursión en el cliente
+// habria que sacar esto y reemplazarlo por recursiï¿½n en el cliente
 Entity *Entity::NextEntity(Entity *aux) {
 	static vector<int> pila_nc;
 	static vector<Entity*> pila_e;
@@ -816,7 +872,7 @@ void Entity::SetLabels() {
 			lpre = g_config.nassi_shneiderman ? (variante?"Mientras Que ":"Hasta Que ") : "";
 			break;
 		case ET_AUX_PARA:
-			if (not GetParent()) return; // en el ctor todavía no está linkeado al padre, y el lpre depende de la posicion en el padre
+			if (not GetParent()) return; // en el ctor todavï¿½a no estï¿½ linkeado al padre, y el lpre depende de la posicion en el padre
 			if (g_config.nassi_shneiderman) {
 				if (GetParent()->GetChild(1)==this) lpre=" Desde ";
 				else if (GetParent()->GetChild(2)==this) lpre=" Con Paso ";
@@ -826,8 +882,9 @@ void Entity::SetLabels() {
 			}
 			break;
 		case ET_COUNT: return;
-		case ET_SELECTION: break; // nada, pero está para que estén todas las opciones y evitar así un warning
+		case ET_SELECTION: break; // nada, pero estï¿½ para que estï¿½n todas las opciones y evitar asï¿½ un warning
 	}
+
 	SetLabel(label);
 }
 

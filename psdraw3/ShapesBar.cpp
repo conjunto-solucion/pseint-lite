@@ -18,9 +18,7 @@ ShapesBar::ShapesBar()
 	: m_texture_retracted(g_constants.imgs_path+"commands.png"),
 	  m_texture_extended( g_config.nassi_shneiderman 
 							? g_constants.imgs_path+"shapes_ns.png"
-							: ( g_config.alternative_io 
-								  ? g_constants.imgs_path+"shapes_alt.png"
-								  : g_constants.imgs_path+"shapes.png" ) ),
+							: ( g_constants.imgs_path+"shapes.png" ) ),
 	  m_visible(true), m_extended(false), m_fixed(false), m_width(0),
 	  m_has_mouse(false), m_current_selection(no_selection)
 {
@@ -52,10 +50,13 @@ bool ShapesBar::ProcessMouse (int button, int state, int x, int y) {
 		new_entity = new Entity(ET_COMENTARIO,"");
 		if (g_canvas->GetModifiers()&MODIFIER_SHIFT) new_entity->variante=true;
 		break;
+
+
 	case 2: 
 		new_entity = new Entity(ET_ASIGNAR,""); 
 		if (g_canvas->GetModifiers()&MODIFIER_SHIFT) new_entity->variante=true;
 		break;
+
 	case 3: new_entity = new Entity(ET_ESCRIBIR,""); break;
 	case 4: new_entity = new Entity(ET_LEER,""); break;
 	case 5: new_entity = new Entity(ET_SI,""); break;
@@ -112,22 +113,30 @@ void ShapesBar::Draw() {
 			glEnd();
 		}
 		
+
+
 		// imagenes de cada entidad
 		glEnable(GL_TEXTURE_2D);
 		m_texture_extended.Select();
 		if (m_visible) glColor3f(1,1,1); 
 		else glColor4f(1,1,1,.5); // dimm when fixed but not enabled
 		glBegin(GL_QUADS);
+
 		double dy=sh, th0=0, th1=1.0/double(cant_shapes_in_bar), dth=1.0/double(cant_shapes_in_bar);
 		double x0=g_view.win_w-m_width, x1=g_view.win_w, y0=0, y1=double(g_view.win_h)/double(cant_shapes_in_bar); 
 		double ratio = double(m_width)/double(g_view.win_h)/double(cant_shapes_in_bar);
+
+
 		if (ratio>(m_texture_extended.r/8)) {
 			double dx=(x1-x0)*(1-(m_texture_extended.r/8)/ratio)/2;
 			x0+=dx; x1-=dx;
-		} else {
+		}
+		
+		else {
 			double dy=(y1-y0)*(1-ratio/(m_texture_extended.r/8))/2;
 			y0+=dy; y1-=dy;
 		}
+
 		for(int i=0;i<cant_shapes_in_bar;i++) {
 			glTexCoord2f(0*m_texture_extended.max_s,th0*m_texture_extended.max_t); glVertex2d(x0,y0);
 			glTexCoord2f(1*m_texture_extended.max_s,th0*m_texture_extended.max_t); glVertex2d(x1,y0);
@@ -135,6 +144,8 @@ void ShapesBar::Draw() {
 			glTexCoord2f(0*m_texture_extended.max_s,th1*m_texture_extended.max_t); glVertex2d(x0,y1);
 			y0+=dy; y1+=dy; th0+=dth; th1+=dth;
 		}
+
+
 		glEnd();
 		glDisable(GL_TEXTURE_2D);
 		// lineas que separan las entidades
@@ -146,7 +157,10 @@ void ShapesBar::Draw() {
 			glVertex2d(g_view.win_w,y0);
 		}
 		glEnd();
-	} else { 
+
+	}
+	
+	else { 
 		glEnable(GL_TEXTURE_2D);
 		m_texture_retracted.Select();
 		glColor3f(1,1,1);
@@ -159,6 +173,8 @@ void ShapesBar::Draw() {
 		glDisable(GL_TEXTURE_2D);
 	}
 	
+
+
 	// shapebar
 	if (m_visible) {
 		switch(m_current_selection) {
@@ -166,14 +182,14 @@ void ShapesBar::Draw() {
 			SetStatus(g_colors.status,"Comentario (texto libre que el interprete ignora)"); break;
 		case 2: 
 			if (g_canvas->GetModifiers()&MODIFIER_SHIFT) 
-				SetStatus(g_colors.status,"Invocación de un subproceso");
+				SetStatus(g_colors.status,"Invocacion de un subproceso");
 			else
-				SetStatus(g_colors.status,"Asignación/Dimensión/Definición"); 
+				SetStatus(g_colors.status,"Asignacion/Dimension/Definicion"); 
 			break;
-		case 3: SetStatus(g_colors.status,"Escribir (instrucción para generar salidas)"); break;
-		case 4: SetStatus(g_colors.status,"Leer (instrucción para obtener entradas)"); break;
+		case 3: SetStatus(g_colors.status,"Escribir (instruccion para generar salidas)"); break;
+		case 4: SetStatus(g_colors.status,"Leer (instruccion para obtener entradas)"); break;
 		case 5: SetStatus(g_colors.status,"Si-Entonces (estructura condicional simple)"); break;
-		case 6: SetStatus(g_colors.status,"Según (estructura de selección múltiple)"); break;
+		case 6: SetStatus(g_colors.status,"Si multiple (estructura de seleccion multiple)"); break;
 		case 7: SetStatus(g_colors.status,"Mientras (estructura repetitiva)"); break;
 		case 8: 
 			if ((g_canvas->GetModifiers()&MODIFIER_SHIFT)!=g_lang[LS_PREFER_REPEAT_WHILE])
@@ -185,12 +201,14 @@ void ShapesBar::Draw() {
 			if (g_canvas->GetModifiers()&MODIFIER_SHIFT)
 				SetStatus(g_colors.status,"Para Cada (estructura repetitiva)"); 
 			else
-				SetStatus(g_colors.status,"Para (estructura repetitiva)"); 
+				SetStatus(g_colors.status,"Repetir/para (estructura repetitiva)"); 
 			break;
 		default:;
 		}
 	}
 }
+
+
 
 void ShapesBar::Initialize ( ) {
 	g_shapes_bar = new ShapesBar();

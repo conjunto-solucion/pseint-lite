@@ -5,13 +5,16 @@ Este es una copia de https://pseint.sourceforge.net/index.php?page=descargas_old
 
 ## Objetivos
 
-Esta fork tiene tres objetivos:
+Esta fork tiene como objetivo modificar algunos aspectos visuales:
 
-1. Modificar el símbolo utilizado en los diagramas de flujo para representar la salida de datos, haciendo que coincida con la forma "Hoja de papel impresa", que en muchos estándares se asocia a "documento". También eliminar las flechitas indicadoras para "entrada" y "salida".
+1. Modificar algunos símbolos utilizados en los diagramas de flujo.
+  * Salida de datos: haciendo que coincida con la forma "Hoja de papel impresa".
+  * Entrada de datos: paralelogramo, pero sin la flecha indicadora en la esquina superior derecha.
+  * Bucle "Para": rombo, con línea doble en el lado superior izquierdo.
 
-2. Modificar el símbolo "para" en los diagramas de flujo, haciendo que coincida con el símbolo de condicional "si".
+2. Modificar colores de la interfaz gráfica.
 
-3. Descartar algunas características. Se mantiene como mínimo el editor e intérprete, así como el editor y exportador de diagramas de flujo.
+3. Descartar algunas características menores que aparecen en la GUI.
 
 
 ## Cómo compilar

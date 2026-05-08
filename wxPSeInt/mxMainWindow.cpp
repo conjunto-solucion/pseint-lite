@@ -422,10 +422,10 @@ void mxMainWindow::CreateCommandsPanel() {
 	AddCommandButton(sizer,panel,mxID_CMD_LEER,    "leer.png",    _Z("Leer"));
 	AddCommandButton(sizer,panel,mxID_CMD_ASIGNAR, "asignar.png", _Z("Asignar"));
 	AddCommandButton(sizer,panel,mxID_CMD_SI,      "si.png",      _Z("Si-Entonces"));
-	AddCommandButton(sizer,panel,mxID_CMD_SEGUN,   "segun.png",   _Z("Según"));
+	AddCommandButton(sizer,panel,mxID_CMD_SEGUN,   "segun.png",   _Z("Si múltiple"));
 	AddCommandButton(sizer,panel,mxID_CMD_MIENTRAS,"mientras.png",_Z("Mientras"));
-	AddCommandButton(sizer,panel,mxID_CMD_REPETIR, "repetir.png", _Z("Repetir"));
-	AddCommandButton(sizer,panel,mxID_CMD_PARA,    "para.png",    _Z("Para"));
+	AddCommandButton(sizer,panel,mxID_CMD_REPETIR, "repetir.png", _Z("Hasta que"));
+	AddCommandButton(sizer,panel,mxID_CMD_PARA,    "para.png",    _Z("Repetir"));
 	button_subproc=NULL; CreateButtonSubProceso(panel,sizer);
 	panel->SetSizerAndFit(sizer);
 	
