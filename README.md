@@ -1,11 +1,11 @@
 # PSeInt Lite
 
-Este es una copia de https://pseint.sourceforge.net/index.php?page=descargas_old.php (la versión 20210609 de PSeInt)
+Este es una copia de https://pseint.sourceforge.net/index.php?page=descargas_old.php (la versión 20210609 de PSeInt, por Pablo Novara)
 
 
 ## Objetivos
 
-Esta fork tiene como objetivo modificar algunos aspectos visuales:
+Este fork tiene como objetivo modificar algunos aspectos visuales:
 
 1. Modificar algunos símbolos utilizados en los diagramas de flujo.
   * Salida de datos: haciendo que coincida con la forma "Hoja de papel impresa".
