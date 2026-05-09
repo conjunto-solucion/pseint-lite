@@ -11,6 +11,7 @@ Esta fork tiene como objetivo modificar algunos aspectos visuales:
   * Salida de datos: haciendo que coincida con la forma "Hoja de papel impresa".
   * Entrada de datos: paralelogramo, pero sin la flecha indicadora en la esquina superior derecha.
   * Bucle "Para": rombo, con línea doble en el lado superior izquierdo.
+  * Selección múltiple: hexágono ancho.
 
 2. Modificar colores de la interfaz gráfica.
 
@@ -112,19 +113,20 @@ En el mismo directorio `/dist` se generará el instalador en formato .exe.
 
 Módulos principales:
   * pseint: fuentes del interprete
-  * wxPSeInt: fuentes de la nueva interfaz (editor de pseudocódigo, e interfaz principal)
-  * psterm: fuentes de la terminal que se utiliza para ejecutar desde wxPSeInt
-  * psdraw3: fuentes del editor de diagramas de flujo. Es de especial interés el archivo DClasico.cpp para modificar cómo se dibuja el diagrama.
+  * wxPSeInt: editor de pseudocódigo e interfaz principal
+  * psterm: terminal que se utiliza para ejecutar desde wxPSeInt
+  * psdraw3: editor de diagramas de flujo. Es de especial interés el archivo DClasico.cpp para modificar cómo se dibuja el diagrama.
 
 Módulos secundarios:
-  * psdrawE: fuentes del exportador de diagramas de flujo (genera imagenes png/jpg/bmp)
-  * psexport: fuentes del exportador (convierte de pseudocodigo a codigo C++)
-  * pseval: fuentes de la interfaz que genera y evalúa los ejercicios autocontenidos
+  * psdrawE: exportador de diagramas de flujo (genera imagenes png/jpg/bmp)
+  * psexport: convierte de pseudocodigo a codigo C++
+  * pseval: genera y evalúa los ejercicios autocontenidos
 
 Otros directorios:
+  * bin: archivos necesarios para ejecutar wxPSeInt
+  * dist: archivos adicionales para generar paquetes e instaladores
+  * configs: configuraciones para compilar con los Makefiles
+
+Bibliotecas auxiliares:
   * dtl: biblioteca auxiliar para comparar texto simil diff
   * hoewrap: biblioteca auxiliar (hoedown) para convertir markdown a html
-  * test: pseudocódigos con casos de prueba y scripts para correrlos de forma automática
-  * bin: demás archivos necesarios para ejecutar wxPSeInt (imagenes, documentacion, ayuda, etc).
-  * dist: archivos adicionales para generar paquetes e instaladores
-  * configs: configuraciones de los distintos toolchains para compilar con los Makefiles

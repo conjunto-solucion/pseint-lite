@@ -20,6 +20,7 @@ using namespace std;
 
 #define PI 3.14159265358979323846
 const float et_escribir_wave_amplitude = 3.0f;
+const int et_segun_margin = 36;
 
 static double cosx[circle_steps+1], sinx[circle_steps+1]; // para no calcular en el DrawShape del Para
 void make_trig() {
@@ -64,15 +65,38 @@ void Entity::DrawShapeSolid(const float *color,int x, int y, int w, int h) {
 	}
 
 	else if (type==ET_LEER) {
-		glVertex2i(x+w/2+margin,y); glVertex2i(x-w/2+margin,y); 
-		glVertex2i(x+w/2-margin,y-h); glVertex2i(x-w/2-margin,y-h);
+		glVertex2i(x+w/2+margin,y);
+		glVertex2i(x-w/2+margin,y); 
+		glVertex2i(x+w/2-margin,y-h);
+		glVertex2i(x-w/2-margin,y-h);
 		
 	}
 	else if (type==ET_SEGUN) {
-		glVertex2i(x,y); glVertex2i(x+w/2,y-h); glVertex2i(x-w/2,y-h); glVertex2i(x,y-h);
+
+		glEnd();
+		glBegin(GL_TRIANGLES);
+
+		glVertex2i(x-w/2+et_segun_margin, y);
+		glVertex2i(x+w/2-et_segun_margin, y);
+		glVertex2i(x-w/2+et_segun_margin, y-h);
+
+		glVertex2i(x+w/2-et_segun_margin, y);
+		glVertex2i(x+w/2-et_segun_margin, y-h);
+		glVertex2i(x-w/2+et_segun_margin, y-h);
+
+		glVertex2i(x+w/2-et_segun_margin, y);
+		glVertex2i(x+w/2, y-h/2);
+		glVertex2i(x+w/2-et_segun_margin, y-h);
+
+		glVertex2i(x-w/2+et_segun_margin, y);
+		glVertex2i(x-w/2+et_segun_margin, y-h);
+		glVertex2i(x-w/2, y-h/2);
+
+		glEnd();
+		glBegin(GL_QUAD_STRIP);
 	}
 	
-	else if (type==ET_ASIGNAR||type==ET_OPCION) {
+	else if (type==ET_ASIGNAR) {
 		glVertex2i(x-w/2,y); glVertex2i(x+w/2,y);
 		glVertex2i(x-w/2,y-h); glVertex2i(x+w/2,y-h);
 	}
@@ -90,9 +114,6 @@ void Entity::DrawShapeSolid(const float *color,int x, int y, int w, int h) {
 	}
 	glEnd();
 }
-
-
-
 
 
 
@@ -154,13 +175,21 @@ void Entity::DrawShapeBorder(const float *color,int x, int y, int w, int h) {
 	}
 	
 	else if (type==ET_SEGUN) {
-		glVertex2i(x,y); glVertex2i(x+w/2,y-h); glVertex2i(x-w/2,y-h);
-	} else {
+		glVertex2i(x-w/2+et_segun_margin, y);
+		glVertex2i(x+w/2-et_segun_margin, y);
+		glVertex2i(x+w/2, y-h/2);
+		glVertex2i(x+w/2-et_segun_margin, y-h);
+		glVertex2i(x-w/2+et_segun_margin, y-h);
+		glVertex2i(x-w/2, y-h/2);
+		glVertex2i(x-w/2+et_segun_margin, y);
+	}
+	
+	else {
 		glVertex2i(x-w/2,y); glVertex2i(x+w/2,y);
 		glVertex2i(x+w/2,y-h); glVertex2i(x-w/2,y-h);
-		if (g_state.edit_on and type==ET_OPCION and g_state.mouse!=this) {
-			glVertex2i(x-w/2,y); glVertex2i(x-w/2+flecha_w,y); glVertex2i(x-w/2+flecha_w,y-h); glVertex2i(x-w/2,y-h);
-		} else if (type==ET_ASIGNAR and variante) {
+		
+		
+		if (type==ET_ASIGNAR and variante) {
 			glEnd();
 			glBegin(GL_LINES);
 			glVertex2i(x-w/2+margin,y); glVertex2i(x-w/2+margin,y-h);
@@ -495,7 +524,7 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 	
 	
 	else if (type==ET_SEGUN) {
-		h*=2;
+		h*=1.8;
 	}
 	
 	t_dy=t_dx=0; fx=x; fy=y; bh=h+flecha_h; bwr=bwl=w/2; // esto es si fuera solo la forma
@@ -519,9 +548,13 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 	if (!nolink && GetChildCount()) {
 		if (type==ET_OPCION) {
 			bwr=bwl=(w=t_w+2*margin)/2;
-			if (g_state.edit_on) 
-			{ bwr+=flecha_w; bwl+=flecha_w; } // el + para agregar opciones
+			
+			if (g_state.edit_on) {
+				bwr+=flecha_w; bwl+=flecha_w;
+			} // el + para agregar opciones
+			
 			child_dx[0]=0; child_bh[0]=0;
+			
 			if (GetChild(0)) {
 				GetChild(0)->x=x; GetChild(0)->y=y-bh;
 				int cwl=0,cwr=0,ch=0;
@@ -535,8 +568,10 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 			}
 			// el ancho se lo define el segun padre
 			w=bwl+bwr;
-		} else if (type==ET_SEGUN) {
-			t_dy=-t_h/2-margin;
+		}
+		
+		else if (type==ET_SEGUN) {
+			t_dy=-t_h/2+margin;
 			bwr=bwl=(w=t_w*2)/2;
 //				w=bwr=bwl=0; // todo: ver como corregir esto
 			int sw=0, sh=0;
@@ -564,7 +599,9 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 				dom->MoveX(dif/2);
 				child_dx[GetChildCount()-1]+=dif/2;
 			}
-		} if (type==ET_SI) {
+		}
+		
+		if (type==ET_SI) {
 			int c1l=0,c1r=0,c1h=0;
 			if (GetChild(0)) {
 				GetChild(0)->y=y-bh; GetChild(0)->x=x;
@@ -634,22 +671,6 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 			//w=(v>t_w?v:t_w)*1.3+2*margin;
 			//v+=2*margin;
 			
-			// acomodar el circulo
-			/* bwr=0; bwl=w;
-			int c1l=0,c1r=0,c1h=0;
-			if (GetChild(0)) {
-				GetChild(0)->y=y-flecha_h; GetChild(0)->x=x;
-				GetChild(0)->Calculate(c1l,c1r,c1h);
-			}
-
-
-			child_dx[0]=0; child_bh[0]=c1h;
-			if (c1r>bwr) bwr=c1r;
-			bwl=bwl+c1l+flecha_w;
-			if (c1h>bh) bh=c1h;
-			bh+=2*flecha_h;
-			fx=-c1l-w/2-flecha_w;
-			fy=y+(flecha_h-bh+h)/2; */
 			
 			// acomodar las tres etiquetas
 			int cy = fy - h/2 - margin/2;
@@ -664,11 +685,6 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 			GetChild(2)->fy = fy + 18;
 			GetChild(2)->MoveX(fx + (v)/2 - 15 );
 			child_dx[2]=GetChild(2)->fx+v3/2;
-
-			// Valor final
-			//GetChild(3)->fy=cy;
-			//GetChild(3)->MoveX(fx-x+(-v+v2)/2+v1);
-			//child_dx[3]=GetChild(3)->fx+v2/2;
 		}
 
 	}
