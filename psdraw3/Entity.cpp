@@ -460,26 +460,36 @@ void Entity::DrawText() {
 		dibujar_caracter(lpre[i]);
 	}
 
-	
-
-//	glColor3fv(edit==this?color_selection:(type==ET_PROCESO?color_arrow:(type==ET_COMENTARIO?color_comment:color_label)));
 
 	if (type==ET_PARA && !label_was_modified) {
-		float for_initial_value = std::stof(GetChild(1)->label);
-		float for_final_value = std::stof(GetChild(3)->label);
-		char for_comparison_symbol;
-		if (for_initial_value==for_final_value) for_comparison_symbol = '=';
-		if (for_initial_value<for_final_value) for_comparison_symbol = '>';
-		if (for_initial_value>for_final_value) for_comparison_symbol = '<';
 
-		std::string __prefix = "";
-		for (int i = 0; i<GetChild(3)->label.length(); i++) {
-			__prefix += GetChild(3)->label.at(i);
+		// Determinar condicional del bloque "para"
+		std::string for_condition_prefix = GetChild(3)->label;
+		try {
+			float for_initial_value = std::stof(GetChild(1)->label);
+			float for_final_value = std::stof(GetChild(3)->label);
+			char for_comparison_symbol;
+			if (for_initial_value==for_final_value) for_comparison_symbol = '=';
+			if (for_initial_value<for_final_value) for_comparison_symbol = '>';
+			if (for_initial_value>for_final_value) for_comparison_symbol = '<';
+
+			lpre = for_condition_prefix + for_comparison_symbol;
+			SetLabel(label, true);
+			label_was_modified = true;
 		}
-		__prefix += for_comparison_symbol;
-		label_was_modified = true;
-		lpre = __prefix;
-		SetLabel(label, true);
+		catch (std::invalid_argument) {
+			lpre = for_condition_prefix + "?";
+			SetLabel(label, true);
+			label_was_modified = true;
+		}
+
+		// Escibir rótulos de valor inicial
+		GetChild(1)->lpre = "desde ";
+
+		// Escibir rótulos de valor final si corresponde
+		if (!GetChild(2)->label.empty()) {
+			GetChild(2)->lpre = "con paso ";
+		}
 	}
 
 	int llen = label.size(), crop_len = IsLabelCropped();

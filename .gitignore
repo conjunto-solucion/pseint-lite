@@ -28,5 +28,5 @@
 # miscelánea
 /temp
 /bin/temp
-/bin/*.psd
+/bin/*.psz
 .vscode
