@@ -472,14 +472,8 @@ void Entity::DrawClasico(bool force) {
 
 			if (!variante) {
 				glEnd();
-				GetChild(1)->lpre = "desde ";
-				GetChild(1)->t_prew = 50;
 				GetChild(1)->DrawText();
-
-				GetChild(2)->t_prew = 100;
-				GetChild(2)->lpre = "con paso ";
 				GetChild(2)->DrawText();
-				//GetChild(3)->DrawText();
 			}
 			else {
 				glEnd();
@@ -682,7 +676,7 @@ void Entity::CalculateClasico() { // calcula lo propio y manda a calcular al sig
 			child_dx[1]=GetChild(1)->fx+v1/2;
 
 			// Paso
-			GetChild(2)->fy = fy + 18;
+			GetChild(2)->fy = fy + 16;
 			GetChild(2)->MoveX(fx + (v)/2 - 15 );
 			child_dx[2]=GetChild(2)->fx+v3/2;
 		}
